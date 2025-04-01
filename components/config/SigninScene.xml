@@ -15,7 +15,7 @@
       <Label id="errorMessage" text="" wrap="true" width="600" font="font:MediumSystemFont" horizAlign="center" translation="[10, 15]" />
     </Rectangle>
 
-    <Rectangle id="signInFormContainer" color="#101420" width="870" height="280" translation="[525, 466]">
+    <Rectangle id="signInFormContainer" color="#101010" width="870" height="280" translation="[525, 466]">
       <FormList id="configOptions" translation="[60, 40]" itemSpacing="[0, 50]" />
     </Rectangle>
 

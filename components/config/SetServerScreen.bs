@@ -19,9 +19,9 @@ sub init()
     m.serverUrlContainer.color = ColorPalette.BLACK77
 
     m.submit = m.top.findNode("submit")
-    m.submit.background = ColorPalette.LIGHTBLUE
-    m.submit.color = ColorPalette.DARKGREY
-    m.submit.focusBackground = ColorPalette.HIGHLIGHT
+    m.submit.background = ColorPalette.SMOKE
+    m.submit.color = ColorPalette.WHITE
+    m.submit.focusBackground = ColorPalette.LIGHTHIGHLIGHT
     m.submit.focusColor = ColorPalette.WHITE
 
     m.top.observeField("serverUrl", "clearErrorMessage")

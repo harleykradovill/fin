@@ -22,9 +22,10 @@
 
     <Rectangle id="viewContent" translation="[0, 0]">
       <Label
-        text="Select User"
+        text="Select a User"
         horizAlign="center"
         font="font:LargeSystemFont"
+        
         height="100"
         width="1920"
         translation="[0, 150]" />

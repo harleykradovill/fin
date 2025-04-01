@@ -1,4 +1,6 @@
 {
+  "brightscript.debug.host": "10.0.0.19",
+  "brightscript.debug.password": "9909",
   "files.associations": {
     "*.ts": "xml"
   },

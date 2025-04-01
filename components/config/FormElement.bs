@@ -19,7 +19,7 @@ sub init()
     m.name.vertAlign = "center"
     m.name.horizAlign = "center"
 
-    m.value.hintText = tr("Enter a username")
+    m.value.hintText = tr("")
     m.value.maxTextLength = 120
 end sub
 
@@ -28,7 +28,7 @@ sub itemContentChanged()
 
     m.name.text = data.label
     if isStringEqual(data.type, "password")
-        m.value.hintText = tr("Enter a password")
+        m.value.hintText = tr("")
         m.value.secureMode = true
     end if
 
