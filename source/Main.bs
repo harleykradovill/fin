@@ -67,7 +67,7 @@ sub Main (args as dynamic) as void
     ' Delete any old library filters
     clearOldLibraryFilters()
 
-    displayWhatsNewPopup(args)
+    'displayWhatsNewPopup(args)
 
     ' Handle input messages
     input = CreateObject("roInput")
@@ -242,24 +242,24 @@ sub clearOldLibraryFilters()
     end for
 end sub
 
-sub displayWhatsNewPopup(args)
-    ' Bypass What's New popup if server is Jellyfin demo
-    if isStringEqual(m.global.session.server.url, "https://demo.jellyfin.org/stable")
-        set_user_setting("LastRunVersion", m.global.app.version)
-    end if
-
-    ' Bypass What's New popup if deep linking arguments were passed
-    if isValidAndNotEmpty(args.mediaType) and isValidAndNotEmpty(args.contentId)
-        set_user_setting("LastRunVersion", m.global.app.version)
-    end if
-
-    ' Has the current user run this version before?
-    usersLastRunVersion = m.global.session.user.settings.lastRunVersion
-    if ChannelVersionUpdated(usersLastRunVersion)
-        set_user_setting("LastRunVersion", m.global.app.version)
-        ' show what's new popup
-        if m.global.session.user.settings["load.allowwhatsnew"]
-            m.global.sceneManager.callFunc("whatsNewDialog")
-        end if
-    end if
-end sub
+'sub displayWhatsNewPopup(args)
+'    ' Bypass What's New popup if server is Jellyfin demo
+'    if isStringEqual(m.global.session.server.url, "https://demo.jellyfin.org/stable")
+'        set_user_setting("LastRunVersion", m.global.app.version)
+'    end if
+'
+'    ' Bypass What's New popup if deep linking arguments were passed
+'    if isValidAndNotEmpty(args.mediaType) and isValidAndNotEmpty(args.contentId)
+'        set_user_setting("LastRunVersion", m.global.app.version)
+'    end if
+'
+'    ' Has the current user run this version before?
+'    usersLastRunVersion = m.global.session.user.settings.lastRunVersion
+'    if ChannelVersionUpdated(usersLastRunVersion)
+'        set_user_setting("LastRunVersion", m.global.app.version)
+'        ' show what's new popup
+'        if m.global.session.user.settings["load.allowwhatsnew"]
+'            m.global.sceneManager.callFunc("whatsNewDialog")
+'        end if
+'    end if
+'end sub
