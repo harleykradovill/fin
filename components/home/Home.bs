@@ -20,7 +20,7 @@ sub init()
 
     m.homeRows = m.top.findNode("homeRows")
     animationInterpolator = m.top.findNode("fadeInFocusBitmapInterpolator")
-    animationInterpolator.keyValue = `[${ColorPalette.TRANSPARENT}, ${ColorPalette.HIGHLIGHT}]`
+    animationInterpolator.keyValue = `[${ColorPalette.HIGHLIGHT}, ${ColorPalette.HIGHLIGHT}]`
 
     m.fadeInFocusBitmap = m.top.findNode("fadeInFocusBitmap")
 
@@ -36,7 +36,7 @@ sub refresh()
 end sub
 
 sub loadLibraries()
-    m.homeRows.focusBitmapBlendColor = ColorPalette.TRANSPARENT
+    m.homeRows.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
     m.homeRows.callFunc("loadLibraries")
     m.fadeInFocusBitmap.control = "start"
 end sub

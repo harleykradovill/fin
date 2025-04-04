@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="BaseScene" extends="Scene">
   <children>
+    <Poster
+      id="backgroundImage"
+      uri="pkg:/images/backgroundmask.png"
+      width="1920"
+      height="1080"
+      translation="[0, 0]"
+      blendColor="0x18191bCC"
+    />
+
     <Group id="content" />
     <JFOverhang id="overhang" />
     <AudioMiniPlayer id="audioMiniPlayer" translation="[0, 935]" />
