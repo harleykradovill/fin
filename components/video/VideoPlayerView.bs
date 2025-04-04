@@ -87,9 +87,9 @@ sub init()
     m.getNextEpisodeTask = createObject("roSGNode", "GetNextEpisodeTask")
     m.getNextEpisodeTask.observeField("nextEpisodeData", "onNextEpisodeDataLoaded")
 
-    m.top.retrievingBar.filledBarBlendColor = ColorPalette.TRIADBLUE
-    m.top.bufferingBar.filledBarBlendColor = ColorPalette.TRIADBLUE
-    m.top.trickPlayBar.filledBarBlendColor = ColorPalette.TRIADBLUE
+    m.top.retrievingBar.filledBarBlendColor = ColorPalette.HIGHLIGHT
+    m.top.bufferingBar.filledBarBlendColor = ColorPalette.HIGHLIGHT
+    m.top.trickPlayBar.filledBarBlendColor = ColorPalette.HIGHLIGHT
 end sub
 
 ' setSiblingData: Set the icon and title text for the previous and next items

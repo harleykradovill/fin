@@ -12,7 +12,6 @@ enum ColorPalette
     RED = "#FF0000"
     SMOKE = "#303030"
     TRANSPARENT = "0x00000000"
-    TRIADBLUE = "#6867ff"
     TRIADGREEN = "#67ff68"
     VIEWBACKGROUND = "#18191b"
     WHITE = "#ffffff"

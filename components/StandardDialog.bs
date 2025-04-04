@@ -13,7 +13,7 @@ sub init()
         "default": {
             "fontSize": 27,
             "fontUri": "font:BoldSystemFontFile",
-            "color": ColorPalette.TRIADBLUE
+            "color": ColorPalette.HIGHLIGHT
         },
         "b": {
             "fontSize": 27,

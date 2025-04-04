@@ -63,7 +63,7 @@ sub init()
 
     m.seekBar.color = ColorPalette.BLACK77
     m.bufferPosition.color = ColorPalette.MIDGREY
-    m.playPosition.color = ColorPalette.TRIADBLUE
+    m.playPosition.color = ColorPalette.HIGHLIGHT
 
     m.buttons.setFocus(true)
 

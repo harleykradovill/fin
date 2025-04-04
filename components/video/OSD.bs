@@ -1,5 +1,5 @@
-import "pkg:/source/utils/misc.bs"
 import "pkg:/source/enums/ColorPalette.bs"
+import "pkg:/source/utils/misc.bs"
 
 const LOGO_RIGHT_PADDING = 30
 const OPTIONCONTROLS_TOP_PADDING = 50
@@ -45,8 +45,8 @@ sub init()
     m.videoControls.getChild(m.defaultButtonIndex).focus = true
     m.deviceInfo = CreateObject("roDeviceInfo")
 
-    m.progressBarBackground.color = ColorPalette.BLACK77
-    m.progressBar.color = ColorPalette.TRIADBLUE
+    m.progressBarBackground.color = "0x3d3d3d80"
+    m.progressBar.color = ColorPalette.HIGHLIGHT
 
     optionButtons = m.optionControls.getChildren(-1, 0)
     for each button in optionButtons
