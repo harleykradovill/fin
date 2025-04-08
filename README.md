@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jellyfin/jellyfin-roku/master/images/channel-poster_fhd.png" alt="Fin for Roku poster" style="border: 1px solid #eee; border-radius: 4px" />
+  <img src="https://github.com/harleykradovill/fin/blob/master/images/channel-poster_fhd.png?raw=true" alt="Fin for Roku poster" style="border: 1px solid #eee; border-radius: 4px" />
 </p>
 
 <h1 align="center">Fin for Roku</h1>
