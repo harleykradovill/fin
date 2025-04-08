@@ -19,10 +19,7 @@ sub init()
     m.loadItemsTask1.itemsToLoad = "isInMyList"
 
     m.homeRows = m.top.findNode("homeRows")
-    animationInterpolator = m.top.findNode("fadeInFocusBitmapInterpolator")
-    animationInterpolator.keyValue = `[${ColorPalette.HIGHLIGHT}, ${ColorPalette.HIGHLIGHT}]`
-
-    m.fadeInFocusBitmap = m.top.findNode("fadeInFocusBitmap")
+    m.homeRows.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
 
     if m.global.session.user.settings["ui.home.splashBackground"] = true
         m.backdrop = m.top.findNode("backdrop")
@@ -38,7 +35,6 @@ end sub
 sub loadLibraries()
     m.homeRows.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
     m.homeRows.callFunc("loadLibraries")
-    m.fadeInFocusBitmap.control = "start"
 end sub
 
 ' JFScreen hook called when the screen is displayed by the screen manager

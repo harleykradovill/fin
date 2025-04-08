@@ -38,13 +38,13 @@ sub init()
 end sub
 
 sub itemContentChanged()
-    m.backdrop.blendColor = "#00a4db" ' set default in case global var is invalid
+    m.backdrop.blendColor = "#0096dc" ' set default in case global var is invalid
     localGlobal = m.global
 
-    if isValid(localGlobal) and isValid(localGlobal.constants) and isValid(localGlobal.constants.poster_bg_pallet)
-        posterBackgrounds = localGlobal.constants.poster_bg_pallet
-        m.backdrop.blendColor = posterBackgrounds[rnd(posterBackgrounds.count()) - 1]
-    end if
+    'if isValid(localGlobal) and isValid(localGlobal.constants) and isValid(localGlobal.constants.poster_bg_pallet)
+    '    posterBackgrounds = localGlobal.constants.poster_bg_pallet
+    '    m.backdrop.blendColor = posterBackgrounds[rnd(posterBackgrounds.count()) - 1]
+    'end if
 
     itemData = m.top.itemContent
 
