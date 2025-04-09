@@ -388,7 +388,7 @@ sub displayEpisodeInfo(localGlobal as object, itemData as object)
     ' Set Series and Episode Number for Extra Text
     extraPrefix = ""
     if isChainValid(itemData, "json.ParentIndexNumber")
-        extraPrefix = "S" + StrI(itemData.json.ParentIndexNumber).trim()
+        extraPrefix = "S" + StrI(itemData.json.ParentIndexNumber).trim() + ":"
     end if
 
     if isChainValid(itemData, "json.IndexNumber")

@@ -218,18 +218,18 @@ sub setRowItemSize()
     ' If we have processed the expected number of content rows, stop the loading timer and run the complete function
     if m.expectedRowCount = m.processedRowCount
         m.loadingTimer.control = "stop"
-        loadingTimerComplete()
+        'loadingTimerComplete()
     end if
 end sub
 
 ' loadingTimerComplete: Event handler for when loading wait time has expired
 '
-sub loadingTimerComplete()
-    if not m.top.showRowCounter[0]
-        ' Show the row counter to prevent flicker
-        m.top.showRowCounter = [true]
-    end if
-end sub
+'sub loadingTimerComplete()
+'    if not m.top.showRowCounter[0]
+'        ' Show the row counter to prevent flicker
+'        m.top.showRowCounter = [true]
+'    end if
+'end sub
 
 ' addHomeSection: Adds a new home section to the home rows.
 '

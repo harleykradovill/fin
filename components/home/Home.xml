@@ -5,10 +5,10 @@
     <HomeRows
       id="homeRows"
       showRowLabel="true"
-      vertFocusAnimationStyle="fixedFocus"
+      vertFocusAnimationStyle="fixedFocusWrap"
       rowFocusAnimationStyle="fixedFocusWrap"
       itemComponentName="HomeItem"
-      numRows="2"
+      numRows="3"
       rowLabelOffset="[[0,20]]" />
     <OptionsSlider id="options" />
 
