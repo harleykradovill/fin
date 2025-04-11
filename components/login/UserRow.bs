@@ -1,7 +1,7 @@
 import "pkg:/source/enums/ColorPalette.bs"
 
 sub init()
-    m.top.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
+    m.top.focusBitmapBlendColor = ColorPalette.WHITE
     m.top.itemComponentName = "UserItem"
     m.top.content = SetData()
     m.top.observeField("itemSelected", "SetUser")
@@ -12,7 +12,7 @@ end sub
 
 sub updateSize()
     itemWidth = 300
-    itemHeight = 410
+    itemHeight = 280
 
     m.top.visible = true
 

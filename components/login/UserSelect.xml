@@ -25,7 +25,6 @@
         text="Select a User"
         horizAlign="center"
         font="font:LargeSystemFont"
-        
         height="100"
         width="1920"
         translation="[0, 150]" />
@@ -38,15 +37,6 @@
         height="85"
         width="350"
         translation="[785,800]" />
-
-      <Label
-        id="manageHiddenUsers"
-        text="Manage Hidden Users"
-        horizAlign="center"
-        font="font:SmallestSystemFont"
-        height="100"
-        width="350"
-        translation="[785, 925]" />
     </Rectangle>
 
     <Animation id="hiddenUserAnimation" duration="0.5" repeat="false" easeFunction="linear">

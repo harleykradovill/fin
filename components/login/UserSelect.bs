@@ -39,28 +39,8 @@ sub onHiddenUserListChanged()
             m.manualLogin.focus = true
             m.manualLogin.setFocus(true)
         end if
-        m.manageHiddenUsers.visible = false
         return
     end if
-
-    m.manageHiddenUsers.visible = true
-
-    hiddenUserList = CreateObject("roSGNode", "ContentNode")
-
-    for each user in m.top.hiddenUserList
-        if user.id = string.EMPTY then continue for
-
-        row = CreateObject("roSGNode", "PublicUserData")
-        row.title = user.Name
-        row.id = user.id
-        row.Name = user.Name
-        row.isPublic = user.isPublic
-        row.imageURL = user.imageURL
-
-        hiddenUserList.appendChild(row)
-    end for
-
-    m.hiddenUsers.content = hiddenUserList
 end sub
 
 sub itemContentChanged()
@@ -132,22 +112,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
             return true
         end if
         return false
-    end if
-
-    if key = KeyCode.OPTIONS
-        userRow = m.top.findNode("UserRow")
-        userList = userRow.itemContent
-        user = userList[userRow.rowItemFocused[1]]
-
-        if not isValid(user) then return false
-
-        if user.isPublic
-            m.top.hideUser = user
-            return true
-        end if
-
-        m.top.forgetUser = user.id
-        return true
     end if
 
     if key = KeyCode.BACK
