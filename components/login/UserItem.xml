@@ -2,8 +2,8 @@
 <component name="UserItem" extends="Group" width="100%">
   <children>
     <LayoutGroup layoutDirection="vert">
-      <Group width="100%">
-        <LayoutGroup layoutDirection="horiz" itemSpacing="0">
+      <Group>
+        <LayoutGroup layoutDirection="horiz">
           <Rectangle width="50%" color="0x00000000" /> <!-- Left spacer -->
           <Poster id="profileImage" width="200" height="200" loadDisplayMode="scaleToZoom" />
           <Rectangle width="50%" color="0x00000000" /> <!-- Right spacer -->

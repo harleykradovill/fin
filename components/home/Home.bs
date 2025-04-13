@@ -20,7 +20,6 @@ sub init()
 
     m.homeRows = m.top.findNode("homeRows")
     m.homeRows.focusBitmapBlendColor = ColorPalette.WHITE
-    m.homeRows.focusBitmapUri = "pkg:/images/fhd_focus.9.png"
 
     if m.global.session.user.settings["ui.home.splashBackground"] = true
         m.backdrop = m.top.findNode("backdrop")
@@ -29,14 +28,12 @@ sub init()
 end sub
 
 sub refresh()
-    m.homeRows.focusBitmapBlendColor = ColorPalette.WHITE
-    m.homeRows.focusBitmapUri = "pkg:/images/fhd_focus.9.png"
+    'm.homeRows.focusBitmapBlendColor = ColorPalette.WHITE
     m.homeRows.callFunc("updateHomeRows")
 end sub
 
 sub loadLibraries()
-    m.homeRows.focusBitmapBlendColor = ColorPalette.WHITE
-    m.homeRows.focusBitmapUri = "pkg:/images/fhd_focus.9.png"
+    'm.homeRows.focusBitmapBlendColor = ColorPalette.WHITE
     m.homeRows.callFunc("loadLibraries")
 end sub
 

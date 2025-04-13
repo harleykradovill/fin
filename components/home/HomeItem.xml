@@ -9,7 +9,7 @@
       </Rectangle>
       <PlayedCheckmark id="playedIndicator" width="60" height="46" visible="false" />
     </Poster>
-    <Rectangle id="progressBackground" visible="false" color="#022e42" width="348" height="8" translation="[0,196]">
+    <Rectangle id="progressBackground" visible="false" color="#024361" width="348" height="8" translation="[0,196]">
       <Rectangle id="progress" width="0" height="8" />
     </Rectangle>
     <ScrollingLabel id="itemText" horizAlign="center" vertAlign="center" font="font:SmallBoldSystemFont" height="64" maxWidth="456" translation="[8,210]" repeatCount="0" />
