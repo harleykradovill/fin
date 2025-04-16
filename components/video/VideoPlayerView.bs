@@ -247,12 +247,6 @@ sub handleShowAudioMenuAction()
     m.top.selectAudioPressed = true
 end sub
 
-' handleShowVideoInfoPopupAction: Handles action to show video info popup
-'
-sub handleShowVideoInfoPopupAction()
-    m.top.selectPlaybackInfoPressed = true
-end sub
-
 ' onOSDAction: Process action events from OSD to their respective handlers
 '
 sub onOSDAction()
@@ -290,11 +284,6 @@ sub onOSDAction()
 
     if action = "showaudiomenu"
         handleShowAudioMenuAction()
-        return
-    end if
-
-    if action = "showvideoinfopopup"
-        handleShowVideoInfoPopupAction()
         return
     end if
 

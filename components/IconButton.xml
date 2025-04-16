@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="IconButton" extends="Group">
   <children>
-    <Poster id="buttonBackground" uri="pkg:/images/white.9.png" />
+    <Poster id="buttonBackground" />
     <Poster id="buttonIcon" />
     <Label id="buttonText" color="#aaaaaa" font="font:SmallestSystemFont" horizAlign="center" />
   </children>
   <interface>
-    <field id="background" type="color" value="" />
-    <field id="focusBackground" type="color" value="" />
+    <field id="background" type="color" value="0x00000000" />
+    <field id="focusBackground" type="color" value="0x00000000" />
+    <field id="focusColor" type="color" value="#0096dc" />
     <field id="text" type="string" value="" />
     <field id="padding" type="integer" value="-1" />
     <field id="height" type="integer" value="" />

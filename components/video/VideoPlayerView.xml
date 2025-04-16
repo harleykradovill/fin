@@ -3,8 +3,7 @@
   <interface>
     <field id="backPressed" type="boolean" alwaysNotify="true" />
     <field id="selectSubtitlePressed" type="boolean" alwaysNotify="true" />
-    <field id="selectAudioPressed" type="boolean" alwaysNotify="true" />
-    <field id="selectPlaybackInfoPressed" type="boolean" alwaysNotify="true" />
+    <!--<field id="selectAudioPressed" type="boolean" alwaysNotify="true" />-->
     <field id="PlaySessionId" type="string" />
     <field id="Subtitles" type="array" />
     <field id="SelectedSubtitle" type="integer" value="-2" alwaysNotify="true" />
@@ -33,7 +32,7 @@
     <Group id="captionGroup" translation="[960,1020]" />
     <timer id="playbackTimer" repeat="true" duration="30" />
     <timer id="bufferCheckTimer" repeat="true" />
-    <OSD id="osd" visible="false" inactiveTimeout="5" />
+    <OSD id="osd" visible="false" inactiveTimeout="6" />
 
     <Rectangle id="chapterList" visible="false" color="0x00000098" width="400" height="380" translation="[103,210]">
       <LabelList id="chaptermenu" itemSpacing="[0,20]" numRows="5" font="font:SmallSystemFont" itemSize="[315,40]" translation="[40,20]">

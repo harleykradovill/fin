@@ -298,13 +298,6 @@ sub standardDialog(title, message)
     m.scene.dialog = dialog
 end sub
 
-'
-' Display What's New dialog to user with an OK button
-sub whatsNewDialog()
-    dialog = createObject("roSGNode", "WhatsNewDialog")
-    dialog.observeField("buttonSelected", "dismissDialog")
-    m.scene.dialog = dialog
-end sub
 
 '
 ' Display dialog to user with an OK button
@@ -335,6 +328,27 @@ end sub
 sub radioButtonSelected()
     m.userselection = true
     dismissDialog()
+end sub
+
+sub combinedDialog(title, message)
+    dialog = createObject("roSGNode", "CombinedDialog")
+    dlgPalette = createObject("roSGNode", "RSGPalette")
+    dlgPalette.colors = {
+        DialogBackgroundColor: ColorPalette.ELEMENTBACKGROUND,
+        DialogFocusColor: ColorPalette.HIGHLIGHT,
+        DialogFocusItemColor: ColorPalette.WHITE,
+        DialogSecondaryTextColor: ColorPalette.WHITE,
+        DialogSecondaryItemColor: ColorPalette.LIGHTBLUE,
+        DialogTextColor: ColorPalette.WHITE
+    }
+    dialog.palette = dlgPalette
+    dialog.observeField("buttonSelected", "radioButtonSelected")
+    dialog.observeField("wasClosed", "optionClosed")
+    dialog.title = title
+    dialog.contentData = message
+    dialog.buttons = [tr("OK")]
+
+    m.scene.dialog = dialog
 end sub
 
 '

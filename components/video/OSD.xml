@@ -3,7 +3,7 @@
   <children>
     <Poster uri="pkg:/images/newosdBackground.png" width="1920" height="1080" />
 
-    <LayoutGroup id="videoInfo" layoutDirection="vert" translation="[103,61]">
+    <LayoutGroup id="videoInfo" layoutDirection="vert" translation="[100,100]">
       <ScrollingLabel id="itemTitle" font="font:MediumBoldSystemFont" maxWidth="1400" />
       <LayoutGroup id="videoInfo" layoutDirection="horiz" translation="[103,61]">
         <Label id="itemSeason" font="font:SmallSystemFont" color="0xffffffFF" />
@@ -12,21 +12,18 @@
       </LayoutGroup>
     </LayoutGroup>
 
-    <Clock id="clock" translation="[1618, 46]" />
-
-    <ButtonGroup id="optionControls" itemSpacings="[20]" layoutDirection="horiz" horizAlignment="left" translation="[103,120]">
-      <IconButton id="showVideoInfoPopup" padding="16" icon="pkg:/images/icons/videoInfo.png" height="65" width="100" />
-      <IconButton id="chapterList" padding="16" icon="pkg:/images/icons/numberList.png" height="65" width="100" />
-      <IconButton id="showSubtitleMenu" padding="0" icon="pkg:/images/icons/subtitle.png" height="65" width="100" />
-      <IconButton id="showAudioMenu" padding="27" icon="pkg:/images/icons/musicNote.png" height="65" width="100" />
+    <ButtonGroup id="videoControls" itemSpacings="[12]" layoutDirection="horiz" horizAlignment="left" translation="[20,1000]">
+      <IconButton id="itemBack" padding="16" icon="pkg:/images/icons/itemPrevious.png" height="65" width="65" />
+      <IconButton id="chapterBack" padding="16" icon="pkg:/images/icons/previousChapter.png" height="65" width="65" />
+      <IconButton id="videoPlayPause" padding="16" icon="pkg:/images/icons/play.png" height="65" width="65" />
+      <IconButton id="chapterNext" padding="16" icon="pkg:/images/icons/nextChapter.png" height="65" width="65" />
+      <IconButton id="itemNext" padding="16" icon="pkg:/images/icons/itemNext.png" height="65" width="65" />
     </ButtonGroup>
 
-    <ButtonGroup id="videoControls" itemSpacings="[20]" layoutDirection="horiz" horizAlignment="center" translation="[960,1000]">
-      <IconButton id="itemBack" padding="35" icon="pkg:/images/icons/itemPrevious.png" height="65" width="100" />
-      <IconButton id="chapterBack" padding="16" icon="pkg:/images/icons/previousChapter.png" height="65" width="100" />
-      <IconButton id="videoPlayPause" padding="35" icon="pkg:/images/icons/play.png" height="65" width="100" />
-      <IconButton id="chapterNext" padding="16" icon="pkg:/images/icons/nextChapter.png" height="65" width="100" />
-      <IconButton id="itemNext" padding="35" icon="pkg:/images/icons/itemNext.png" height="65" width="100" />
+    <ButtonGroup id="optionControls" itemSpacings="[12]" layoutDirection="horiz" horizAlignment="right" translation="[1900,1000]">
+      <IconButton id="chapterList" padding="16" icon="pkg:/images/icons/numberList.png" height="65" width="65" />
+      <IconButton id="showSubtitleMenu" padding="16" icon="pkg:/images/icons/subtitle.png" height="65" width="65" />
+      <!--<IconButton id="showAudioMenu" padding="16" icon="pkg:/images/icons/musicNote.png" height="65" width="65" />-->
     </ButtonGroup>
 
     <ExpandingLabel
@@ -63,12 +60,12 @@
       padding="[20, 10]"
     />
 
-    <Rectangle id="progressBarBackground" width="1714" height="8" translation="[103,970]">
+    <Rectangle id="progressBarBackground" width="1656" height="8" translation="[132,970]">
       <Rectangle id="progressBar" width="0" height="8" />
     </Rectangle>
 
-    <Label id="videoPositionTime" font="font:SmallestSystemFont" color="0xffffffFF" horizAlign="left" translation="[18,962]" />
-    <Label id="videoRemainingTime" font="font:SmallestSystemFont" color="0xffffffFF" horizAlign="right" translation="[1800,962]" />
+    <Label id="videoPositionTime" font="font:SmallestSystemFont" color="0xffffffFF" horizAlign="left" translation="[20,962]" />
+    <Label id="videoRemainingTime" font="font:SmallestSystemFont" color="0xffffffFF" horizAlign="right" translation="[1808,962]" />
 
     <Timer id="inactivityTimer" duration="1" repeat="true" />
   </children>

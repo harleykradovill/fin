@@ -47,18 +47,6 @@ sub init()
 
     m.progressBarBackground.color = "0x3d3d3d80"
     m.progressBar.color = ColorPalette.HIGHLIGHT
-
-    optionButtons = m.optionControls.getChildren(-1, 0)
-    for each button in optionButtons
-        button.background = ColorPalette.DARKGREY
-        button.focusBackground = ColorPalette.HIGHLIGHT
-    end for
-
-    videoButtons = m.videoControls.getChildren(-1, 0)
-    for each button in videoButtons
-        button.background = ColorPalette.DARKGREY
-        button.focusBackground = ColorPalette.HIGHLIGHT
-    end for
 end sub
 
 ' onProgressPercentageChanged: Handler for changes to m.top.progressPercentage param
@@ -95,10 +83,10 @@ sub onSeasonNumberChanged()
     itemSeason.text = `S${m.top.seasonNumber}`
 
     ' Move the option controls down to give room for season number
-    if not m.optionControlsMoved
-        moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
-        m.optionControlsMoved = true
-    end if
+    'if not m.optionControlsMoved
+    '    moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
+    '    m.optionControlsMoved = true
+    'end if
 end sub
 
 ' onEpisodeNumberChanged: Handler for changes to m.top.episodeNumber param.
@@ -110,10 +98,10 @@ sub onEpisodeNumberChanged()
     itemEpisode.text = `E${m.top.episodeNumber}`
 
     ' Move the option controls down to give room for episode number
-    if not m.optionControlsMoved
-        moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
-        m.optionControlsMoved = true
-    end if
+    'if not m.optionControlsMoved
+    '    moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
+    '    m.optionControlsMoved = true
+    'end if
 end sub
 
 ' onEpisodeNumberEndChanged: Handler for changes to m.top.episodeNumberEnd param.
@@ -125,19 +113,17 @@ sub onEpisodeNumberEndChanged()
     itemEpisodeEnd.text = `-${m.top.episodeNumberEnd}`
 
     ' Move the option controls down to give room for episode number
-    if not m.optionControlsMoved
-        moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
-        m.optionControlsMoved = true
-    end if
+    'if not m.optionControlsMoved
+    '    moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
+    '    m.optionControlsMoved = true
+    'end if
 end sub
 
-' moveOptionControls: Moves option controls node based on passed pixel values
-'
-' @param {integer} horizontalPixels - Number of horizontal pixels to move option controls
-' @param {integer} verticalPixels - Number of vertical pixels to move option controls
-sub moveOptionControls(horizontalPixels as integer, verticalPixels as integer)
-    m.optionControls.translation = `[${m.optionControls.translation[0] + horizontalPixels}, ${m.optionControls.translation[1] + verticalPixels}]`
-end sub
+'' moveOptionControls: Moves option controls node based on passed pixel values
+''
+'sub moveOptionControls(horizontalPixels as integer, verticalPixels as integer)
+'    m.optionControls.translation = `[${m.optionControls.translation[0] + horizontalPixels}, ${m.optionControls.translation[1] + verticalPixels}]`
+'end sub
 
 ' onLogoLoadStatusChanged: Handler for changes to logo image's status.
 '
@@ -152,10 +138,10 @@ sub onLogoLoadStatusChanged(event)
         m.itemTitle.maxWidth = m.itemTitle.maxWidth - (logoImage.bitmapWidth + LOGO_RIGHT_PADDING)
 
         ' Move the option controls down based on the logo height
-        if not m.optionControlsMoved
-            moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
-            m.optionControlsMoved = true
-        end if
+        'if not m.optionControlsMoved
+        '    moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
+        '    m.optionControlsMoved = true
+        'end if
     end if
 end sub
 
@@ -240,9 +226,8 @@ end sub
 '
 sub onFocusChanged()
     if m.top.hasfocus
-        focusedButton = m.optionControls.getChild(m.focusedButtonIndex)
-        if focusedButton.focus
-            m.optionControls.setFocus(true)
+        focusedButton = getFocusedButton()
+        if isValid(focusedButton) and focusedButton.focus
             return
         end if
 
@@ -267,13 +252,7 @@ end sub
 ' onButtonSelected: Handler for selection of buttons from the menu.
 '
 sub onButtonSelected()
-    if m.optionControls.isInFocusChain()
-        buttonGroup = m.optionControls
-    else
-        buttonGroup = m.videoControls
-    end if
-
-    selectedButton = buttonGroup.getChild(m.focusedButtonIndex)
+    selectedButton = getFocusedButton()
 
     if LCase(selectedButton.id) = "chapterlist"
         m.top.showChapterList = not m.top.showChapterList
@@ -332,33 +311,29 @@ function onKeyEvent(key as string, press as boolean) as boolean
     end if
 
     if key = "right"
-        if m.optionControls.isInFocusChain()
-            buttonGroup = m.optionControls
-        else
-            buttonGroup = m.videoControls
-        end if
+        buttonGroup = m.videoControls
+        optionButtonGroup = m.top.findNode("optionControls")
 
-        if m.focusedButtonIndex + 1 >= buttonGroup.getChildCount()
+        totalButtonCount = buttonGroup.getChildCount() + optionButtonGroup.getChildCount()
+
+        if m.focusedButtonIndex + 1 >= totalButtonCount
             return true
         end if
 
-        focusedButton = buttonGroup.getChild(m.focusedButtonIndex)
-        focusedButton.focus = false
+        ' Clear focus from the current button
+        focusedButton = getFocusedButton()
+        if isValid(focusedButton) then focusedButton.focus = false
 
-        ' Skip spacer elements until next button is found
-        for i = m.focusedButtonIndex + 1 to buttonGroup.getChildCount()
-            m.focusedButtonIndex = i
-            focusedButton = buttonGroup.getChild(m.focusedButtonIndex)
+        ' Move to the next button
+        m.focusedButtonIndex = m.focusedButtonIndex + 1
 
-            if isValid(focusedButton.focus)
-                buttonGroup.buttonFocused = m.focusedButtonIndex
-                focusedButton.focus = true
-
-                focusedButtonID = m.videoControls.isInFocusChain() ? focusedButton.id : ""
-                checkDisplaySiblingItem(focusedButtonID)
-                exit for
-            end if
-        end for
+        ' Set focus on the new button
+        focusedButton = getFocusedButton()
+        if isValid(focusedButton) and isValid(focusedButton.focus)
+            focusedButton.focus = true
+            focusedButtonID = focusedButton.id
+            checkDisplaySiblingItem(focusedButtonID)
+        end if
 
         return true
     end if
@@ -368,69 +343,74 @@ function onKeyEvent(key as string, press as boolean) as boolean
             return true
         end if
 
-        if m.optionControls.isInFocusChain()
-            buttonGroup = m.optionControls
-        else
-            buttonGroup = m.videoControls
-        end if
+        ' Clear focus from the current button
+        focusedButton = getFocusedButton()
+        if isValid(focusedButton) then focusedButton.focus = false
 
-        focusedButton = buttonGroup.getChild(m.focusedButtonIndex)
-        focusedButton.focus = false
+        ' Move to the previous button
+        m.focusedButtonIndex = m.focusedButtonIndex - 1
 
-        ' Skip spacer elements until next button is found
-        for i = m.focusedButtonIndex - 1 to 0 step -1
-            m.focusedButtonIndex = i
-            focusedButton = buttonGroup.getChild(m.focusedButtonIndex)
-
-            if isValid(focusedButton.focus)
-                buttonGroup.buttonFocused = m.focusedButtonIndex
-                focusedButton.focus = true
-
-                focusedButtonID = m.videoControls.isInFocusChain() ? focusedButton.id : ""
-                checkDisplaySiblingItem(focusedButtonID)
-                exit for
-            end if
-        end for
-
-        return true
-    end if
-
-    if key = "up"
-        if m.videoControls.isInFocusChain()
-            focusedButton = m.videoControls.getChild(m.focusedButtonIndex)
-            focusedButton.focus = false
-            m.videoControls.setFocus(false)
-
-            m.focusedButtonIndex = m.optionControls.buttonFocused
-            focusedButton = m.optionControls.getChild(m.focusedButtonIndex)
+        ' Set focus on the new button
+        focusedButton = getFocusedButton()
+        if isValid(focusedButton) and isValid(focusedButton.focus)
             focusedButton.focus = true
-            m.optionControls.setFocus(true)
-
-            checkDisplaySiblingItem("")
+            focusedButtonID = focusedButton.id
+            checkDisplaySiblingItem(focusedButtonID)
         end if
 
         return true
     end if
 
-    if key = "down"
-        if m.optionControls.isInFocusChain()
-            focusedButton = m.optionControls.getChild(m.focusedButtonIndex)
-            focusedButton.focus = false
-            m.optionControls.setFocus(false)
-
-            m.focusedButtonIndex = m.videoControls.buttonFocused
-            focusedButton = m.videoControls.getChild(m.focusedButtonIndex)
-            focusedButton.focus = true
-            m.videoControls.setFocus(true)
-
-            checkDisplaySiblingItem(focusedButton.id)
-        end if
-
-        return true
-    end if
+    'if key = "up"
+    '    if m.videoControls.isInFocusChain()
+    '        focusedButton = m.videoControls.getChild(m.focusedButtonIndex)
+    '        focusedButton.focus = false
+    '        m.videoControls.setFocus(false)
+    '
+    '        m.focusedButtonIndex = m.optionControls.buttonFocused
+    '        focusedButton = m.optionControls.getChild(m.focusedButtonIndex)
+    '        focusedButton.focus = true
+    '        m.optionControls.setFocus(true)
+    '
+    '        checkDisplaySiblingItem("")
+    '    end if
+    '
+    '    return true
+    'end if
+    '
+    'if key = "down"
+    '    if m.optionControls.isInFocusChain()
+    '        focusedButton = m.optionControls.getChild(m.focusedButtonIndex)
+    '        focusedButton.focus = false
+    '        m.optionControls.setFocus(false)
+    '
+    '        m.focusedButtonIndex = m.videoControls.buttonFocused
+    '        focusedButton = m.videoControls.getChild(m.focusedButtonIndex)
+    '        focusedButton.focus = true
+    '        m.videoControls.setFocus(true)
+    '
+    '        checkDisplaySiblingItem(focusedButton.id)
+    '    end if
+    '
+    '    return true
+    'end if
 
     ' All other keys hide the menu
     checkDisplaySiblingItem("")
     m.top.action = "hide"
     return true
+end function
+
+function getFocusedButton() as object
+    buttonGroup = m.videoControls
+    optionButtonGroup = m.top.findNode("optionControls")
+
+    if m.focusedButtonIndex < buttonGroup.getChildCount()
+        buttonGroup.buttonFocused = m.focusedButtonIndex
+        return buttonGroup.getChild(m.focusedButtonIndex)
+    else
+        optionButtonIndex = m.focusedButtonIndex - buttonGroup.getChildCount()
+        optionButtonGroup.buttonFocused = optionButtonIndex
+        return optionButtonGroup.getChild(optionButtonIndex)
+    end if
 end function

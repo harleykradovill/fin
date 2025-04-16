@@ -1,0 +1,163 @@
+import "pkg:/source/utils/misc.bs"
+
+sub init()
+    m.contentArea = m.top.findNode("contentArea")
+    m.audioOptions = m.top.findNode("audioOptions")
+    m.subtitleOptions = m.top.findNode("subtitleOptions")
+    m.scrollBarColumn = []
+    m.currentFocus = "audio"
+
+    m.top.observeField("contentData", "onContentDataChanged")
+    m.top.observeFieldScoped("buttonSelected", "onButtonSelected")
+
+    m.audioOptions.observeField("focusedChild", "onItemFocused")
+    m.subtitleOptions.observeField("focusedChild", "onItemFocused")
+
+    m.top.height = 900
+end sub
+
+sub onButtonSelected()
+    if m.top.buttonSelected = 0
+        if m.currentFocus = "audio"
+            m.global.sceneManager.returnData = m.top.contentData.audioData[m.audioOptions.selectedIndex]
+        else
+            m.global.sceneManager.returnData = m.top.contentData.subtitleData[m.subtitleOptions.selectedIndex]
+        end if
+    end if
+end sub
+
+sub onItemFocused()
+    focusedChild = invalid
+    if m.currentFocus = "audio"
+        focusedChild = m.audioOptions.focusedChild
+    else
+        focusedChild = m.subtitleOptions.focusedChild
+    end if
+
+    if not isValid(focusedChild) then return
+    moveScrollBar()
+end sub
+
+sub moveScrollBar()
+    ' Same scrollbar implementation as RadioDialog
+    if m.scrollBarColumn.count() = 0
+        scrollBar = findNodeBySubtype(m.contentArea, "StdDlgScrollbar")
+        if scrollBar.count() = 0 or not isValid(scrollBar[0]) or not isValid(scrollBar[0].node)
+            return
+        end if
+
+        m.scrollBarColumn = findNodeBySubtype(scrollBar[0].node, "Poster")
+        if m.scrollBarColumn.count() = 0 or not isValid(m.scrollBarColumn[0]) or not isValid(m.scrollBarColumn[0].node)
+            return
+        end if
+
+        m.scrollBarThumb = findNodeBySubtype(m.scrollBarColumn[0].node, "Poster")
+        if m.scrollBarThumb.count() = 0 or not isValid(m.scrollBarThumb[0]) or not isValid(m.scrollBarThumb[0].node)
+            return
+        end if
+
+        m.scrollBarThumb[0].node.blendColor = "#444444"
+        scrollBar[0].node.observeField("focusedChild", "onScrollBarFocus")
+        m.scrollBarColumn[0].node.uri = ""
+
+        scrollbarBackground = createObject("roSGNode", "Rectangle")
+        scrollbarBackground.color = "#101010"
+        scrollbarBackground.opacity = "0.3"
+        scrollbarBackground.width = "30"
+        scrollbarBackground.height = m.contentArea.clippingRect.height
+        scrollbarBackground.translation = [0, 0]
+        scrollBar[0].node.insertChild(scrollbarBackground, 0)
+
+        m.scrollAmount = (m.contentArea.clippingRect.height - int(m.scrollBarThumb[0].node.height)) / m.audioOptions.getChildCount()
+        m.scrollAmount += m.scrollAmount / m.audioOptions.getChildCount()
+    end if
+
+    if not isvalid(m.audioOptions.focusedChild.id) then return
+    m.scrollBarColumn[0].node.translation = [0, val(m.audioOptions.focusedChild.id) * m.scrollAmount]
+end sub
+
+sub onScrollBarFocus()
+    if m.currentFocus = "audio"
+        m.audioOptions.setFocus(true)
+    else
+        m.subtitleOptions.setFocus(true)
+    end if
+
+    group = m.global.sceneManager.callFunc("getActiveScene")
+    group.lastFocus = m.audioOptions
+    m.scrollBarThumb[0].node.blendColor = "#353535"
+end sub
+
+sub onItemSelected()
+    buttonArea = findNodeBySubtype(m.top, "StdDlgButtonArea")
+    if buttonArea.count() <> 0 and isValid(buttonArea[0]) and isValid(buttonArea[0].node)
+        buttonArea[0].node.setFocus(true)
+        group = m.global.sceneManager.callFunc("getActiveScene")
+        group.lastFocus = buttonArea[0].node
+    end if
+end sub
+
+sub onContentDataChanged()
+    ' Audio Options
+    i = 0
+    for each item in m.top.contentData.audioData
+        cardItem = m.audioOptions.CreateChild("StdDlgActionCardItem")
+        cardItem.iconType = "radiobutton"
+        cardItem.id = i
+
+        if isValid(item.selected)
+            m.audioOptions.selectedIndex = i
+        end if
+
+        textLine = cardItem.CreateChild("ScrollingLabel")
+        textLine.maxWidth = "500"
+        textLine.text = item.track.description
+        cardItem.observeField("selected", "onItemSelected")
+        i++
+    end for
+
+    ' Subtitle Options
+    i = 0
+    for each item in m.top.contentData.subtitleData
+        cardItem = m.subtitleOptions.CreateChild("StdDlgActionCardItem")
+        cardItem.iconType = "radiobutton"
+        cardItem.id = i
+
+        if isValid(item.selected)
+            m.subtitleOptions.selectedIndex = i
+        end if
+
+        textLine = cardItem.CreateChild("ScrollingLabel")
+        textLine.maxWidth = "500"
+        textLine.text = item.track.description
+        cardItem.observeField("selected", "onItemSelected")
+        i++
+    end for
+end sub
+
+function onKeyEvent(key as string, press as boolean) as boolean
+    if key = "right" and m.currentFocus = "audio"
+        m.subtitleOptions.setFocus(true)
+        m.currentFocus = "subtitle"
+        return true
+    else if key = "left" and m.currentFocus = "subtitle"
+        m.audioOptions.setFocus(true)
+        m.currentFocus = "audio"
+        return true
+    end if
+
+    if not press then return false
+
+    if key = "up"
+        if not m.audioOptions.isinFocusChain() and not m.subtitleOptions.isinFocusChain()
+            if m.currentFocus = "audio"
+                m.audioOptions.setFocus(true)
+            else
+                m.subtitleOptions.setFocus(true)
+            end if
+            return true
+        end if
+    end if
+
+    return false
+end function

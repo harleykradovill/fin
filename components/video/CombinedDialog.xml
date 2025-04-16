@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="CombinedDialog" extends="StandardMessageDialog" initialFocus="audioOptions">
+    <children>
+        <StdDlgContentArea id="contentArea">
+            <LayoutGroup layoutDirection="horiz" translation="[30,30]" itemSpacings="[50]">
+                <!-- Left Column - Audio -->
+                <LayoutGroup layoutDirection="vert">
+                    <Label text="Audio Tracks" font="font:MediumBoldSystemFont" color="0xFFFFFFFF" />
+                    <StdDlgItemGroup id="audioOptions" translation="[0,20]" />
+                </LayoutGroup>
+
+                <!-- Right Column - Subtitles -->
+                <LayoutGroup layoutDirection="vert">
+                    <Label text="Subtitles" font="font:MediumBoldSystemFont" color="0xFFFFFFFF" />
+                    <StdDlgItemGroup id="subtitleOptions" translation="[0,20]" />
+                </LayoutGroup>
+            </LayoutGroup>
+        </StdDlgContentArea>
+    </children>
+    <interface>
+        <field id="contentData" type="assocarray" />
+    </interface>
+</component>

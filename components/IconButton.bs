@@ -15,8 +15,10 @@ end sub
 sub onFocusChanged()
     if m.top.focus
         m.buttonBackground.blendColor = m.top.focusBackground
+        m.buttonIcon.blendColor = m.top.focusColor
     else
         m.buttonBackground.blendColor = m.top.background
+        m.buttonIcon.blendColor = "#ffffff"
     end if
 end sub
 
