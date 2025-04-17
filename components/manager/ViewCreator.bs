@@ -108,36 +108,64 @@ end sub
 
 ' User requested subtitle selection popup
 sub onSelectSubtitlePressed()
-    ' Collect audio data '
-    audioData = []
-    for each item in m.view.fullAudioData
-        audioStreamItem = {
-            "Index": item.Index,
-            "Track": { "description": item.DisplayTitle },
-            "Type": "audioselection",
-            "selected": (m.view.audioIndex = item.Index)
-        }
-        audioData.push(audioStreamItem)
-    end for
-
-    ' Collect subtitle data '
-    subtitleData = []
-    for each item in m.view.fullSubtitleData
-        subItem = {
-            "Index": item.Index,
-            "Track": { "description": item.Track.description },
-            "Type": "subtitleselection",
-            "selected": (m.view.selectedSubtitle = item.Index)
-        }
-        subtitleData.push(subItem)
-    end for
-
-    combinedContent = {
-        audioData: audioData,
-        subtitleData: subtitleData
+    subtitleData = {
+        data: []
     }
 
-    m.global.sceneManager.callFunc("combinedDialog", tr("Audio & Subtitles"), combinedContent)
+
+
+
+
+
+
+
+
+
+
+    for each item in m.view.fullSubtitleData
+        item.type = "subtitleselection"
+
+        if m.view.selectedSubtitle <> -1
+            ' Subtitle is a track within the file
+            if item.index = m.view.selectedSubtitle
+                item.selected = true
+            end if
+        else
+            ' Subtitle is from an external source
+            availableSubtitleTrackIndex = availSubtitleTrackIdx(item.track.TrackName)
+            if availableSubtitleTrackIndex <> -1
+
+                ' Convert Jellyfin subtitle track name to Roku track name
+                subtitleFullTrackName = m.view.availableSubtitleTracks[availableSubtitleTrackIndex].TrackName
+
+                if subtitleFullTrackName = m.view.subtitleTrack
+                    item.selected = true
+                end if
+
+            end if
+        end if
+
+        item.StreamIndex = item.index
+
+        ' Put the selected item at the top of the option list
+        if isValid(item.selected) and item.selected
+            subtitleData.data.Unshift(item)
+        else
+            subtitleData.data.push(item)
+        end if
+    end for
+
+    ' Manually create the None option and place at top
+    subtitleData.data.Unshift({
+        "Index": -1,
+        "IsExternal": false,
+        "Track": {
+            "description": "None"
+        },
+        "Type": "subtitleselection"
+    })
+
+    m.global.sceneManager.callFunc("radioDialog", tr("Select Subtitles"), subtitleData)
     m.global.sceneManager.observeField("returnData", "onSelectionMade")
 end sub
 

@@ -3,7 +3,7 @@
   <interface>
     <field id="backPressed" type="boolean" alwaysNotify="true" />
     <field id="selectSubtitlePressed" type="boolean" alwaysNotify="true" />
-    <!--<field id="selectAudioPressed" type="boolean" alwaysNotify="true" />-->
+    <field id="selectAudioPressed" type="boolean" alwaysNotify="true" />
     <field id="PlaySessionId" type="string" />
     <field id="Subtitles" type="array" />
     <field id="SelectedSubtitle" type="integer" value="-2" alwaysNotify="true" />

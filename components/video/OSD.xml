@@ -23,7 +23,7 @@
     <ButtonGroup id="optionControls" itemSpacings="[12]" layoutDirection="horiz" horizAlignment="right" translation="[1900,1000]">
       <IconButton id="chapterList" padding="16" icon="pkg:/images/icons/numberList.png" height="65" width="65" />
       <IconButton id="showSubtitleMenu" padding="16" icon="pkg:/images/icons/subtitle.png" height="65" width="65" />
-      <!--<IconButton id="showAudioMenu" padding="16" icon="pkg:/images/icons/musicNote.png" height="65" width="65" />-->
+      <IconButton id="showAudioMenu" padding="16" icon="pkg:/images/icons/musicNote.png" height="65" width="65" />
     </ButtonGroup>
 
     <ExpandingLabel
