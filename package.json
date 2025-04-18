@@ -1,8 +1,8 @@
 {
-  "name": "jellyfin",
+  "name": "fin",
   "type": "module",
-  "version": "3.0.1",
-  "description": "Official Roku app for Jellyfin media server",
+  "version": "1.1.0",
+  "description": "Unofficial Roku app for Jellyfin media server",
   "dependencies": {
     "@rokucommunity/bslib": "0.1.1",
     "brighterscript-formatter": "1.7.12",
@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@rokucommunity/bslint": "0.8.28",
-    "brighterscript": "0.69.5",
+    "brighterscript": "^0.69.6",
     "jshint": "2.13.6",
     "rimraf": "6.0.1",
     "roku-deploy": "3.12.4",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jellyfin/jellyfin-roku.git"
+    "url": "https://github.com/harleykradovill/fin.git"
   },
   "keywords": [
     "jellyfin",
@@ -32,10 +32,10 @@
     "music",
     "movies"
   ],
-  "author": "Jellyfin",
+  "author": "Fin",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/jellyfin/jellyfin-roku"
+    "url": "https://github.com/harleykradovill/fin"
   },
-  "homepage": "https://github.com/jellyfin/jellyfin-roku"
+  "homepage": "https://github.com/harleykradovill/fin"
 }
