@@ -9,7 +9,7 @@ source/globals.brs
 jellyfin-roku.zip
 # NPM 
 node_modules/
-# Eclipse
+# VSCode
 .buildpath
 .project
 .settings
