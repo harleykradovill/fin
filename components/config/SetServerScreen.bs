@@ -15,7 +15,7 @@ sub init()
     m.serverUrlOutline = m.top.findNode("serverUrlOutline")
     m.serverUrlOutline.blendColor = ColorPalette.HIGHLIGHT
 
-    m.serverPickerContainer.color = "0x18191b00"
+    m.serverPickerContainer.color = "0x15161700"
     m.serverUrlContainer.color = "0x00000000"
 
     m.submit = m.top.findNode("submit")

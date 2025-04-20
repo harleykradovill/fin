@@ -2,7 +2,7 @@ enum ColorPalette
     BLACK77 = "0x00000077"
     BLACK90 = "0x00000090"
     DARKGREY = "#101010"
-    ELEMENTBACKGROUND = "#18191b"
+    ELEMENTBACKGROUND = "#151617"
     HIGHLIGHT = "#0096dc"
     LIGHTBLUE = "#c8fafa"
     LIGHTGREY = "#aaaaaa"
@@ -13,7 +13,7 @@ enum ColorPalette
     SMOKE = "#303030"
     TRANSPARENT = "0x00000000"
     TRIADGREEN = "#67ff68"
-    VIEWBACKGROUND = "#18191b"
+    VIEWBACKGROUND = "#151617"
     WHITE = "#ffffff"
     OLDBACKGROUND = "#101420"
 end enum

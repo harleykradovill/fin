@@ -7,7 +7,8 @@
       width="1920"
       height="1080"
       translation="[0, 0]"
-      blendColor="0x18191bCC"
+      blendColor="0x151617BF"
+      loadDisplayMode="scaleToZoom"
     />
 
     <Group id="content" />

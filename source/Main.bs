@@ -67,8 +67,6 @@ sub Main (args as dynamic) as void
     ' Delete any old library filters
     clearOldLibraryFilters()
 
-    'displayWhatsNewPopup(args)
-
     ' Handle input messages
     input = CreateObject("roInput")
     input.SetMessagePort(m.port)

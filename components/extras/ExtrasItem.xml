@@ -2,26 +2,28 @@
 <component name="ExtrasItem" extends="JFGroup">
   <children>
     <LayoutGroup layoutDirection="vert">
-      <Poster id="posterImg" width="234" height="300" translation="[8,243]" failedBitmapUri="pkg:/images/baseline_person_white_48dp.png" />
+      <MaskGroup maskUri="pkg:/images/icons/circle.png" maskSize="[156, 156]" maskBitmapWidth="256" maskBitmapHeight="256">
+        <Poster id="posterImg" width="156" height="156" loadDisplayMode="scaleToZoom" failedBitmapUri="pkg:/images/baseline_person_white_48dp.png" />
+      </MaskGroup>
 
       <ScrollingLabel
         id="pLabel"
-        horizAlign="left"
+        horizAlign="center"
         vertAlign="center"
         height="32"
         repeatCount="0"
-        translation="[5, 0]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+        maxWidth="156">
+        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="18" />
       </ScrollingLabel>
       <ScrollingLabel
         id="SubTitle"
-        horizAlign="left"
+        horizAlign="center"
         vertAlign="center"
         height="32"
         color="#777777FF"
         repeatCount="0"
-        translation="[5, 0]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+        maxWidth="156">
+        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="18" />
       </ScrollingLabel>
     </LayoutGroup>
   </children>

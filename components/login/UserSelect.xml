@@ -30,7 +30,7 @@
         <Font role="font" uri="pkg:/images/fonts/NotoSans-Semibold.ttf" size="48" />
       </Label>
 
-      <UserRow id="userRow" rowFocusAnimationStyle="fixedFocusWrap" translation="[130, 310]" />
+      <UserRow id="userRow" rowFocusAnimationStyle="fixedFocusWrap" translation="[130, 325]" />
 
       <StandardButton
         id="manualLogin"

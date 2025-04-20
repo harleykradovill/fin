@@ -9,8 +9,7 @@
   <children>
     <Rectangle id="background" translation="[0,0]" width="1620" height="100" />
 
-    <Poster id="poster" translation="[5,5]" width="90" height="90" />
-    <Group id="labels" translation="[120,0]">
+    <Group id="labels" translation="[20,0]">
       <Label text="Name:" horizAlign="left" width="130" height="65" translation="[0,6]">
         <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
       </Label>

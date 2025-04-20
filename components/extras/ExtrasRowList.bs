@@ -38,7 +38,7 @@ sub init()
 end sub
 
 sub updateSize()
-    itemHeight = 396
+    itemHeight = 230
     m.top.itemSize = [1710, itemHeight]
     m.top.rowItemSpacing = [36, 36]
 end sub
@@ -123,7 +123,7 @@ sub onPeopleLoaded()
             person.Type = capitalize(PersonType.PERSON)
             row.appendChild(person)
         end for
-        addRowSize([234, 372])
+        addRowSize([156, 230])
     end if
     m.LikeThisTask.itemId = m.top.parentId
     m.LikeThisTask.control = TaskControl.RUN
@@ -154,7 +154,7 @@ sub onLikeThisLoaded()
         if isStringEqual(data[0].json.LookupCI("Type"), ItemType.MUSICVIDEO)
             addRowSize([400, 330])
         else
-            addRowSize([234, 396])
+            addRowSize([156, 230])
         end if
     end if
 end sub

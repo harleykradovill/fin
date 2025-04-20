@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="UserItem" extends="Group" width="100%">
   <children>
-    <LayoutGroup layoutDirection="vert">
+    <LayoutGroup layoutDirection="vert" translation="[0, 10]">
       <Group>
         <LayoutGroup layoutDirection="horiz">
           <Rectangle width="50%" color="0x00000000" /> <!-- Left spacer -->
-          <Poster id="profileImage" width="200" height="200" loadDisplayMode="scaleToZoom" />
+          <MaskGroup maskUri="pkg:/images/profileMask.png" maskSize="[200, 200]">
+            <Poster id="profileImage" width="200" height="200" loadDisplayMode="scaleToZoom" />
+          </MaskGroup>
           <Rectangle width="50%" color="0x00000000" /> <!-- Right spacer -->
         </LayoutGroup>
       </Group>

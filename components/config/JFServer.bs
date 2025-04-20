@@ -2,20 +2,18 @@ import "pkg:/source/enums/ColorPalette.bs"
 import "pkg:/source/utils/misc.bs"
 
 sub init()
-    m.poster = m.top.findNode("poster")
     m.background = m.top.findNode("background")
     m.name = m.top.findNode("name")
     m.trashContainer = m.top.findNode("trashContainer")
     m.baseUrl = m.top.findNode("baseUrl")
     m.labels = m.top.findNode("labels")
-    m.background.color = m.top.itemHasFocus ? ColorPalette.HIGHLIGHT : "0x18191b00"
+    m.background.color = m.top.itemHasFocus ? ColorPalette.HIGHLIGHT : "0x15161700"
 
     setTextColor()
 end sub
 
 sub itemContentChanged()
     server = m.top.itemContent
-    m.poster.uri = server.iconUrl
     m.name.text = server.name
     m.baseUrl.text = server.baseUrl
 
@@ -50,7 +48,7 @@ sub setBackground()
         return
     end if
 
-    m.background.color = m.top.itemHasFocus ? ColorPalette.HIGHLIGHT : "0x18191b00"
+    m.background.color = m.top.itemHasFocus ? ColorPalette.HIGHLIGHT : "0x15161700"
 end sub
 
 sub setDeleteFocus()

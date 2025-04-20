@@ -44,17 +44,17 @@ sub showContent()
         cont = m.top.itemContent
 
         m.name.text = cont.labelText
-        m.name.maxWidth = cont.imageWidth - 5
-        m.role.maxWidth = cont.imageWidth - 5
+        'm.name.maxWidth = cont.imageWidth - 5
+        'm.role.maxWidth = cont.imageWidth - 5
         m.posterImg.uri = cont.posterUrl
-        m.posterImg.width = cont.imageWidth
+        'm.posterImg.width = cont.imageWidth
 
-        if isStringEqual(cont.LookupCI("type"), ItemType.MUSICVIDEO)
-            m.posterImg.width = 400
-            m.name.maxWidth = 400
-            m.role.maxWidth = 400
-            m.posterImg.height = 260
-        end if
+        'if isStringEqual(cont.LookupCI("type"), ItemType.MUSICVIDEO)
+        '    m.posterImg.width = 400
+        '    m.name.maxWidth = 400
+        '    m.role.maxWidth = 400
+        '    m.posterImg.height = 260
+        'end if
 
         if isChainValid(cont, "json.ExtraType")
             if cont.json.ExtraType <> ""
