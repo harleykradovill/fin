@@ -20,13 +20,6 @@ sub init()
     initPosterImg()
     initName()
     initRole()
-
-    m.name.height = 34
-    m.name.font.size = 25
-    m.name.horizAlign = "left"
-    m.name.vertAlign = "bottom"
-
-    m.role.font.size = 22
 end sub
 
 sub initPosterImg()
@@ -51,8 +44,8 @@ sub showContent()
         cont = m.top.itemContent
 
         m.name.text = cont.labelText
-        m.name.maxWidth = cont.imageWidth
-        m.role.maxWidth = cont.imageWidth
+        m.name.maxWidth = cont.imageWidth - 5
+        m.role.maxWidth = cont.imageWidth - 5
         m.posterImg.uri = cont.posterUrl
         m.posterImg.width = cont.imageWidth
 

@@ -24,10 +24,11 @@
       <Label
         text="Select a User"
         horizAlign="center"
-        font="font:LargeSystemFont"
         height="100"
         width="1920"
-        translation="[0, 150]" />
+        translation="[0, 150]">
+        <Font role="font" uri="pkg:/images/fonts/NotoSans-Semibold.ttf" size="48" />
+      </Label>
 
       <UserRow id="userRow" rowFocusAnimationStyle="fixedFocusWrap" translation="[130, 310]" />
 

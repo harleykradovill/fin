@@ -16,7 +16,7 @@ sub init()
     m.serverUrlOutline.blendColor = ColorPalette.HIGHLIGHT
 
     m.serverPickerContainer.color = "0x18191b00"
-    m.serverUrlContainer.color = ColorPalette.BLACK77
+    m.serverUrlContainer.color = "0x00000000"
 
     m.submit = m.top.findNode("submit")
     m.submit.background = ColorPalette.SMOKE
@@ -207,7 +207,7 @@ end sub
 
 sub ShowKeyboard()
     dialog = createObject("roSGNode", "StandardKeyboardDialog")
-    dialog.title = tr("Enter the server name or ip address")
+    dialog.title = tr("Enter the Server Name or IP Address")
     dialog.buttons = [tr("OK"), tr("Cancel")]
     dialog.text = m.serverUrlTextbox.text
 

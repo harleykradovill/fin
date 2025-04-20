@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="MovieDetails" extends="JFScreen">
   <children>
-    <LayoutGroup id="container" layoutDirection="vert" itemSpacings="[30]" translation="[100, 320]">
+    <LayoutGroup id="container" layoutDirection="vert" itemSpacings="[30]" translation="[100, 100]">
+      <Label
+        id="movieTitle"
+        translation="[100, 210]"
+        width="1700"
+        maxLines="1"
+        wrap="false"
+        visible="true">
+        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="70" />
+      </Label>
+
       <LayoutGroup id="infoGroup" layoutDirection="horiz" horizAlignment="left" itemSpacings="[20]">
-        <Label id="releaseYear" font="font:SmallestSystemFont" />
-        <Label id="aired" font="font:SmallestSystemFont" />
-        <Label id="dot" font="font:SmallestSystemFont" text="•" />
-        <Label id="genres" font="font:SmallestSystemFont" />
-        <Label id="officialRating" font="font:SmallestBoldSystemFont" />
-        <Label id="runtime" font="font:SmallestSystemFont" />
+        <Label id="releaseYear">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+        </Label>
+        <Label id="genres">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+        </Label>
+        <Label id="officialRating">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+        </Label>
+        <Label id="runtime">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+        </Label>
+        <Label id="ends-at">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+        </Label>
 
         <LayoutGroup id="communityRatingGroup" layoutDirection="horiz" itemSpacings="[-5]">
           <Poster id="star" uri="pkg:/images/sharp_star_white_18dp.png" height="32" width="32" blendColor="#cb272a" />
@@ -19,23 +38,33 @@
           <Poster id="criticRatingIcon" height="32" width="32" />
           <Label id="criticRatingLabel" font="font:SmallestSystemFont" />
         </LayoutGroup>
-
-        <Label id="ends-at" font="font:SmallestSystemFont" />
       </LayoutGroup>
 
       <LayoutGroup id="infoGroup" layoutDirection="horiz" horizAlignment="left" itemSpacings="[50]">
         <LayoutGroup layoutDirection="vert" itemSpacings="[30]">
-          <Label id="overview" wrap="true" maxLines="8" width="1000" />
-          <Label id="director" font="font:SmallestSystemFont" color="#aaaaaa" />
+          <Label id="overview" wrap="true" maxLines="8" width="1000">
+            <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
+          </Label>
+          <Label id="director" font="font:SmallestSystemFont" color="#aaaaaa">
+            <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+          </Label>
 
           <LayoutGroup layoutDirection="vert" itemSpacings="[0]">
             <LayoutGroup layoutDirection="horiz" horizAlignment="left">
-              <ScrollingLabel id="video_codec" vertAlign="bottom" height="39" maxwidth="990" font="font:SmallestSystemFont" color="#aaaaaa" />
-              <label id="video_codec_count" font="font:smallestSystemFont" vertAlign="top" color="#aaaaaa" />
+              <ScrollingLabel id="video_codec" vertAlign="bottom" height="39" maxwidth="990" color="#aaaaaa">
+                <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+              </ScrollingLabel>
+              <Label id="video_codec_count" vertAlign="top" color="#aaaaaa">
+                <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+              </Label>
             </LayoutGroup>
             <LayoutGroup layoutDirection="horiz" horizAlignment="left">
-              <ScrollingLabel id="audio_codec" vertAlign="bottom" height="39" maxwidth="990" font="font:SmallestSystemFont" color="#aaaaaa" />
-              <label id="audio_codec_count" font="font:smallestSystemFont" vertAlign="top" color="#aaaaaa" />
+              <ScrollingLabel id="audio_codec" vertAlign="bottom" height="39" maxwidth="990" color="#aaaaaa">
+                <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+              </ScrollingLabel>
+              <Label id="audio_codec_count" vertAlign="top" color="#aaaaaa">
+                <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+              </Label>
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>
@@ -44,7 +73,7 @@
           id="buttons"
           itemComponentName="MovieDetailButton"
           focusFootprintBitmapUri=""
-          itemSpacing="[0, 10]"
+          itemSpacing="[0, 5]"
           itemSize="[600, 75]"
           numRows="5"
           vertFocusAnimationStyle="floatingFocus">
@@ -66,12 +95,11 @@
     <MovieOptions id="movieOptions" visible="false" />
 
     <!-- "Cast and Crew" row -->
-    <extrasSlider id="movieExtras" visible="false" />
+    <extrasSlider id="movieExtras" translation="[0, -300]" visible="false" />
   </children>
   <interface>
     <field id="buttonSelected" type="string" alwaysNotify="true" />
     <field id="itemContent" type="node" />
-    <field id="logoImageURI" type="string" onChange="onLogoImageURIChange" />
     <field id="trailerAvailable" type="bool" onChange="trailerAvailableChanged" value="true" />
     <field id="isInMyList" type="bool" onChange="onIsInMyListChanged" />
     <field id="additionalParts" type="assocarray" onChange="additionalPartsChanged" />

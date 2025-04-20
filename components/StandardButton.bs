@@ -8,17 +8,23 @@ sub init()
     m.top.observeField("height", "onHeightChanged")
     m.top.observeField("width", "onWidthChanged")
     m.top.observeField("focus", "onFocusChanged")
+
+    m.fontr = CreateObject("roSGNode", "Font")
+    m.fontr.uri = "pkg:/images/fonts/NotoSans-Regular.ttf"
+    m.fontr.size = 28
+
+    m.buttonText.font = m.fontr
 end sub
 
 sub onFocusChanged()
     if m.top.focus
         m.buttonBackground.blendColor = m.top.focusBackground
         m.buttonText.color = m.top.focusColor
-        m.buttonText.font = "font:SmallBoldSystemFont"
+        m.buttonText.font = m.fontr
     else
         m.buttonBackground.blendColor = m.top.background
         m.buttonText.color = m.top.color
-        m.buttonText.font = "font:SmallSystemFont"
+        m.buttonText.font = m.fontr
     end if
 end sub
 
@@ -38,8 +44,9 @@ end sub
 
 sub onHeightChanged()
     m.buttonBackground.height = m.top.height
-    m.buttonText.translation = [0, (m.top.height / 2) - (m.buttonText.font.size / 2)]
+    m.buttonText.height = m.top.height
 end sub
+
 
 sub onWidthChanged()
     m.buttonBackground.width = m.top.width

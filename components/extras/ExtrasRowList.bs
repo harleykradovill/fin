@@ -8,7 +8,7 @@ import "pkg:/source/utils/misc.bs"
 sub init()
     m.top.visible = true
 
-    m.top.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
+    m.top.focusBitmapBlendColor = ColorPalette.WHITE
 
     updateSize()
     m.top.observeField("rowItemSelected", "onRowItemSelected")

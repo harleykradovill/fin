@@ -9,7 +9,9 @@
           <Rectangle width="50%" color="0x00000000" /> <!-- Right spacer -->
         </LayoutGroup>
       </Group>
-      <Label id="profileName" horizAlign="center" vertAlign="center" font="font:SmallSystemFont" height="64" width="300" />
+      <Label id="profileName" horizAlign="center" vertAlign="center" height="64" width="300">
+        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
+      </Label>
     </LayoutGroup>
   </children>
   <interface>

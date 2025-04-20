@@ -4,10 +4,11 @@
     <Label
       text="Sign In"
       horizAlign="center"
-      font="font:LargeSystemFont"
       height="100"
       width="1920"
-      translation="[0, 100]" />
+      translation="[0, 100]">
+      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="48" />
+    </Label>
 
     <Poster uri="pkg:/images/icons/circle.png" id="overlayCurrentUserProfileImage" width="256" height="256" loadDisplayMode="scaleToZoom" translation="[832, 190]" />
 
@@ -22,11 +23,11 @@
     <CheckList
       id="saveCredentials"
       checkedState="[true]"
-      translation="[560, 771]"
+      translation="[588, 771]"
       focusFootprintBitmapUri=""
       drawFocusFeedback="false">
       <ContentNode role="content">
-        <ContentNode title="Save Credentials?" />
+        <ContentNode title="Remember Me" />
       </ContentNode>
     </CheckList>
 
@@ -34,15 +35,15 @@
       id="submit"
       text="Submit"
       height="85"
-      width="350"
+      width="475"
       translation="[595,900]" />
 
     <StandardButton
       id="quickConnect"
       text="Quick Connect"
       height="85"
-      width="350"
-      translation="[975,900]" />
+      width="250"
+      translation="[1085,900]" />
 
     <Timer id="quickConnectTimer" duration="3" repeat="true" />
   </children>

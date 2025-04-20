@@ -3,21 +3,26 @@
   <children>
     <LayoutGroup layoutDirection="vert">
       <Poster id="posterImg" width="234" height="300" translation="[8,243]" failedBitmapUri="pkg:/images/baseline_person_white_48dp.png" />
+
       <ScrollingLabel
         id="pLabel"
         horizAlign="left"
-        vertAlign="bottom"
-        height="48"
-        font="font:SmallestBoldSystemFont"
-        repeatCount="0" />
+        vertAlign="center"
+        height="32"
+        repeatCount="0"
+        translation="[5, 0]">
+        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+      </ScrollingLabel>
       <ScrollingLabel
         id="SubTitle"
         horizAlign="left"
         vertAlign="center"
         height="32"
-        font="font:SmallestBoldSystemFont"
         color="#777777FF"
-        repeatCount="0" />
+        repeatCount="0"
+        translation="[5, 0]">
+        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
+      </ScrollingLabel>
     </LayoutGroup>
   </children>
   <interface>

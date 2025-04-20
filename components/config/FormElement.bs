@@ -16,9 +16,6 @@ sub init()
     m.name.width = 240
     m.name.height = 75
 
-    m.name.vertAlign = "center"
-    m.name.horizAlign = "center"
-
     m.value.hintText = tr("")
     m.value.maxTextLength = 120
 end sub
