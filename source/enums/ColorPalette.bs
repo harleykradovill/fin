@@ -16,4 +16,5 @@ enum ColorPalette
     VIEWBACKGROUND = "#151617"
     WHITE = "#ffffff"
     OLDBACKGROUND = "#101420"
+    GREEN = "#409843"
 end enum

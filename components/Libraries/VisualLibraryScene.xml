@@ -4,14 +4,11 @@
     <VoiceTextEditBox id="VoiceBox" visible="true" width="40" translation="[52, 120]" />
     <Rectangle id="VoiceBoxCover" height="240" width="100" translation="[25, 75]" />
 
-    <maskGroup translation="[820, 0]" id="backgroundMask" maskUri="pkg:/images/backgroundmask.png" maskSize="[1220,700]">
-      <poster id="backdrop" loadDisplayMode="scaleToFill" width="1100" height="700" opacity="1" />
-      <poster id="backdropTransition" loadDisplayMode="scaleToFill" width="1100" height="700" opacity="1" />
-    </maskGroup>
-
-    <LayoutGroup id="dropdownOptions" layoutDirection="horiz" translation="[100, 60]" itemSpacings="[15]">
-      <LayoutGroup layoutDirection="vert" itemSpacings="[10]">
-        <Label font="font:SmallSystemFont" text="Search" />
+    <LayoutGroup id="dropdownOptions" layoutDirection="horiz" translation="[155, 20]" itemSpacings="[15]">
+      <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
+        <Label font="font:SmallSystemFont" text="Search">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
+        </Label>
         <TextButton
           id="searchButton"
           fontSize="28"
@@ -19,11 +16,13 @@
           icon="pkg:/images/icons/search-dark.png"
           focusIcon="pkg:/images/icons/search-light.png"
           text=""
-          height="75"
+          height="65"
           width="335" />
       </LayoutGroup>
-      <LayoutGroup layoutDirection="vert" itemSpacings="[10]">
-        <Label id="sortLabel" font="font:SmallSystemFont" text="Sort By" />
+      <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
+        <Label id="sortLabel" font="font:SmallSystemFont" text="Sort By">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
+        </Label>
         <TextButton
           id="sortButton"
           iconSide="right"
@@ -32,11 +31,13 @@
           icon="pkg:/images/icons/dropdown-dark.png"
           focusIcon="pkg:/images/icons/dropdown-light.png"
           text=""
-          height="75"
+          height="65"
           width="335" />
       </LayoutGroup>
-      <LayoutGroup layoutDirection="vert" itemSpacings="[10]">
-        <Label id="sortOrderLabel" font="font:SmallSystemFont" text="Sort Order" />
+      <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
+        <Label id="sortOrderLabel" font="font:SmallSystemFont" text="Sort Order">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
+        </Label>
         <TextButton
           id="sortOrderButton"
           iconSide="right"
@@ -45,11 +46,13 @@
           icon="pkg:/images/icons/dropdown-dark.png"
           focusIcon="pkg:/images/icons/dropdown-light.png"
           text=""
-          height="75"
+          height="65"
           width="335" />
       </LayoutGroup>
-      <LayoutGroup layoutDirection="vert" itemSpacings="[10]">
-        <Label id="filterLabel" font="font:SmallSystemFont" text="Filter" />
+      <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
+        <Label id="filterLabel" font="font:SmallSystemFont" text="Filter">
+          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
+        </Label>
         <TextButton
           id="filterButton"
           iconSide="right"
@@ -58,44 +61,10 @@
           icon="pkg:/images/icons/dropdown-dark.png"
           focusIcon="pkg:/images/icons/dropdown-light.png"
           text=""
-          height="75"
-          width="335" />
-      </LayoutGroup>
-      <LayoutGroup layoutDirection="vert" itemSpacings="[10]">
-        <Label id="viewLabel" font="font:SmallSystemFont" text="View" />
-        <TextButton
-          id="viewButton"
-          iconSide="right"
-          fontSize="28"
-          padding="35"
-          icon="pkg:/images/icons/dropdown-dark.png"
-          focusIcon="pkg:/images/icons/dropdown-light.png"
-          text=""
-          height="75"
+          height="65"
           width="335" />
       </LayoutGroup>
     </LayoutGroup>
-
-    <Label id="selectedItemName" visible="false" translation="[120, 40]" wrap="true" font="font:LargeBoldSystemFont" width="850" height="196" horizAlign="left" vertAlign="center" />
-    <Poster id="itemLogo" visible="false" translation="[120, 40]" loadDisplayMode="scaleToFit" width="384" height="196" />
-
-    <LayoutGroup layoutDirection="horiz" translation="[120, 260]" itemSpacings="[30]" id="infoGroup">
-      <Label id="selectedItemProductionYear" font="font:SmallestSystemFont" />
-      <Label id="runtime" font="font:SmallestSystemFont" />
-      <Label id="selectedItemOfficialRating" font="font:SmallestSystemFont" />
-
-      <LayoutGroup id="communityRatingGroup" visible="false" layoutDirection="horiz" itemSpacings="[-5]">
-        <Poster id="star" uri="pkg:/images/sharp_star_white_18dp.png" height="28" width="28" blendColor="#00a4dcFF" />
-        <Label id="communityRating" font="font:SmallestSystemFont" />
-      </LayoutGroup>
-
-      <LayoutGroup layoutDirection="horiz" id="criticRatingGroup">
-        <Poster id="criticRatingIcon" height="28" width="28" />
-        <Label id="criticRatingLabel" font="font:SmallestSystemFont" />
-      </LayoutGroup>
-    </LayoutGroup>
-
-    <Label id="selectedItemOverview" font="font:SmallestSystemFont" translation="[120, 320]" wrap="true" lineSpacing="20" maxLines="4" width="900" ellipsisText="..." />
 
     <MarkupGrid
       id="itemGrid"
@@ -120,10 +89,7 @@
 
     <Label translation="[0,540]" id="emptyText" font="font:LargeSystemFont" width="1910" horizAlign="center" vertAlign="center" height="64" visible="false" />
     <LibraryFilterDialog id="options" visible="false" />
-    <Animation id="backroundSwapAnimation" duration="1" repeat="false" easeFunction="linear">
-      <FloatFieldInterpolator id="fadeinLoading" key="[0.0, 1.0]" keyValue="[ 0.00, 1.00 ]" fieldToInterp="backdropTransition.opacity" />
-      <FloatFieldInterpolator id="fadeoutLoaded" key="[0.0, 1.0]" keyValue="[ 1.00, 0.00 ]" fieldToInterp="backdrop.opacity" />
-    </Animation>
+
     <Alpha id="alpha" />
   </children>
   <interface>

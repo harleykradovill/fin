@@ -94,7 +94,7 @@ sub createItemGrid()
     m.itemGrid.itemSize = "[230, 345]"
     m.itemGrid.itemSpacing = "[20, 20]"
     m.itemGrid.drawFocusFeedback = "true"
-    m.itemGrid.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
+    m.itemGrid.focusBitmapBlendColor = ColorPalette.WHITE
     m.top.appendChild(m.itemGrid)
     m.itemGrid.observeField("itemFocused", "onItemFocused")
     m.itemGrid.observeField("itemSelected", "onItemSelected")

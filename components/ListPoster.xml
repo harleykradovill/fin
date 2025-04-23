@@ -7,7 +7,7 @@
       <Rectangle id="unplayedCount" visible="false" width="90" height="60" color="#0096dc" translation="[102, 0]">
         <Label id="unplayedEpisodeCount" width="90" height="60" font="font:MediumBoldSystemFont" horizAlign="center" vertAlign="center" />
       </Rectangle>
-      <PlayedCheckmark id="playedIndicator" color="#0096dcFF" width="90" height="60" translation="[102, 0]" visible="false" />
+      <PlayedCheckmark id="playedIndicator" color="#409843" width="90" height="60" translation="[102, 0]" visible="false" />
     </Poster>
     <ScrollingLabel id="title" horizAlign="center" font="font:SmallSystemFont" repeatCount="0" visible="false" />
     <Label id="staticTitle" horizAlign="center" font="font:SmallSystemFont" wrap="false" />

@@ -131,41 +131,41 @@ namespace api
         end function
     end namespace
 
-    namespace branding
-        ' Get user's splashscreen image
-        function GetSplashScreen(params = {} as object)
-            return buildURL("/branding/splashscreen", params)
-        end function
+    'namespace branding
+    '    ' Get user's splashscreen image
+    '    function GetSplashScreen(params = {} as object)
+    '        return buildURL("/branding/splashscreen", params)
+    '    end function
 
-        ' Uploads a custom splashscreen.
-        sub PostSplashScreen()
-            throw "System.NotImplementedException: The function is not implemented."
-        end sub
+    '    ' Uploads a custom splashscreen.
+    '    sub PostSplashScreen()
+    '        throw "System.NotImplementedException: The function is not implemented."
+    '    end sub
 
-        ' Delete a custom splashscreen.
-        function DeleteSplashScreen()
-            req = APIRequest("/branding/splashscreen")
-            return deleteVoid(req)
-        end function
+    '    ' Delete a custom splashscreen.
+    '    function DeleteSplashScreen()
+    '        req = APIRequest("/branding/splashscreen")
+    '        return deleteVoid(req)
+    '    end function
 
-        ' Gets branding configuration.
-        function GetConfiguration()
-            req = APIRequest("/branding/configuration")
-            return getJson(req)
-        end function
+    '    ' Gets branding configuration.
+    '    function GetConfiguration()
+    '        req = APIRequest("/branding/configuration")
+    '        return getJson(req)
+    '    end function
 
-        ' Gets branding css.
-        function GetCSS()
-            req = APIRequest("/branding/css")
-            return getJson(req)
-        end function
+    '    ' Gets branding css.
+    '    function GetCSS()
+    '        req = APIRequest("/branding/css")
+    '        return getJson(req)
+    '    end function
 
-        ' Gets branding css.
-        function GetCSSWithExtension()
-            req = APIRequest("/branding/css.css")
-            return getJson(req)
-        end function
-    end namespace
+    '    ' Gets branding css.
+    '    function GetCSSWithExtension()
+    '        req = APIRequest("/branding/css.css")
+    '        return getJson(req)
+    '    end function
+    'end namespace
 
     namespace channels
         ' Gets available channels.

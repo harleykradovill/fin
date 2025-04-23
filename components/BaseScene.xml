@@ -3,12 +3,12 @@
   <children>
     <Poster
       id="backgroundImage"
-      uri="pkg:/images/backgroundmask.png"
       width="1920"
       height="1080"
       translation="[0, 0]"
-      blendColor="0x151617BF"
+      blendColor="0x000000BF"
       loadDisplayMode="scaleToZoom"
+      uri="pkg:/images/backgroundmask.png"
     />
 
     <Group id="content" />
