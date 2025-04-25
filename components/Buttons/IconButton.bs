@@ -10,6 +10,12 @@ sub init()
     m.top.observeField("width", "onWidthChanged")
     m.top.observeField("padding", "onPaddingChanged")
     m.top.observeField("focus", "onFocusChanged")
+
+    m.fontr = CreateObject("roSGNode", "Font")
+    m.fontr.uri = "pkg:/images/fonts/NotoSans-Regular.ttf"
+    m.fontr.size = 32
+    m.buttonText.font = m.fontr
+
 end sub
 
 sub onFocusChanged()

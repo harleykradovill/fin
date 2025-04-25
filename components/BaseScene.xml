@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="BaseScene" extends="Scene">
   <children>
-    <Poster
+    <!--<Poster
       id="backgroundImage"
       width="1920"
       height="1080"
@@ -9,7 +9,7 @@
       blendColor="0x000000BF"
       loadDisplayMode="scaleToZoom"
       uri="pkg:/images/backgroundmask.png"
-    />
+    />-->
 
     <Group id="content" />
     <JFOverhang id="overhang" />

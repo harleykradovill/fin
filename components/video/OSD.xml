@@ -64,8 +64,12 @@
       <Rectangle id="progressBar" width="0" height="8" />
     </Rectangle>
 
-    <Label id="videoPositionTime" font="font:SmallestSystemFont" color="0xffffffFF" horizAlign="left" translation="[20,962]" />
-    <Label id="videoRemainingTime" font="font:SmallestSystemFont" color="0xffffffFF" horizAlign="right" translation="[1808,962]" />
+    <Label id="videoPositionTime" font="font:SmallestSystemFont" color="0xffffffFF" horizAlign="left" translation="[20,955]">
+      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
+    </Label>
+    <Label id="videoRemainingTime" font="font:SmallestSystemFont" color="0xffffffFF" horizAlign="right" translation="[1810,955]">
+      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
+    </Label>
 
     <Timer id="inactivityTimer" duration="1" repeat="true" />
   </children>

@@ -29,6 +29,12 @@ sub itemContentChanged()
     m.padding = itemData.padding
     m.iconSide = itemData.iconSide
 
+    m.fontr = CreateObject("roSGNode", "Font")
+    m.fontr.uri = "pkg:/images/fonts/NotoSans-Regular.ttf"
+    m.fontr.size = 32
+    m.buttonText.font = m.fontr
+
+
     setIconSize()
 
     m.top.focus = itemData.focus
@@ -49,29 +55,31 @@ end sub
 sub setIconSize()
     height = m.buttonBackground.height
     width = m.buttonBackground.width
+
     if height > 0 and width > 0
-        ' TODO: Use smallest number between them
-        m.buttonIcon.height = m.height
-
+        ' Set icon height and width
+        iconSize = m.height
         if m.padding > 0
-            m.buttonIcon.height = m.buttonIcon.height - m.padding
+            iconSize = iconSize - m.padding
         end if
+        m.buttonIcon.height = iconSize
+        m.buttonIcon.width = iconSize
 
-        m.buttonIcon.width = m.buttonIcon.height
-
-        ' Set Icon translation
+        ' Set icon position
         if LCase(m.iconSide) = "right"
-            m.buttonIcon.translation = [m.buttonBackground.width - m.padding - m.buttonIcon.width, ((height - m.buttonIcon.height) / 2)]
-            m.buttonText.translation = [m.padding, ((height - m.buttonText.font.size) / 2)]
+            m.buttonIcon.translation = [width - m.padding - iconSize, (height - iconSize) / 2]
+            m.buttonText.translation = [m.padding, 0] ' ✅ Only set X
         else
-            m.buttonIcon.translation = [m.padding, ((height - m.buttonIcon.height) / 2)]
-            m.buttonText.translation = [m.padding + m.buttonIcon.width + 20, ((height - m.buttonText.font.size) / 2)]
+            m.buttonIcon.translation = [m.padding, (height - iconSize) / 2]
+            m.buttonText.translation = [m.padding + iconSize + 20, 0] ' ✅ Only set X
         end if
 
-        ' Set text max width
-        m.buttonText.maxWidth = m.width - m.padding - m.buttonIcon.width - 40
+        ' Set text layout
+        m.buttonText.height = height ' ✅ Enables vertAlign
+        m.buttonText.maxWidth = width - m.padding - iconSize - 40
     end if
 end sub
+
 
 function onKeyEvent(key as string, press as boolean) as boolean
     if not press then return false
