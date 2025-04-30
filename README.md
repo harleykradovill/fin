@@ -12,8 +12,6 @@
 **Fin for Roku** is a fork of the [official Jellyfin Roku client](https://github.com/jellyfin/jellyfin-roku), redesigned with a custom interface and user experience.  
 It is **not affiliated with the Jellyfin project**.
 
-This project is licensed under the **GNU General Public License v2.0** (GPL-2.0).
-
 ## License
 
 This project is licensed under the terms of the [GNU GPL v2.0](LICENSE).  
