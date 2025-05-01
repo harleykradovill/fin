@@ -575,7 +575,12 @@ function CreateHomeGroup()
     group.observeField("quickPlayNode", m.port)
 
     sidepanel = group.findNode("options")
-    sidepanel.observeField("closeSidePanel", m.port)
+    if isValid(sidepanel)
+        sidepanel.observeField("closeSidePanel", m.port)
+    else
+        print "WARN(ShowScenes): Home did not have an OptionsSlider when CreateHomeGroup ran"
+    end if
+
     new_options = []
     options_buttons = [
         { "title": "Search", "id": "goto_search" },
@@ -588,7 +593,6 @@ function CreateHomeGroup()
         o = CreateObject("roSGNode", "OptionsButton")
         o.title = tr(opt.title)
         o.id = opt.id
-        o.width = "625"
         o.observeField("userMenuOptionSelected", m.port)
         new_options.push(o)
     end for

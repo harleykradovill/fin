@@ -33,6 +33,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
         list = m.top.findNode("panelList")
         data = list.content.getChild(list.itemFocused)
         data.userMenuOptionSelected = true
+        m.top.closeSidePanel = true
         return true
     end if
 

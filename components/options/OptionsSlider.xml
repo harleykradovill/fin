@@ -4,7 +4,7 @@
     <ListPanel id="panel">
       <Rectangle id="backdrop"
         translation="[0, 0]"
-        color="#242122DD"
+        color="#00000000"
         width="582"
         height="1080" />
       <LabelList id="panelList" vertFocusAnimationStyle="floatingFocus">
