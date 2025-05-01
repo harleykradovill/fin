@@ -9,7 +9,6 @@ import "pkg:/source/utils/config.bs"
 import "pkg:/source/utils/misc.bs"
 
 sub init()
-    ' Hide the overhang on init to prevent showing 2 clocks
     m.top.getScene().findNode("overhang").visible = false
     currentItem = m.global.queueManager.callFunc("getCurrentItem")
     m.top.id = currentItem.id
