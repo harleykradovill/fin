@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="ExtrasSlider" extends="JFGroup">
   <children>
-    <Rectangle id="extrasGrp" color="0x151617E0" opacity="0.5" width="1920" height="1000" translation="[0, 1014]">
+    <Rectangle id="extrasGrp" color="0x0D0B0CE0" opacity="0.5" width="1920" height="1000" translation="[0, 1014]">
       <ExtrasRowList id="extrasGrid"
         rowFocusAnimationStyle="fixedFocusWrap"
         itemSpacing="[ 60, 132]"

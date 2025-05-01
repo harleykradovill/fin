@@ -201,7 +201,7 @@ sub setBackdropImage(itemData as object)
     movieBackdrop.translation = "[0,0]"
     movieBackdrop.width = "1920"
     movieBackdrop.height = "1080"
-    movieBackdrop.opacity = .3
+    movieBackdrop.opacity = .2
     movieBackdrop.uri = ImageURL(m.top.id, imageVersion, {
         "maxWidth": 1920,
         "Tag": imageTag
@@ -211,62 +211,6 @@ sub setBackdropImage(itemData as object)
         m.top.insertChild(movieBackdrop, 0)
     end if
 end sub
-
-'sub onLogoImageURIChange()
-'    ' We have exhaused all methods for getting a logo to display
-'    if m.top.logoImageURI = "" and not isChainValid(m.top.itemContent.json, "ImageTags.Logo")
-'        return
-'    end if
-'
-'    movieLogo = m.top.findNode("movieLogo")
-'    if not isValid(movieLogo)
-'        movieLogo = createObject("roSGNode", "Poster")
-'    end if
-'    movieLogo.id = "movieLogo"
-'    movieLogo.loadDisplayMode = "scaleToFit"
-'    movieLogo.translation = [100, 25]
-'    movieLogo.width = "500"
-'    movieLogo.height = "250"
-'    movieLogo.uri = m.top.logoImageURI
-'
-'    if not isValid(m.top.findNode("movieLogo"))
-'        m.top.insertChild(movieLogo, 1)
-'    end if
-'end sub
-'
-'' setLogoImage: If item has a logo image, add it to the view
-''
-'' @param {object} itemData - meta data for current item
-'sub setLogoImage(itemData as object)
-'    if LCase(itemData.type) = VideoType.EPISODE or LCase(itemData.type) = VideoType.SERIES
-'        return
-'    end if
-'
-'    ' No logo found
-'    if not isChainValid(itemData, "ImageTags.Logo")
-'        addTextMovieTitle(itemData)
-'        return
-'    end if
-'
-'    movieLogo = m.top.findNode("movieLogo")
-'    if not isValid(movieLogo)
-'        movieLogo = createObject("roSGNode", "Poster")
-'    end if
-'    movieLogo.id = "movieLogo"
-'    movieLogo.loadDisplayMode = "scaleToFit"
-'    movieLogo.translation = [100, 25]
-'    movieLogo.width = "500"
-'    movieLogo.height = "250"
-'    movieLogo.uri = ImageURL(m.top.id, ImageType.LOGO, {
-'        "maxHeight": 300,
-'        "maxWidth": 600,
-'        "Tag": itemData.ImageTags.Logo
-'    })
-'
-'    if not isValid(m.top.findNode("movieLogo"))
-'        m.top.insertChild(movieLogo, 1)
-'    end if
-'end sub
 
 sub addTextMovieTitle(itemData as object)
     movieTitle = m.top.findNode("movieTitle")

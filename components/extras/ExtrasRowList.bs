@@ -35,6 +35,13 @@ sub init()
 
     m.LoadSeriesTask = CreateObject("roSGNode", "LoadItemsTask")
     m.LoadSeriesTask.itemsToLoad = "personSeries"
+
+
+    m.fontr = CreateObject("roSGNode", "Font")
+    m.fontr.uri = "pkg:/images/fonts/NotoSans-Regular.ttf"
+    m.fontr.size = 32
+
+    m.top.rowLabelFont = m.fontr
 end sub
 
 sub updateSize()

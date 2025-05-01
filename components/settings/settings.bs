@@ -331,11 +331,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 m.version.text = `Fin ${m.global.app.version}`
                 return true
             end if
-
-            if isStringEqual(key, KeyCode.OK)
-                m.global.sceneManager.callFunc("whatsNewDialog")
-                return true
-            end if
             return false
         end if
     end if
