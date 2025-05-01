@@ -1,1 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<component name="Sidebar" extends="Group">
+    <interface>
+        <field id="isOpen" type="boolean" value="false" onChange="isOpenChanged" />
+        <field id="selectedItem" type="string" alwaysNotify="true" />
+        <field id="previousFocus" type="node" />
+    </interface>
+
+    <children>
+        <Rectangle id="bg" width="88" height="1080" color="0x1B1B1B" />
+        <MarkupList
+            id="menu"
+            itemSize="[88,100]"
+            itemComponentName="SidebarItem"
+            translation="[0,140]"
+            focusBitmapBlendColor="0xFFFFFF" />
+
+        <Animation id="expandAnim" duration="0.20" easeFunction="outQuad">
+            <FloatFieldInterpolator key="[0,1]" keyValue="[88,300]" fieldToInterp="bg.width" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[0,140],[212,140]]" fieldToInterp="menu.translation" />
+        </Animation>
+
+        <Animation id="collapseAnim" duration="0.20" easeFunction="outQuad">
+            <FloatFieldInterpolator key="[0,1]" keyValue="[300,88]" fieldToInterp="bg.width" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[212,140],[0,140]]" fieldToInterp="menu.translation" />
+        </Animation>
+    </children>
+</component>

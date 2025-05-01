@@ -8,6 +8,10 @@ sub init()
     m.scene = m.top.getScene()
     m.content = m.scene.findNode("content")
     m.overhang = m.scene.findNode("overhang")
+
+    m.sidebar = m.scene.findNode("sidebar")
+    m.sidebar.observeField("selectedItem", "sidebarItemSelected")
+
 end sub
 
 '
@@ -163,6 +167,19 @@ end sub
 function getSceneCount() as integer
     return m.groups.Count()
 end function
+
+sub sidebarItemSelected()
+    item = m.sidebar.selectedItem
+    if item = "home"
+        if m.groups.peek().isSubType("Home") then return
+        pushScene(createObject("roSGNode", "Home"))
+    else if item = "libraries"
+        m.global.sceneManager.callFunc("standardDialog", "Coming Soon", "Libraries screen isn’t wired up yet.")
+    else if item = "settings"
+        settings()
+    end if
+end sub
+
 
 '
 ' Display user/device settings screen

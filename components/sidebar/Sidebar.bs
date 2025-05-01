@@ -1,0 +1,76 @@
+import "pkg:/source/enums/KeyCode.bs"
+import "pkg:/source/utils/misc.bs"
+
+sub init()
+    m.bg = m.top.findNode("bg")
+    m.menu = m.top.findNode("menu")
+    m.expandAnim = m.top.findNode("expandAnim")
+    m.collapseAnim = m.top.findNode("collapseAnim")
+
+    menuRoot = createObject("roSGNode", "ContentNode")
+
+    items = [
+        { title: "Home", hdposterurl: "pkg:/images/ic_home.png", tag: "home" },
+        { title: "Libraries", hdposterurl: "pkg:/images/ic_library.png", tag: "libraries" },
+        { title: "Settings", hdposterurl: "pkg:/images/ic_settings.png", tag: "settings" }
+    ]
+
+    for each itm in items
+        node = createObject("roSGNode", "ContentNode")
+        node.title = itm.title
+        node.hdposterurl = itm.hdposterurl
+        node.tag = itm.tag
+        node.addField("showLabel", "boolean", false)
+        node.showLabel = false
+        menuRoot.appendChild(node)
+    end for
+
+    m.menu.content = menuRoot
+    m.menu.observeField("itemSelected", "itemActivated")
+end sub
+
+sub isOpenChanged()
+    isOpen = m.top.isOpen
+    sceneContent = m.top.getScene().findNode("content")
+
+    for i = 0 to m.menu.content.getChildCount() - 1
+        child = m.menu.content.getChild(i)
+        child.showLabel = isOpen
+    end for
+
+    if isOpen
+        m.menu.itemSize = [300, 100]
+        m.expandAnim.control = "start"
+        sceneContent.translation = [300, 0]
+    else
+        m.menu.itemSize = [88, 100]
+        m.collapseAnim.control = "start"
+        sceneContent.translation = [88, 0]
+    end if
+end sub
+
+function onKeyEvent(key as string, press as boolean) as boolean
+    if not press then return false
+
+    if key = KeyCode.RIGHT
+        m.top.isOpen = false
+
+        if isValid(m.top.previousFocus)
+            m.top.previousFocus.setFocus(true)
+        else
+            m.top.getScene().findNode("content").setFocus(true)
+        end if
+        return true
+    end if
+
+    return false
+end function
+
+sub itemActivated()
+    idx = m.menu.itemSelected
+    if idx >= 0
+        node = m.menu.content.getChild(idx)
+        m.top.selectedItem = node.tag
+    end if
+    m.top.isOpen = false
+end sub

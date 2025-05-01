@@ -7,6 +7,9 @@ sub init()
     m.top.backgroundURI = ""
 
     m.spinner = m.top.findNode("spinner")
+
+    'm.sidebar = m.top.findNode("sidebar")
+    'm.global.sidebar = m.sidebar
 end sub
 
 ' Triggered when the isLoading boolean component field is changed
@@ -68,7 +71,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
             panel = group.findNode("options")
             panel.visible = true
             panel.findNode("panelList").setFocus(true)
-
         end if
         return true
     end if
@@ -78,5 +80,26 @@ function onKeyEvent(key as string, press as boolean) as boolean
         return true
     end if
 
+    if key = KeyCode.LEFT
+        sidebar = m.top.findNode("sidebar")
+        if isValid(sidebar) and sidebar.isOpen = false
+
+            focusNode = m.top.getScene()
+            depth = 0
+            while depth < 50
+                nextNode = focusNode.focusedChild
+                if not isValid(nextNode) then exit while
+                focusNode = nextNode
+                depth = depth + 1
+            end while
+            sidebar.previousFocus = focusNode
+            sidebar.isOpen = true
+            sidebar.findNode("menu").setFocus(true)
+
+            return true
+        end if
+    end if
+
     return false
 end function
+

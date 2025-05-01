@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="SidebarItem" extends="Group">
+    <interface>
+        <field id="itemContent" type="node" onChange="itemChanged" />
+    </interface>
+
+    <children>
+        <Poster id="icon" width="64" height="64" translation="[12,18]" />
+        <Label id="label" translation="[88,32]" text="" visible="false" />
+    </children>
+</component>

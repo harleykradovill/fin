@@ -1,0 +1,8 @@
+sub itemChanged()
+    itm = m.top.itemContent
+
+    m.top.findNode("icon").uri = itm.hdposterurl
+    lbl = m.top.findNode("label")
+    lbl.text = itm.title
+    lbl.visible = itm.showLabel
+end sub
