@@ -4,7 +4,7 @@
     <Group id="content" />
     <JFOverhang id="overhang" />
     <AudioMiniPlayer id="audioMiniPlayer" translation="[0, 935]" />
-    <Sidebar id="sidebar" />
+    <Sidebar id="sidebar" visible="false" />
     <Spinner id="spinner" translation="[897, 477]" visible="false" />
   </children>
   <interface>
