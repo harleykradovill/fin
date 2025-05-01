@@ -13,17 +13,17 @@
     </LayoutGroup>
 
     <ButtonGroup id="videoControls" itemSpacings="[12]" layoutDirection="horiz" horizAlignment="left" translation="[20,1000]">
-      <IconButton id="itemBack" padding="16" icon="pkg:/images/icons/itemPrevious.png" height="65" width="65" />
-      <IconButton id="chapterBack" padding="16" icon="pkg:/images/icons/previousChapter.png" height="65" width="65" />
-      <IconButton id="videoPlayPause" padding="16" icon="pkg:/images/icons/play.png" height="65" width="65" />
-      <IconButton id="chapterNext" padding="16" icon="pkg:/images/icons/nextChapter.png" height="65" width="65" />
-      <IconButton id="itemNext" padding="16" icon="pkg:/images/icons/itemNext.png" height="65" width="65" />
+      <IconButton id="itemBack" padding="16" icon="pkg:/images/icons/itemPrevious.png" height="70" width="70" />
+      <IconButton id="chapterBack" padding="16" icon="pkg:/images/icons/previousChapter.png" height="70" width="70" />
+      <IconButton id="videoPlayPause" padding="16" icon="pkg:/images/icons/play.png" height="70" width="70" />
+      <IconButton id="chapterNext" padding="16" icon="pkg:/images/icons/nextChapter.png" height="70" width="70" />
+      <IconButton id="itemNext" padding="16" icon="pkg:/images/icons/itemNext.png" height="70" width="70" />
     </ButtonGroup>
 
     <ButtonGroup id="optionControls" itemSpacings="[12]" layoutDirection="horiz" horizAlignment="right" translation="[1900,1000]">
-      <IconButton id="chapterList" padding="16" icon="pkg:/images/icons/numberList.png" height="65" width="65" />
-      <IconButton id="showSubtitleMenu" padding="16" icon="pkg:/images/icons/subtitle.png" height="65" width="65" />
-      <IconButton id="showAudioMenu" padding="16" icon="pkg:/images/icons/musicNote.png" height="65" width="65" />
+      <IconButton id="chapterList" padding="16" icon="pkg:/images/icons/numberList.png" height="70" width="70" />
+      <IconButton id="showSubtitleMenu" padding="16" icon="pkg:/images/icons/subtitle.png" height="70" width="70" />
+      <IconButton id="showAudioMenu" padding="16" icon="pkg:/images/icons/musicNote.png" height="70" width="70" />
     </ButtonGroup>
 
     <ExpandingLabel

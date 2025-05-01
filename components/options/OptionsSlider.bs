@@ -3,10 +3,9 @@ sub init()
 
     panel = m.top.findNode("panel")
     panel.panelSize = "small"
-    panel.leftPosition = 1250
+    panel.leftPosition = 1340
     panel.focusable = true
     panel.hasNextPanel = false
-    panel.leftOnly = true
 
     list = m.top.findNode("panelList")
 
@@ -26,7 +25,7 @@ end sub
 function onKeyEvent(key as string, press as boolean) as boolean
     if not press then return false
 
-    if key = "options" or key = "back"
+    if key = "back"
         m.top.visible = false
         m.top.closeSidePanel = true
         return true
