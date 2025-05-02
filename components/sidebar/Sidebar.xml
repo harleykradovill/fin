@@ -4,6 +4,7 @@
         <field id="isOpen" type="boolean" value="false" onChange="isOpenChanged" />
         <field id="selectedItem" type="string" alwaysNotify="true" />
         <field id="previousFocus" type="node" />
+        <function name="loadLibraries" />
     </interface>
 
     <children>

@@ -7,26 +7,61 @@ sub init()
     m.expandAnim = m.top.findNode("expandAnim")
     m.collapseAnim = m.top.findNode("collapseAnim")
 
-    menuRoot = createObject("roSGNode", "ContentNode")
+    'menuRoot = createObject("roSGNode", "ContentNode")
 
-    items = [
-        { title: "Home", hdposterurl: "pkg:/images/ic_home.png", tag: "home" },
-        { title: "Libraries", hdposterurl: "pkg:/images/ic_library.png", tag: "libraries" },
-        { title: "Settings", hdposterurl: "pkg:/images/ic_settings.png", tag: "settings" }
-    ]
+    staticRoot = createObject("roSGNode", "ContentNode")
 
-    for each itm in items
-        node = createObject("roSGNode", "ContentNode")
-        node.title = itm.title
-        node.hdposterurl = itm.hdposterurl
-        node.tag = itm.tag
-        node.addField("showLabel", "boolean", false)
-        node.showLabel = false
-        menuRoot.appendChild(node)
+    homeNode = createObject("roSGNode", "ContentNode")
+    homeNode.title = "Home"
+    homeNode.hdposterurl = "pkg:/images/ic_home.png"
+    homeNode.tag = "home"
+    homeNode.addField("showLabel", "boolean", m.top.isOpen) ' ← NEW
+    homeNode.showLabel = m.top.isOpen ' ← NEW
+    staticRoot.appendChild(homeNode)
+
+    settingsNode = createObject("roSGNode", "ContentNode")
+    settingsNode.title = "Settings"
+    settingsNode.hdposterurl = "pkg:/images/ic_settings.png"
+    settingsNode.tag = "settings"
+    settingsNode.addField("showLabel", "boolean", m.top.isOpen) ' ← NEW
+    settingsNode.showLabel = m.top.isOpen ' ← NEW
+    staticRoot.appendChild(settingsNode)
+
+    m.menu.content = staticRoot
+
+    '----------------------------------------------------------------
+    ' 2)  later, HomeRows will call loadLibraries(libArray) to insert
+    '     one node per library, right after "Home"
+    '----------------------------------------------------------------
+end sub ' ← end of init()
+
+
+
+'===============================================================
+'  Public function: add one sidebar item for each library
+'===============================================================
+sub loadLibraries(libArray as object)
+    if not isValid(libArray) then return
+    ' wipe any previous dynamic library buttons ----------
+    for i = m.menu.content.getChildCount() - 1 to 0 step -1
+        n = m.menu.content.getChild(i)
+        if left(n.tag, 8) = "library:" then m.menu.content.removeChildIndex(i)
     end for
 
-    m.menu.content = menuRoot
-    m.menu.observeField("itemSelected", "itemActivated")
+    ' insert each library after index 0 (Home) -------------
+    insertPos = 1
+    for each lib in libArray
+        n = createObject("roSGNode", "ContentNode")
+        n.title = lib.name
+        n.hdposterurl = "pkg:/images/ic_library.png" ' ← SAME icon for all
+        n.tag = "library:" + lib.id
+
+        n.addField("showLabel", "boolean", m.top.isOpen) ' ← NEW
+        n.showLabel = m.top.isOpen ' ← NEW
+
+        m.menu.content.insertChild(n, insertPos)
+        insertPos = insertPos + 1
+    end for
 end sub
 
 sub isOpenChanged()

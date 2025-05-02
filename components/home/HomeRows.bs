@@ -149,6 +149,11 @@ sub onLibrariesLoaded()
     m.LoadLibrariesTask.content = []
 
     processUserSections()
+
+    sidebar = m.scene.findNode("sidebar")
+    if isValid(sidebar)
+        sidebar.callFunc("loadLibraries", m.libraryData)
+    end if
 end sub
 
 ' getOriginalSectionIndex: Gets the index of a section from user settings and adds count of currently known latest media sections
