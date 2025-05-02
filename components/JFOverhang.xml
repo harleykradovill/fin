@@ -15,8 +15,6 @@
     </LayoutGroup>
     <Poster visible="false" uri="pkg:/images/icons/openCircle.png" id="overlayCurrentUserSelection" translation="[1702, 53]" width="64" height="64" loadDisplayMode="scaleToZoom" />
 
-    <Timer id="currentTimeTimer" repeat="true" duration="60" />
-
     <Animation id="slideUp" duration=".5" repeat="false">
       <Vector2DFieldInterpolator key="[0.0, .5]" keyValue="[[54, 0], [54, -200]]" fieldToInterp="overhang.translation" />
     </Animation>
@@ -30,8 +28,8 @@
     <function name="dehighlightUser" />
     <field id="changeUserSelected" type="boolean" />
     <field id="id" type="string" />
-    <field id="currentUserProfileImage" type="string" onChange="updateUserProfileImage" />
-    <field id="currentUser" type="string" onChange="updateUser" />
+    <!--<field id="currentUserProfileImage" type="string" onChange="updateUserProfileImage" />
+    <field id="currentUser" type="string" onChange="updateUser" />-->
     <field id="title" type="string" onChange="updateTitle" />
     <field id="showOptions" value="true" type="boolean" onChange="updateOptions" />
     <field id="isVisible" value="true" type="boolean" onChange="onVisibleChange" />

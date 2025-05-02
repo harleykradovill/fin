@@ -56,31 +56,30 @@ sub updateTitle()
     m.title.text = m.top.title
 end sub
 
-sub updateUser()
-    user = m.top.findNode("overlayCurrentUser")
-    if isValid(user)
-        user.text = m.top.currentUser
-    end if
-end sub
-
-sub updateUserProfileImage()
-    m.profileImage.observeField("loadStatus", "onPosterLoadStatusChanged")
-    if isValid(m.profileImage)
-        m.profileImage.uri = m.top.currentUserProfileImage
-    end if
-end sub
-
-sub onPosterLoadStatusChanged()
-    if m.profileImage.loadStatus <> PosterLoadStatus.LOADING
-        m.profileImage.unobserveField("loadStatus")
-    end if
-
-    if m.profileImage.loadStatus = PosterLoadStatus.FAILED
-        if m.profileImage.loadWidth = 0
-            m.profileImage.uri = "pkg://images/baseline_person_white_48dp.png"
-        end if
-    end if
-end sub
+'sub updateUser()
+'    user = m.top.findNode("overlayCurrentUser")
+'    if isValid(user)
+'        user.text = m.top.currentUser
+'    end if
+'end sub
+'
+'sub updateUserProfileImage()
+'    m.profileImage.observeField("loadStatus", "onPosterLoadStatusChanged")
+'    if isValid(m.profileImage)
+'        m.profileImage.uri = m.top.currentUserProfileImage
+'    end if
+'end sub
+'sub onPosterLoadStatusChanged()
+'    if m.profileImage.loadStatus <> PosterLoadStatus.LOADING
+'        m.profileImage.unobserveField("loadStatus")
+'    end if
+'
+'    if m.profileImage.loadStatus = PosterLoadStatus.FAILED
+'        if m.profileImage.loadWidth = 0
+'            m.profileImage.uri = "pkg://images/baseline_person_white_48dp.png"
+'        end if
+'    end if
+'end sub
 
 sub updateOptions()
 

@@ -1,4 +1,5 @@
 import "pkg:/source/enums/KeyCode.bs"
+import "pkg:/source/enums/PosterLoadStatus.bs"
 import "pkg:/source/utils/misc.bs"
 
 sub init()
@@ -18,6 +19,14 @@ sub init()
     homeNode.showLabel = m.top.isOpen
     staticRoot.appendChild(homeNode)
 
+    searchNode = createObject("roSGNode", "ContentNode")
+    searchNode.title = "Search"
+    searchNode.hdposterurl = "pkg:/images/ic_search.png"
+    searchNode.tag = "search"
+    searchNode.addField("showLabel", "boolean", m.top.isOpen)
+    searchNode.showLabel = m.top.isOpen
+    staticRoot.appendChild(searchNode)
+
     settingsNode = createObject("roSGNode", "ContentNode")
     settingsNode.title = "Settings"
     settingsNode.hdposterurl = "pkg:/images/ic_settings.png"
@@ -27,6 +36,10 @@ sub init()
     staticRoot.appendChild(settingsNode)
 
     m.menu.content = staticRoot
+    m.profileImage = m.top.findNode("overlayCurrentUserProfileImage")
+    m.overlayCurrentUser = m.top.findNode("overlayCurrentUser")
+
+    updateUserProfileImage()
 end sub
 
 sub loadLibraries(libArray as object)
@@ -37,7 +50,7 @@ sub loadLibraries(libArray as object)
         if left(n.tag, 8) = "library:" then m.menu.content.removeChildIndex(i)
     end for
 
-    insertPos = 1
+    insertPos = 3
     for each lib in libArray
         n = createObject("roSGNode", "ContentNode")
         n.title = lib.name
@@ -85,13 +98,40 @@ sub isOpenChanged()
     end for
 
     if isOpen
-        m.menu.itemSize = [316, 100]
+        m.menu.itemSize = [316, 80]
         m.expandAnim.control = "start"
         sceneContent.translation = [260, 0]
+        'm.overlayCurrentUser.visible = true
     else
-        m.menu.itemSize = [92, 100]
+        m.menu.itemSize = [92, 80]
         m.collapseAnim.control = "start"
         sceneContent.translation = [0, 0]
+        'm.overlayCurrentUser.visible = false
+    end if
+end sub
+
+sub updateUser()
+    user = m.top.findNode("overlayCurrentUser")
+    if isValid(user)
+        user.text = m.top.currentUser
+    end if
+end sub
+
+sub updateUserProfileImage()
+    m.profileImage.observeField("loadStatus", "onPosterLoadStatusChanged")
+    if isValid(m.profileImage)
+        m.profileImage.uri = m.top.currentUserProfileImage
+    end if
+end sub
+sub onPosterLoadStatusChanged()
+    if m.profileImage.loadStatus <> PosterLoadStatus.LOADING
+        m.profileImage.unobserveField("loadStatus")
+    end if
+
+    if m.profileImage.loadStatus = PosterLoadStatus.FAILED
+        if m.profileImage.loadWidth = 0
+            m.profileImage.uri = "pkg://images/baseline_person_white_48dp.png"
+        end if
     end if
 end sub
 

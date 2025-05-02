@@ -7,9 +7,6 @@ sub init()
     m.top.backgroundURI = ""
 
     m.spinner = m.top.findNode("spinner")
-
-    'm.sidebar = m.top.findNode("sidebar")
-    'm.global.sidebar = m.sidebar
 end sub
 
 ' Triggered when the isLoading boolean component field is changed

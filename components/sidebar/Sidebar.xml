@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="Sidebar" extends="Group">
-    <interface>
-        <field id="isOpen" type="boolean" value="false" onChange="isOpenChanged" />
-        <field id="selectedItem" type="string" alwaysNotify="true" />
-        <field id="previousFocus" type="node" />
-        <function name="loadLibraries" />
-    </interface>
-
     <children>
-        <Rectangle id="bg" width="120" height="1080" color="0x1B1B1B" />
+        <Rectangle id="bg" width="120" height="1080" color="#1a1a1a" />
         <Poster id="sidebarlogo" uri='pkg:/images/logo-icon120.png' translation="[35, 20]" width="50" height="50" />
         <MarkupList
             id="menu"
-            itemSize="[92,100]"
+            itemSize="[92,80]"
             itemComponentName="SidebarItem"
             translation="[0,100]"
             focusBitmapBlendColor="#5E5E5E"
             focusFootprintBlendColor="0x00000000"
-            vertFocusAnimationStyle="floatingFocus" />
+            vertFocusAnimationStyle="floatingFocus"
+            numRows="10" />
 
+        <Label id="overlayCurrentUser" width="300" horizAlign="right" vertAlign="center" height="64" visible="false">
+            <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
+        </Label>
+        <MaskGroup id="profileMask" maskUri="pkg:/images/icons/circle64.png" maskSize="[64,64]" translation="[28,992]">
+            <Poster uri="pkg:/images/icons/circle.png" id="overlayCurrentUserProfileImage" width="64" height="64" loadDisplayMode="scaleToZoom" />
+        </MaskGroup>
         <Animation id="expandAnim" duration="0.20" easeFunction="outQuad">
             <FloatFieldInterpolator key="[0,1]" keyValue="[120,380]" fieldToInterp="bg.width" />
             <Vector2DFieldInterpolator key="[0,1]" keyValue="[[32,100],[32,100]]" fieldToInterp="menu.translation" />
             <Vector2DFieldInterpolator key="[0,1]" keyValue="[[165,20],[165,20]]" fieldToInterp="sidebarlogo.translation" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[158,992],[158,992]]" fieldToInterp="profileMask.translation" />
         </Animation>
 
         <Animation id="collapseAnim" duration="0.20" easeFunction="outQuad">
             <FloatFieldInterpolator key="[0,1]" keyValue="[380,120]" fieldToInterp="bg.width" />
             <Vector2DFieldInterpolator key="[0,1]" keyValue="[[0,100],[0,100]]" fieldToInterp="menu.translation" />
             <Vector2DFieldInterpolator key="[0,1]" keyValue="[[35,20],[35,20]]" fieldToInterp="sidebarlogo.translation" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[28,992],[28,992]]" fieldToInterp="profileMask.translation" />
         </Animation>
     </children>
+
+    <interface>
+        <field id="currentUserProfileImage" type="string" onChange="updateUserProfileImage" />
+        <field id="currentUser" type="string" onChange="updateUser" />
+        <field id="isOpen" type="boolean" value="false" onChange="isOpenChanged" />
+        <field id="selectedItem" type="string" alwaysNotify="true" />
+        <field id="previousFocus" type="node" />
+        <function name="loadLibraries" />
+    </interface>
 </component>

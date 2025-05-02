@@ -866,7 +866,7 @@ end sub
 
 '
 ' Check the the buffering has not hung
-sub bufferCheck(msg)
+sub bufferCheck()
 
     if m.top.state <> "buffering"
         ' If video is not buffering, stop timer

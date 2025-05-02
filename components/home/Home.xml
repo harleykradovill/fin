@@ -12,7 +12,7 @@
       translation="[172, 158]" />
     <OptionsSlider id="options" />
 
-    <Animation id="homeRowsSlideLeft" duration="0.2" easeFunction="outQuad">
+    <!--<Animation id="homeRowsSlideLeft" duration="0.2" easeFunction="outQuad">
       <Vector2DFieldInterpolator
         key="[0,1]"
         keyValue="[[89,158],[-411,158]]"
@@ -24,7 +24,7 @@
         key="[0,1]"
         keyValue="[[-411,158],[89,158]]"
         fieldToInterp="homeRows.translation" />
-    </Animation>
+    </Animation>-->
 
     <Animation id="optionsSlideIn" duration="0.2" easeFunction="outQuad">
       <Vector2DFieldInterpolator
