@@ -7,9 +7,7 @@ import "pkg:/source/utils/misc.bs"
 sub init()
     m.top.optionsAvailable = false
 
-    m.showSecretMenu = false
     m.keypresses = []
-    m.magicKeyPressSequence = [KeyCode.UP, KeyCode.LEFT, KeyCode.REPLAY, KeyCode.REWIND, KeyCode.UP, KeyCode.LEFT, KeyCode.REPLAY, KeyCode.REWIND]
 
     m.userLocation = []
 
@@ -23,25 +21,6 @@ sub init()
 
     m.settingDesc = m.top.findNode("settingDesc")
     m.path = m.top.findNode("path")
-
-    m.version = m.top.findNode("version")
-    drawingStyles = {
-        "default": {
-            "fontSize": 27,
-            "fontUri": "font:SystemFontFile",
-            "color": "#EFEFEFFF"
-        },
-        "b": {
-            "fontSize": 27,
-            "fontUri": "font:SystemFontFile",
-            "color": ColorPalette.HIGHLIGHT
-        }
-    }
-
-    if isValid(m.version)
-        m.version.drawingStyles = drawingStyles
-        m.version.text = `Fin ${m.global.app.version}`
-    end if
 
     m.boolSetting = m.top.findNode("boolSetting")
     m.integerSetting = m.top.findNode("integerSetting")
@@ -137,7 +116,6 @@ sub settingFocused()
 
     selectedSetting = m.userLocation.peek().children[m.settingsMenu.itemFocused]
     m.settingDesc.text = tr(selectedSetting.Description)
-    m.top.overhangTitle = tr(selectedSetting.Title)
 
     ' Hide Settings
     m.boolSetting.visible = false
@@ -282,26 +260,8 @@ function isFormInFocus() as boolean
     return false
 end function
 
-sub checkMagicKeyPressSequence(key as string)
-    m.keypressTimer.control = "stop"
-    m.keypressTimer.control = "start"
-
-    m.keypresses.push(key)
-
-    if m.keypresses.count() < m.magicKeyPressSequence.count() then return
-
-    for i = 0 to m.keypresses.count()
-        if m.keypresses[i] <> m.magicKeyPressSequence[i] then return
-    end for
-
-    m.showSecretMenu = true
-    LoadMenu({ children: m.configTree })
-end sub
-
 function onKeyEvent(key as string, press as boolean) as boolean
     if not press then return false
-
-    checkMagicKeyPressSequence(key)
 
     if (key = "back" or key = "left") and m.settingsMenu.focusedChild <> invalid and m.userLocation.Count() > 1
         LoadMenu({})
@@ -314,25 +274,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
     if key = "options"
         m.global.sceneManager.callFunc("popScene")
         return true
-    end if
-
-    if isValid(m.version)
-        if isStringEqual(key, KeyCode.DOWN)
-            if m.settingsMenu.hasFocus()
-                m.version.setfocus(true)
-                m.version.text = `Fin ${m.global.app.version}`
-                return true
-            end if
-        end if
-
-        if m.version.hasFocus()
-            if isStringEqual(key, KeyCode.UP)
-                m.settingsMenu.setfocus(true)
-                m.version.text = `Fin ${m.global.app.version}`
-                return true
-            end if
-            return false
-        end if
     end if
 
     if key = "right"

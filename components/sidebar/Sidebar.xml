@@ -16,6 +16,7 @@
             itemComponentName="SidebarItem"
             translation="[0,100]"
             focusBitmapBlendColor="#5E5E5E"
+            focusFootprintBlendColor="0x00000000"
             vertFocusAnimationStyle="floatingFocus" />
 
         <Animation id="expandAnim" duration="0.20" easeFunction="outQuad">

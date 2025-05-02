@@ -2,18 +2,17 @@
 <component name="Settings" extends="JFScreen">
   <children>
 
-    <Label id="path" translation="[95, 175]" font="font:SmallestBoldSystemFont">
-      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="28" />
+    <Label id="path" translation="[160, 50]" font="font:SmallestBoldSystemFont">
+      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="42" />
     </Label>
-    <MultiStyleLabel id="version" translation="[95, 1000]" />
 
     <LabelList
-      translation="[120, 250]"
+      translation="[193, 150]"
       id="settingsMenu"
       font="font:SmallSystemFont"
-      itemSize="[510, 54]"
+      itemSize="[300, 60]"
       itemSpacing="[0,10]"
-      numRows="11"
+      numRows="6"
       vertFocusAnimationStyle="floatingFocus">
       <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="28" />
       <Font role="focusedFont" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="28" />
@@ -37,4 +36,8 @@
     <IntegerKeyboard translation="[1034, 510]" id="integerSetting" domain="numeric" visible="false" />
     <Timer id="keypressTimer" duration="5" />
   </children>
+
+  <interface>
+    <field id="showSidebar" type="boolean" value="true" />
+  </interface>
 </component>

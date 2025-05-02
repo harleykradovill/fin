@@ -503,5 +503,23 @@
                 ]
             }
         ]
+    },
+    {
+        "title": "About",
+        "description": "Display version, build information and open‑source license details for this installation of Fin.",
+        "settingName": "about",
+        "type": "action"
+    },
+    {
+        "title": "Change Server",
+        "description": "Disconnect from the current server and choose a different Jellyfin server.",
+        "settingName": "account.changeServer",
+        "type": "action"
+    },
+    {
+        "title": "Sign Out",
+        "description": "Sign out the currently logged‑in user on this Roku device.",
+        "settingName": "account.signOut",
+        "type": "action"
     }
 ]

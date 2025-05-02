@@ -1,8 +1,30 @@
+import "pkg:/source/utils/misc.bs"
+
 sub itemChanged()
     itm = m.top.itemContent
+    icon = m.top.findNode("icon")
 
     m.top.findNode("icon").uri = itm.hdposterurl
     lbl = m.top.findNode("label")
     lbl.text = itm.title
     lbl.visible = itm.showLabel
+
+    if itm.tag = "home"
+        hr = m.top.getScene().findNode("homeRows")
+        if isValid(hr) and hr.visible
+            icon.blendColor = "#0096dc"
+        else
+            icon.blendColor = "#ffffff"
+        end if
+    end if
+
+    if itm.tag = "settings"
+        st = m.top.getScene().findNode("settingsMenu")
+        if isValid(st) and st.visible
+            icon.blendColor = "#0096dc"
+        else
+            icon.blendColor = "#ffffff"
+        end if
+    end if
+
 end sub

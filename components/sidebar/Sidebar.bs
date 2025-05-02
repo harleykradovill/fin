@@ -114,8 +114,9 @@ end function
 
 sub itemActivated()
     idx = m.menu.itemSelected
+    hr = m.top.getScene().findNode("homeRows")
 
-    if idx = 0
+    if idx = 0 and isValid(hr) and hr.visible
         hr = m.top.getScene().findNode("homeRows")
         if isValid(hr) then hr.setFocus(true)
     end if
