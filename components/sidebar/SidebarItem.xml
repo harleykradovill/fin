@@ -5,7 +5,7 @@
     </interface>
 
     <children>
-        <Poster id="icon" width="64" height="64" translation="[12,18]" />
-        <Label id="label" translation="[88,32]" text="" visible="false" />
+        <Poster id="icon" width="48" height="48" translation="[35,22]" />
+        <Label id="label" translation="[95,32]" text="" visible="false" />
     </children>
 </component>

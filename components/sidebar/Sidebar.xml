@@ -8,22 +8,27 @@
     </interface>
 
     <children>
-        <Rectangle id="bg" width="88" height="1080" color="0x1B1B1B" />
+        <Rectangle id="bg" width="120" height="1080" color="0x1B1B1B" />
+        <Poster id="sidebarlogo" uri='pkg:/images/logo-icon120.png' translation="[35, 20]" width="50" height="50" />
         <MarkupList
             id="menu"
-            itemSize="[88,100]"
+            itemSize="[92,100]"
             itemComponentName="SidebarItem"
-            translation="[0,140]"
-            focusBitmapBlendColor="0xFFFFFF" />
+            translation="[0,100]"
+            focusBitmapBlendColor="0xFFFFFF"
+            vertFocusAnimationStyle="floatingFocus" />
+
 
         <Animation id="expandAnim" duration="0.20" easeFunction="outQuad">
-            <FloatFieldInterpolator key="[0,1]" keyValue="[88,300]" fieldToInterp="bg.width" />
-            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[0,140],[212,140]]" fieldToInterp="menu.translation" />
+            <FloatFieldInterpolator key="[0,1]" keyValue="[120,380]" fieldToInterp="bg.width" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[32,140],[32,140]]" fieldToInterp="menu.translation" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[165,20],[165,20]]" fieldToInterp="sidebarlogo.translation" />
         </Animation>
 
         <Animation id="collapseAnim" duration="0.20" easeFunction="outQuad">
-            <FloatFieldInterpolator key="[0,1]" keyValue="[300,88]" fieldToInterp="bg.width" />
-            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[212,140],[0,140]]" fieldToInterp="menu.translation" />
+            <FloatFieldInterpolator key="[0,1]" keyValue="[380,120]" fieldToInterp="bg.width" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[0,140],[0,140]]" fieldToInterp="menu.translation" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[35,20],[35,20]]" fieldToInterp="sidebarlogo.translation" />
         </Animation>
     </children>
 </component>

@@ -2,7 +2,6 @@
 <component name="JFOverhang" extends="Group">
   <children>
     <LayoutGroup id="overlayLeftGroup" layoutDirection="horiz" translation="[50, 54]" itemSpacings="30">
-      <Poster uri='pkg:/images/logo-icon120.png' translation="[0, 8]" width="50" height="50" />
       <ScrollingLabel id="overlayTitle" font="font:LargeSystemFont" vertAlign="center" height="64" maxWidth="1100" repeatCount="0" />
     </LayoutGroup>
 

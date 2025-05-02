@@ -42,27 +42,51 @@ end sub ' ← end of init()
 '===============================================================
 sub loadLibraries(libArray as object)
     if not isValid(libArray) then return
-    ' wipe any previous dynamic library buttons ----------
+
+    '── remove old dynamic buttons ───────────────────────────────
     for i = m.menu.content.getChildCount() - 1 to 0 step -1
         n = m.menu.content.getChild(i)
         if left(n.tag, 8) = "library:" then m.menu.content.removeChildIndex(i)
     end for
 
-    ' insert each library after index 0 (Home) -------------
+    '── insert each library after "Home" (index 0) ───────────────
     insertPos = 1
     for each lib in libArray
         n = createObject("roSGNode", "ContentNode")
         n.title = lib.name
-        n.hdposterurl = "pkg:/images/ic_library.png" ' ← SAME icon for all
+        n.hdposterurl = getLibraryIcon(lib) ' ← NEW helper
         n.tag = "library:" + lib.id
 
-        n.addField("showLabel", "boolean", m.top.isOpen) ' ← NEW
-        n.showLabel = m.top.isOpen ' ← NEW
+        n.addField("showLabel", "boolean", m.top.isOpen)
+        n.showLabel = m.top.isOpen
 
         m.menu.content.insertChild(n, insertPos)
         insertPos = insertPos + 1
     end for
 end sub
+
+function getLibraryIcon(lib as object) as string
+    typ = ""
+    if isValid(lib.collectionType) then typ = lib.collectionType
+    if isValid(lib.json) and isValid(lib.json.CollectionType)
+        typ = lib.json.CollectionType
+    end if
+    typ = lcase(typ)
+
+    if typ = "movies"
+        return "pkg:/images/media_type_icons/movie.png"
+    else if typ = "tvshows" or typ = "series"
+        return "pkg:/images/media_type_icons/tv.png"
+    else if typ = "music"
+        return "pkg:/images/media_type_icons/music_white.png"
+    else if typ = "photos" or typ = "photofolder" or typ = "pictures"
+        return "pkg:/images/media_type_icons/photofolder.png"
+    else if typ = "livetv" or typ = "live" or typ = "channels"
+        return "pkg:/images/media_type_icons/live_tv_white.png"
+    else
+        return "pkg:/images/ic_library.png"
+    end if
+end function
 
 sub isOpenChanged()
     isOpen = m.top.isOpen
@@ -74,13 +98,13 @@ sub isOpenChanged()
     end for
 
     if isOpen
-        m.menu.itemSize = [300, 100]
+        m.menu.itemSize = [316, 100]
         m.expandAnim.control = "start"
-        sceneContent.translation = [300, 0]
+        sceneContent.translation = [260, 0]
     else
-        m.menu.itemSize = [88, 100]
+        m.menu.itemSize = [92, 100]
         m.collapseAnim.control = "start"
-        sceneContent.translation = [88, 0]
+        sceneContent.translation = [0, 0]
     end if
 end sub
 
