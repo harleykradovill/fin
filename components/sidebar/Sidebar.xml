@@ -15,19 +15,18 @@
             itemSize="[92,100]"
             itemComponentName="SidebarItem"
             translation="[0,100]"
-            focusBitmapBlendColor="0xFFFFFF"
+            focusBitmapBlendColor="#5E5E5E"
             vertFocusAnimationStyle="floatingFocus" />
-
 
         <Animation id="expandAnim" duration="0.20" easeFunction="outQuad">
             <FloatFieldInterpolator key="[0,1]" keyValue="[120,380]" fieldToInterp="bg.width" />
-            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[32,140],[32,140]]" fieldToInterp="menu.translation" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[32,100],[32,100]]" fieldToInterp="menu.translation" />
             <Vector2DFieldInterpolator key="[0,1]" keyValue="[[165,20],[165,20]]" fieldToInterp="sidebarlogo.translation" />
         </Animation>
 
         <Animation id="collapseAnim" duration="0.20" easeFunction="outQuad">
             <FloatFieldInterpolator key="[0,1]" keyValue="[380,120]" fieldToInterp="bg.width" />
-            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[0,140],[0,140]]" fieldToInterp="menu.translation" />
+            <Vector2DFieldInterpolator key="[0,1]" keyValue="[[0,100],[0,100]]" fieldToInterp="menu.translation" />
             <Vector2DFieldInterpolator key="[0,1]" keyValue="[[35,20],[35,20]]" fieldToInterp="sidebarlogo.translation" />
         </Animation>
     </children>

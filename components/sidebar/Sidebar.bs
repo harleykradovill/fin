@@ -7,54 +7,41 @@ sub init()
     m.expandAnim = m.top.findNode("expandAnim")
     m.collapseAnim = m.top.findNode("collapseAnim")
 
-    'menuRoot = createObject("roSGNode", "ContentNode")
-
+    m.menu.observeField("itemSelected", "itemActivated")
     staticRoot = createObject("roSGNode", "ContentNode")
 
     homeNode = createObject("roSGNode", "ContentNode")
     homeNode.title = "Home"
     homeNode.hdposterurl = "pkg:/images/ic_home.png"
     homeNode.tag = "home"
-    homeNode.addField("showLabel", "boolean", m.top.isOpen) ' ← NEW
-    homeNode.showLabel = m.top.isOpen ' ← NEW
+    homeNode.addField("showLabel", "boolean", m.top.isOpen)
+    homeNode.showLabel = m.top.isOpen
     staticRoot.appendChild(homeNode)
 
     settingsNode = createObject("roSGNode", "ContentNode")
     settingsNode.title = "Settings"
     settingsNode.hdposterurl = "pkg:/images/ic_settings.png"
     settingsNode.tag = "settings"
-    settingsNode.addField("showLabel", "boolean", m.top.isOpen) ' ← NEW
-    settingsNode.showLabel = m.top.isOpen ' ← NEW
+    settingsNode.addField("showLabel", "boolean", m.top.isOpen)
+    settingsNode.showLabel = m.top.isOpen
     staticRoot.appendChild(settingsNode)
 
     m.menu.content = staticRoot
+end sub
 
-    '----------------------------------------------------------------
-    ' 2)  later, HomeRows will call loadLibraries(libArray) to insert
-    '     one node per library, right after "Home"
-    '----------------------------------------------------------------
-end sub ' ← end of init()
-
-
-
-'===============================================================
-'  Public function: add one sidebar item for each library
-'===============================================================
 sub loadLibraries(libArray as object)
     if not isValid(libArray) then return
 
-    '── remove old dynamic buttons ───────────────────────────────
     for i = m.menu.content.getChildCount() - 1 to 0 step -1
         n = m.menu.content.getChild(i)
         if left(n.tag, 8) = "library:" then m.menu.content.removeChildIndex(i)
     end for
 
-    '── insert each library after "Home" (index 0) ───────────────
     insertPos = 1
     for each lib in libArray
         n = createObject("roSGNode", "ContentNode")
         n.title = lib.name
-        n.hdposterurl = getLibraryIcon(lib) ' ← NEW helper
+        n.hdposterurl = getLibraryIcon(lib)
         n.tag = "library:" + lib.id
 
         n.addField("showLabel", "boolean", m.top.isOpen)
@@ -111,7 +98,7 @@ end sub
 function onKeyEvent(key as string, press as boolean) as boolean
     if not press then return false
 
-    if key = KeyCode.RIGHT
+    if key = KeyCode.RIGHT or key = KeyCode.BACK
         m.top.isOpen = false
 
         if isValid(m.top.previousFocus)
@@ -127,9 +114,22 @@ end function
 
 sub itemActivated()
     idx = m.menu.itemSelected
+
+    if idx = 0
+        hr = m.top.getScene().findNode("homeRows")
+        if isValid(hr) then hr.setFocus(true)
+    end if
+
     if idx >= 0
         node = m.menu.content.getChild(idx)
+
         m.top.selectedItem = node.tag
+
+        if left(node.tag, 8) = "library:"
+            hr = m.top.getScene().findNode("homeRows")
+            if isValid(hr) then hr.selectedItem = node
+        end if
     end if
+
     m.top.isOpen = false
 end sub
