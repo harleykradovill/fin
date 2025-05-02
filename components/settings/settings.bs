@@ -74,13 +74,6 @@ sub LoadMenu(configSection)
     else
         settingsArray = []
         for each item in configSection.children
-            if isValid(item.visible)
-                if not item.visible
-                    if not m.showSecretMenu
-                        continue for
-                    end if
-                end if
-            end if
             settingsArray.push(item)
         end for
 

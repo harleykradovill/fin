@@ -1,11 +1,5 @@
 [
     {
-        "title": "Secret",
-        "description": "Settings that are not for public consumption. There's nothing to see here at the moment.",
-        "visible": false,
-        "children": []
-    },
-    {
         "title": "Global",
         "description": "Global settings that affect everyone that uses this Roku device.",
         "children": [

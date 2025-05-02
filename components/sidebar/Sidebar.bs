@@ -114,23 +114,32 @@ end function
 
 sub itemActivated()
     idx = m.menu.itemSelected
-    hr = m.top.getScene().findNode("homeRows")
+    if idx < 0 then return
 
-    if idx = 0 and isValid(hr) and hr.visible
+    node = m.menu.content.getChild(idx)
+    tag = node.tag
+
+    if tag = "home"
+        sm = m.global.sceneManager
+        if isValid(sm)
+            while true
+                cur = sm.callFunc("getActiveScene")
+                if not isValid(cur) then exit while
+                if cur.isSubType("Home") then exit while
+                sm.callFunc("popScene")
+            end while
+        end if
+
         hr = m.top.getScene().findNode("homeRows")
         if isValid(hr) then hr.setFocus(true)
     end if
 
-    if idx >= 0
-        node = m.menu.content.getChild(idx)
-
-        m.top.selectedItem = node.tag
-
-        if left(node.tag, 8) = "library:"
-            hr = m.top.getScene().findNode("homeRows")
-            if isValid(hr) then hr.selectedItem = node
-        end if
+    if left(tag, 8) = "library:"
+        hr = m.top.getScene().findNode("homeRows")
+        if isValid(hr) then hr.selectedItem = node
     end if
+
+    m.top.selectedItem = tag
 
     m.top.isOpen = false
 end sub

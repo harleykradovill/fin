@@ -20,8 +20,8 @@
 
     <Poster translation="[710, 230]" id="testRectangle" width="1110" height="800" uri="pkg:/images/white.9.png" />
 
-    <Label id="settingDesc" translation="[730, 270]" width="1065" wrap="true" horizAlign="left">
-      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
+    <Label id="settingDesc" translation="[160, 1025]" width="1700" wrap="true" color="#808080" horizAlign="left">
+      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
     </Label>
 
     <RadioButtonList id="radioSetting" numRows="6" vertFocusAnimationStyle="floatingFocus" translation="[1034, 510]" />
