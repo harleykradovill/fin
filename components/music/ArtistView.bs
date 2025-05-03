@@ -43,7 +43,6 @@ sub init()
 
     m.sectionScroller = m.top.findNode("sectionScroller")
     m.sectionScroller.observeField("displayedIndex", "onSectionScrollerChange")
-    m.overhang = m.top.getScene().findNode("overhang")
 
     ' Load background image
     m.LoadBackdropImageTask = CreateObject("roSGNode", "LoadItemsTask")
@@ -89,7 +88,6 @@ sub onAppearsOnData()
 end sub
 
 sub onSectionScrollerChange()
-    m.overhang.isVisible = (m.sectionScroller.displayedIndex = 0)
 end sub
 
 sub OnScreenShown()
@@ -99,22 +97,12 @@ sub OnScreenShown()
         m.previouslySelectedButtonIndex = m.top.selectedButtonIndex
         m.top.selectedButtonIndex = 0
         m.buttonGrp.setFocus(true)
-    else
-        m.overhang.opacity = "0"
-        m.overhang.isVisible = false
-        m.overhang.opacity = "1"
     end if
 
     stopLoadingSpinner()
 end sub
 
 sub OnScreenHidden()
-    if not m.overhang.isVisible
-        m.overhang.disableMoveAnimation = true
-        m.overhang.isVisible = true
-        m.overhang.disableMoveAnimation = false
-        m.overhang.opacity = "1"
-    end if
 end sub
 
 sub onAlbumsEscape()

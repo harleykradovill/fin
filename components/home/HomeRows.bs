@@ -8,11 +8,6 @@ const LOADING_WAIT_TIME = 2
 sub init()
     m.scene = m.top.getScene()
 
-    m.overhang = m.scene.findNode("overhang")
-    if isValid(m.overhang)
-        m.overhang.isVisible = true
-    end if
-
     ' Hide the row counter to prevent flicker. We'll show it once loading timer fires
     m.top.showRowCounter = [false]
 
@@ -843,19 +838,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
             end if
             return true
         end if
-
-        if key = KeyCode.UP
-            if m.top.rowItemFocused[0] = 0
-                m.overhang.callFunc("highlightUser")
-                m.overhang.setfocus(true)
-
-                group = m.global.sceneManager.callFunc("getActiveScene")
-                group.lastFocus = m.overhang
-
-                return true
-            end if
-        end if
-
     end if
 
     group = m.global.sceneManager.callFunc("getActiveScene")

@@ -152,6 +152,16 @@ function onKeyEvent(key as string, press as boolean) as boolean
     return false
 end function
 
+function CreateSearchPage()
+    ' Search + Results Page
+    group = CreateObject("roSGNode", "searchResults")
+    group.observeField("quickPlayNode", m.port)
+    options = group.findNode("searchRow")
+    options.observeField("itemSelected", m.port)
+
+    return group
+end function
+
 sub itemActivated()
     idx = m.menu.itemSelected
     if idx < 0 then return
@@ -172,6 +182,17 @@ sub itemActivated()
 
         hr = m.top.getScene().findNode("homeRows")
         if isValid(hr) then hr.setFocus(true)
+    end if
+
+    if tag = "search"
+        searchScene = CreateSearchPage()
+        m.global.sceneManager.callFunc("pushScene", searchScene)
+        keyNode = searchScene.findNode("SearchBox").findNode("search_Key")
+        if isValid(keyNode)
+            keyNode.setFocus(true)
+            searchScene.lastFocus = keyNode
+            keyNode.active = true
+        end if
     end if
 
     if left(tag, 8) = "library:"

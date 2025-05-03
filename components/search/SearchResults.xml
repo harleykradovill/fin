@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="searchResults" extends="JFGroup">
   <children>
-    <Rectangle width="1920" height="1080" color="#000000" opacity="0.75" />
-    <LayoutGroup layoutDirection="horiz" id="SearchAlphabox" translation="[70, 120]">
+    <Label translation="[160, 50]" font="font:SmallestBoldSystemFont" text="Search">
+      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="42" />
+    </Label>
+
+    <Label id="SearchHelpText" text="" translation="[160, 110]" color="#808080">
+      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
+    </Label>
+
+    <LayoutGroup layoutDirection="horiz" id="SearchAlphabox" translation="[160, 120]">
       <SearchBox id="SearchBox" visible="true" focusable="true" />
     </LayoutGroup>
-    <LayoutGroup layoutDirection="vert" id="searchResults" translation="[470, 150]">
-      <Label id="SearchHelpText" text="" />
+    <LayoutGroup layoutDirection="vert" id="searchResults" translation="[540, 133]">
       <SearchRow
         id="searchRow"
         itemComponentName="GridItemMedium"
         visible="true"
-        itemSize="[1350, 360]"
+        itemSize="[1200, 360]"
         rowItemSpacing="[ [40, 0] ]"
         itemSpacing="[0, 60]"
         numColumns="1"
@@ -25,6 +31,7 @@
     <OptionsSlider id="options" />
   </children>
   <interface>
+    <field id="showSidebar" type="boolean" value="true" />
     <field id="query" type="string" alwaysNotify="true" />
     <field id="selectedItem" type="node" alwaysNotify="true" />
     <field id="quickPlayNode" type="node" alwaysNotify="true" />

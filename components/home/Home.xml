@@ -9,7 +9,7 @@
       itemComponentName="HomeItem"
       numRows="3"
       rowLabelOffset="[[0,20]]"
-      translation="[172, 158]" />
+      translation="[172, 50]" />
     <OptionsSlider id="options" />
 
     <!--<Animation id="homeRowsSlideLeft" duration="0.2" easeFunction="outQuad">

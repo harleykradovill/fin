@@ -39,7 +39,6 @@ sub loadResults()
     stopLoadingSpinner()
     m.searchRow.itemData = m.searchTask.results
     m.searchRow.query = m.top.SearchAlpha
-    m.searchHelpText.visible = false
     if m.searchTask.results.TotalRecordCount = 0
         ' make sure focus is on the keyboard
         if m.searchRow.isinFocusChain()
@@ -50,7 +49,6 @@ sub loadResults()
         return
     end if
     m.searchAlphabox = m.top.findnode("searchResults")
-    m.searchAlphabox.translation = "[470, 85]"
 end sub
 
 function onKeyEvent(key as string, press as boolean) as boolean

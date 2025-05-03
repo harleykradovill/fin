@@ -44,9 +44,9 @@ sub pushScene(newGroup)
                 currentGroup.setFocus(false)
             end if
 
-            if currentGroup.isSubType("JFGroup")
-                unregisterOverhangData(currentGroup)
-            end if
+            'if currentGroup.isSubType("JFGroup")
+            '    unregisterOverhangData(currentGroup)
+            'end if
 
             currentGroup.visible = false
 
@@ -77,7 +77,7 @@ sub pushScene(newGroup)
 
         'observe info about new group, set overhang title, etc.
         if newGroup.isSubType("JFGroup")
-            registerOverhangData(newGroup)
+            'registerOverhangData(newGroup)
 
             ' Some groups set focus to a specific component within init(), so we don't want to
             ' change if that is the case.
@@ -96,9 +96,9 @@ end sub
 sub popScene()
     group = m.groups.pop()
     if isValid(group)
-        if group.isSubType("JFGroup")
-            unregisterOverhangData(group)
-        end if
+        'if group.isSubType("JFGroup")
+        '    unregisterOverhangData(group)
+        'end if
 
         group.visible = false
 
@@ -115,7 +115,7 @@ sub popScene()
     updateSidebarVisibility(group)
 
     if isValid(group)
-        registerOverhangData(group)
+        'registerOverhangData(group)
 
         ' If we are moving back to anything other than a movie detail view, reset preferred audio track index
         if not group.isSubType("MovieDetails")
@@ -219,83 +219,83 @@ end sub
 
 '
 ' Register observers for overhang data
-sub registerOverhangData(group)
-    if group.isSubType("SetServerScreen")
-        m.overhang.visible = false
-        return
-    end if
-
-    if group.isSubType("MovieDetails")
-        m.overhang.visible = false
-        return
-    end if
-
-    if group.isSubType("Home")
-        m.overhang.isVisible = true
-        return
-    end if
-
-    if group.isSubType("JFGroup")
-        if group.overhangTitle <> invalid then m.overhang.title = group.overhangTitle
-
-        if group.optionsAvailable
-            m.overhang.showOptions = true
-        else
-            m.overhang.showOptions = false
-        end if
-        group.observeField("optionsAvailable", "updateOptions")
-
-        group.observeField("overhangTitle", "updateOverhangTitle")
-
-        if group.overhangVisible
-            m.overhang.visible = true
-        else
-            m.overhang.visible = false
-        end if
-
-        group.observeField("overhangVisible", "updateOverhangVisible")
-    else
-        print `registerOverhangData(): Unexpected group type. ${group.subtype()}`
-    end if
-end sub
+'sub registerOverhangData(group)
+'    if group.isSubType("SetServerScreen")
+'        m.overhang.visible = false
+'        return
+'    end if
+'
+'    if group.isSubType("MovieDetails")
+'        m.overhang.visible = false
+'        return
+'    end if
+'
+'    if group.isSubType("Home")
+'        m.overhang.isVisible = true
+'        return
+'    end if
+'
+'    if group.isSubType("JFGroup")
+'        if group.overhangTitle <> invalid then m.overhang.title = group.overhangTitle
+'
+'        if group.optionsAvailable
+'            m.overhang.showOptions = true
+'        else
+'            m.overhang.showOptions = false
+'        end if
+'        group.observeField("optionsAvailable", "updateOptions")
+'
+'        group.observeField("overhangTitle", "updateOverhangTitle")
+'
+'        if group.overhangVisible
+'            m.overhang.visible = true
+'        else
+'            m.overhang.visible = false
+'        end if
+'
+'        group.observeField("overhangVisible", "updateOverhangVisible")
+'    else
+'        print `registerOverhangData(): Unexpected group type. ${group.subtype()}`
+'    end if
+'end sub
 
 '
 ' Remove observers for overhang data
-sub unregisterOverhangData(group)
-    group.unobserveField("overhangTitle")
-end sub
+'sub unregisterOverhangData(group)
+'    group.unobserveField("overhangTitle")
+'end sub
 
 '
 ' Update overhang title
-sub updateOverhangTitle(msg)
-    m.overhang.title = msg.getData()
-end sub
+'sub updateOverhangTitle(msg)
+'    m.overhang.title = msg.getData()
+'end sub
 
 '
 ' Update options availability
-sub updateOptions(msg)
-    m.overhang.showOptions = msg.getData()
-end sub
+'sub updateOptions(msg)
+'    m.overhang.showOptions = msg.getData()
+'end sub
 
 '
 ' Update whether the overhang is visible or not
-sub updateOverhangVisible(msg)
-    m.overhang.visible = msg.getData()
-end sub
+'sub updateOverhangVisible(msg)
+'    m.overhang.visible = msg.getData()
+'end sub
 
 '
 ' Update username in overhang
-sub updateUser()
-    ' Passthrough to overhang
-    if m.overhang <> invalid then m.overhang.currentUser = m.top.currentUser
-end sub
+'sub updateUser()
+'    ' Passthrough to overhang
+'    if m.overhang <> invalid then m.overhang.currentUser = m.top.currentUser
+'end sub
 
 '
 ' Reset time
-sub resetTime()
-    ' Passthrough to overhang
-    m.overhang.callFunc("resetTime")
-end sub
+'sub resetTime()
+'    ' Passthrough to overhang
+'    m.overhang.callFunc("resetTime")
+'end sub
 
 '
 ' Display dialog to user with an OK button

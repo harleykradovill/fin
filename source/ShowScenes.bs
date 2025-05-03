@@ -906,16 +906,6 @@ function CreateBookLibraryView(libraryItem as object) as dynamic
     return group
 end function
 
-function CreateSearchPage()
-    ' Search + Results Page
-    group = CreateObject("roSGNode", "searchResults")
-    group.observeField("quickPlayNode", m.port)
-    options = group.findNode("searchRow")
-    options.observeField("itemSelected", m.port)
-
-    return group
-end function
-
 function CreatePersonView(personData as object) as dynamic
     ' validate personData node
     if not isValid(personData) or not isValid(personData.id) then return invalid

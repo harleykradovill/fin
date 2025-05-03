@@ -27,4 +27,13 @@ sub itemChanged()
         end if
     end if
 
+    if itm.tag = "search"
+        se = m.top.getScene().findNode("SearchBox")
+        if isValid(se) and se.visible
+            icon.blendColor = "#0096dc"
+        else
+            icon.blendColor = "#ffffff"
+        end if
+    end if
+
 end sub

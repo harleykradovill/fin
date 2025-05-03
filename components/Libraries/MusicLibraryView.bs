@@ -24,7 +24,6 @@ sub setupNodes()
     m.swapAnimation = m.top.findNode("backroundSwapAnimation")
     m.alpha = m.top.findNode("alpha")
     m.alphaMenu = m.alpha.findNode("alphaMenu")
-    m.overhang = m.top.getScene().findNode("overhang")
     m.genreList = m.top.findNode("genrelist")
     m.dropdownOptions = m.top.findNode("dropdownOptions")
 
@@ -66,8 +65,6 @@ sub init()
     m.itemGrid.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
     m.genrelist.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
     m.top.findNode("VoiceBoxCover").color = ColorPalette.VIEWBACKGROUND
-
-    m.overhang.isVisible = false
 
     ' adjust alpha menu mic icon since there is no overhang
     alphaMic = m.alpha.findNode("alphaMic")
@@ -210,16 +207,9 @@ sub onSortOrderChange()
 end sub
 
 sub OnScreenHidden()
-    if not m.overhang.isVisible
-        m.overhang.disableMoveAnimation = true
-        m.overhang.isVisible = true
-        m.overhang.disableMoveAnimation = false
-    end if
 end sub
 
 sub OnScreenShown()
-    m.overhang.isVisible = false
-
     if isValid(m.top.lastFocus)
         m.top.lastFocus.setFocus(true)
     else
