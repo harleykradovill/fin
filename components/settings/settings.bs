@@ -183,6 +183,9 @@ sub settingSelected()
             if (selectedItem.settingName) = "account.signOut"
                 m.top.getScene().signOutSelected = true
                 return
+            else if (selectedItem.settingName) = "account.changeServer"
+                m.top.getScene().changeServerSelected = true
+                return
             end if
         end if
     else if selectedItem.children <> invalid and selectedItem.children.Count() > 0 ' Show sub menu

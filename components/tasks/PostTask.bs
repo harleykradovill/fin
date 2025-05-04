@@ -17,6 +17,11 @@ sub postItems()
 
     if m.top.arrayData.count() > 0 and m.top.stringData = ""
         req = APIRequest(m.top.apiUrl)
+        if req = invalid or type(req) <> "roUrlTransfer"
+            print "PostTask: APIRequest failed – no valid server? url=" m.top.apiUrl
+            m.top.responseCode = 0
+            return
+        end if
         req.SetRequest("POST")
         httpResponse = asyncPost(req, FormatJson(m.top.arrayData))
         m.top.responseCode = httpResponse

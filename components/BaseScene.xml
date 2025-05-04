@@ -12,5 +12,6 @@
     <field id="exit" type="boolean" alwaysNotify="true" />
     <field id="jumpTo" type="assocarray" alwaysNotify="true" onChange="onJumpToChange" />
     <field id="signOutSelected" type="bool" alwaysNotify="true" />
+    <field id="changeServerSelected" type="bool" alwaysNotify="true" />
   </interface>
 </component>

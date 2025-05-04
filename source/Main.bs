@@ -82,6 +82,7 @@ sub Main (args as dynamic) as void
     onDeepLinkingEvent(args)
 
     m.scene.observeField("signOutSelected", m.port)
+    m.scene.observeField("changeServerSelected", m.port)
 
     while true
         msg = wait(0, m.port)
@@ -186,6 +187,17 @@ sub Main (args as dynamic) as void
             '        end if
             '        sceneManager.callFunc("settings")
             '    end if
+        else if isNodeEvent(msg, "changeServerSelected")
+            if m.scene.changeServerSelected
+                unset_setting("server")
+                session.server.Delete()
+
+                SignOut()
+
+                m.scene.changeServerSelected = false
+                sceneManager.callFunc("clearScenes")
+                goto app_start
+            end if
         else if isNodeEvent(msg, "signOutSelected")
             if m.scene.signOutSelected
                 SignOut()
