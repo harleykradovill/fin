@@ -45,6 +45,8 @@ sub init()
     m.keypressTimer = m.top.findNode("keypressTimer")
     m.keypressTimer.observeField("fire", "onKeypressTimerFire")
 
+    m.sceneManager = m.global.sceneManager
+
     ' Load Configuration Tree
     m.configTree = GetConfigTree()
     LoadMenu({ children: m.configTree })
@@ -152,6 +154,9 @@ sub settingFocused()
         m.radioSetting.content = radioContent
 
         m.radioSetting.visible = true
+
+    else if LCase(selectedSetting.type) = "action"
+        return
     else
         print `Unknown setting type ${selectedSetting.type}`
     end if
@@ -172,6 +177,13 @@ sub settingSelected()
         end if
         if (selectedItem.type) = "radio"
             m.radioSetting.setFocus(true)
+        end if
+
+        if (selectedItem.type) = "action"
+            if (selectedItem.settingName) = "account.signOut"
+                m.top.getScene().signOutSelected = true
+                return
+            end if
         end if
     else if selectedItem.children <> invalid and selectedItem.children.Count() > 0 ' Show sub menu
         LoadMenu(selectedItem)

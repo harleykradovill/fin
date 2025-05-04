@@ -586,7 +586,6 @@ function CreateHomeGroup()
         { "title": "Search", "id": "goto_search" },
         { "title": "Settings", "id": "settings" },
         { "title": "Change server", "id": "change_server" },
-        { "title": "Sign out", "id": "sign_out" }
     ]
     for each opt in options_buttons
         o = CreateObject("roSGNode", "OptionsButton")
