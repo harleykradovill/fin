@@ -164,21 +164,21 @@ sub onQuickPlayEvent(msg)
     end if
 end sub
 
-sub onCloseSidePanelEvent()
-    group = m.global.sceneManager.callFunc("getActiveScene")
-    if isValid(group.lastFocus)
-        group.lastFocus.setFocus(true)
-
-        if group.lastFocus.isSubType("JFOverhang")
-            group.lastFocus.callFunc("highlightUser")
-        end if
-
-        return
-    end if
-
-    group.setFocus(true)
-    group.lastFocus = group
-end sub
+'sub onCloseSidePanelEvent()
+'    group = m.global.sceneManager.callFunc("getActiveScene")
+'    if isValid(group.lastFocus)
+'        group.lastFocus.setFocus(true)
+'
+'        if group.lastFocus.isSubType("JFOverhang")
+'            group.lastFocus.callFunc("highlightUser")
+'        end if
+'
+'        return
+'    end if
+'
+'    group.setFocus(true)
+'    group.lastFocus = group
+'end sub
 
 sub onJumpToEvent(msg)
     jumpToData = msg.getData()

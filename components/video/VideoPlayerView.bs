@@ -922,7 +922,18 @@ function availSubtitleTrackIdx(tracknameToFind as string) as integer
 end function
 
 sub skipCurrentSegment()
-    m.top.seek = m.currentSegmentEndTicks / 10000000#
+    seekPosition = m.currentSegmentEndTicks / 10000000#
+
+    if seekPosition > (m.top.duration - 2)
+        if m.global.queueManager.callFunc("getPosition") < m.global.queueManager.callFunc("getCount") - 1
+            handleItemSkipAction("itemnext")
+            return
+        else
+            seekPosition = m.top.duration - 1
+        end if
+    end if
+
+    m.top.seek = seekPosition
 end sub
 
 function onKeyEvent(key as string, press as boolean) as boolean
