@@ -219,8 +219,8 @@ sub itemActivated()
         libId = mid(tag, 9)
         libNode = m.libraryMap.LookupCI(libId)
         if isValid(libNode)
-            print("libNode IS valid")
-            m.top.selectedItem = libNode
+            m.top.selectedLibrary = libNode
+            m.top.selectedLibrary = invalid
         else
             m.global.sceneManager.callFunc(
             "standardDialog", "Library not found",
