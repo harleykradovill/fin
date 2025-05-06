@@ -52,7 +52,7 @@ sub init()
     setupNodes()
     m.bypassSearchEvent = false
 
-    m.itemGrid.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
+    m.itemGrid.focusBitmapBlendColor = ColorPalette.WHITE
     m.genreList.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
     m.top.findNode("VoiceBoxCover").color = ColorPalette.VIEWBACKGROUND
 
@@ -61,8 +61,6 @@ sub init()
     alphaMic.translation = [60, 62]
     alphaMicText = m.alpha.findNode("alphaMicText")
     alphaMicText.visible = false
-
-    m.showItemCount = m.global.session.user.settings["itemgrid.showItemCount"]
 
     'm.swapAnimation.observeField("state", "swapDone")
     m.options.observeField("visible", "onOptionsVisibleChange")
@@ -211,7 +209,7 @@ sub loadInitialItems()
         end if
     end if
 
-    m.itemGrid.translation = "[155, 160]"
+    m.itemGrid.translation = "[180, 140]"
     m.emptyText.translation = "[0, 750]"
     m.itemGrid.itemSize = "[230, 345]"
     m.itemGrid.itemSpacing = "[20, 20]"

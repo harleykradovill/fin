@@ -9,7 +9,7 @@ import "pkg:/source/utils/config.bs"
 import "pkg:/source/utils/misc.bs"
 
 sub init()
-    m.top.getScene().findNode("overhang").visible = false
+    'm.top.getScene().findNode("overhang").visible = false
     currentItem = m.global.queueManager.callFunc("getCurrentItem")
     m.top.id = currentItem.id
 

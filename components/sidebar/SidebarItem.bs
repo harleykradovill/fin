@@ -1,5 +1,18 @@
 import "pkg:/source/utils/misc.bs"
 
+function GetSceneManager(node as object) as object
+    sc = node.getScene() 'node -> Scene
+    if sc = invalid then return invalid
+
+    scr = sc.getParent() 'Scene -> roSGScreen
+    if type(scr) <> "roSGScreen" then return invalid
+
+    g = scr.getGlobalNode() 'roSGScreen -> Global
+    if not g.DoesExist("sceneManager") then return invalid
+
+    return g.sceneManager
+end function
+
 sub itemChanged()
     itm = m.top.itemContent
     icon = m.top.findNode("icon")
@@ -16,24 +29,24 @@ sub itemChanged()
         else
             icon.blendColor = "#ffffff"
         end if
-    end if
 
-    if itm.tag = "settings"
+    else if itm.tag = "settings"
         st = m.top.getScene().findNode("settingsMenu")
         if isValid(st) and st.visible
             icon.blendColor = "#0096dc"
         else
             icon.blendColor = "#ffffff"
         end if
-    end if
 
-    if itm.tag = "search"
+    else if itm.tag = "search"
         se = m.top.getScene().findNode("SearchBox")
         if isValid(se) and se.visible
             icon.blendColor = "#0096dc"
         else
             icon.blendColor = "#ffffff"
         end if
+    else
+        icon.blendColor = "#ffffff"
     end if
 
 end sub

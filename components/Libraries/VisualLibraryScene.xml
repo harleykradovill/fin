@@ -4,7 +4,7 @@
     <VoiceTextEditBox id="VoiceBox" visible="true" width="40" translation="[52, 120]" />
     <Rectangle id="VoiceBoxCover" height="240" width="100" translation="[25, 75]" />
 
-    <LayoutGroup id="dropdownOptions" layoutDirection="horiz" translation="[155, 20]" itemSpacings="[15]">
+    <LayoutGroup id="dropdownOptions" layoutDirection="horiz" translation="[180, 20]" itemSpacings="[15]">
       <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
         <Label font="font:SmallSystemFont" text="Search">
           <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
@@ -90,9 +90,10 @@
     <Label translation="[0,540]" id="emptyText" font="font:LargeSystemFont" width="1910" horizAlign="center" vertAlign="center" height="64" visible="false" />
     <LibraryFilterDialog id="options" visible="false" />
 
-    <Alpha id="alpha" />
+    <Alpha id="alpha" translation="[80, 20]" />
   </children>
   <interface>
+    <field id="showSidebar" type="boolean" value="true" />
     <function name="getItemFocused" />
     <field id="mediaType" type="string" />
     <field id="parentItem" type="node" onChange="loadInitialItems" />
