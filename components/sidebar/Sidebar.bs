@@ -14,7 +14,7 @@ sub init()
 
     homeNode = createObject("roSGNode", "ContentNode")
     homeNode.title = "Home"
-    homeNode.hdposterurl = "pkg:/images/ic_home.png"
+    homeNode.hdposterurl = "pkg:/images/sidebar/home.png"
     homeNode.tag = "home"
     homeNode.addField("showLabel", "boolean", m.top.isOpen)
     homeNode.showLabel = m.top.isOpen
@@ -22,7 +22,7 @@ sub init()
 
     searchNode = createObject("roSGNode", "ContentNode")
     searchNode.title = "Search"
-    searchNode.hdposterurl = "pkg:/images/ic_search.png"
+    searchNode.hdposterurl = "pkg:/images/sidebar/search.png"
     searchNode.tag = "search"
     searchNode.addField("showLabel", "boolean", m.top.isOpen)
     searchNode.showLabel = m.top.isOpen
@@ -30,7 +30,7 @@ sub init()
 
     settingsNode = createObject("roSGNode", "ContentNode")
     settingsNode.title = "Settings"
-    settingsNode.hdposterurl = "pkg:/images/ic_settings.png"
+    settingsNode.hdposterurl = "pkg:/images/sidebar/settings.png"
     settingsNode.tag = "settings"
     settingsNode.addField("showLabel", "boolean", m.top.isOpen)
     settingsNode.showLabel = m.top.isOpen
@@ -86,17 +86,17 @@ function getLibraryIcon(lib as object) as string
     typ = lcase(typ)
 
     if typ = "movies"
-        return "pkg:/images/media_type_icons/movie.png"
+        return "pkg:/images/sidebar/movie.png"
     else if typ = "tvshows" or typ = "series"
-        return "pkg:/images/media_type_icons/tv.png"
+        return "pkg:/images/sidebar/tv.png"
     else if typ = "music"
-        return "pkg:/images/media_type_icons/music_white.png"
+        return "pkg:/images/sidebar/music_white.png"
     else if typ = "photos" or typ = "photofolder" or typ = "pictures"
-        return "pkg:/images/media_type_icons/photofolder.png"
+        return "pkg:/images/sidebar/photofolder.png"
     else if typ = "livetv" or typ = "live" or typ = "channels"
-        return "pkg:/images/media_type_icons/live_tv_white.png"
+        return "pkg:/images/sidebar/live_tv_white.png"
     else
-        return "pkg:/images/ic_library.png"
+        return "pkg:/images/sidebar/library.png"
     end if
 end function
 
