@@ -10,25 +10,15 @@
         wrap="false"
         visible="true"
         size="70"
-        bold="true">
-      </Text>
+        bold="true" />
 
       <LayoutGroup id="infoGroup" layoutDirection="horiz" horizAlignment="left" itemSpacings="[20]">
-        <Label id="releaseYear">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-        </Label>
-        <Label id="genres">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-        </Label>
-        <Label id="officialRating">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-        </Label>
-        <Label id="runtime">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-        </Label>
-        <Label id="ends-at">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-        </Label>
+        <Text id="releaseYear" size="22" />
+        <Text id="genres" size="22" />
+        <Text id="officialRating" size="22" />
+        <Text id="runtime" size="22" />
+        <Text id="ends-at" size="22" />
+
 
         <LayoutGroup id="communityRatingGroup" layoutDirection="horiz" itemSpacings="[-5]">
           <Poster id="star" uri="pkg:/images/sharp_star_white_18dp.png" height="32" width="32" blendColor="#cb272a" />
@@ -43,29 +33,20 @@
 
       <LayoutGroup id="infoGroup" layoutDirection="horiz" horizAlignment="left" itemSpacings="[50]">
         <LayoutGroup layoutDirection="vert" itemSpacings="[30]">
-          <Label id="overview" wrap="true" maxLines="8" width="1000">
-            <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="26" />
-          </Label>
-          <Label id="director" font="font:SmallestSystemFont" color="#aaaaaa">
-            <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-          </Label>
+          <Text id="overview" wrap="true" maxLines="8" width="1000" size="26" />
+          <Text id="director" font="font:SmallestSystemFont" color="#aaaaaa" size="22" />
+
 
           <LayoutGroup layoutDirection="vert" itemSpacings="[0]">
             <LayoutGroup layoutDirection="horiz" horizAlignment="left">
-              <ScrollingLabel id="video_codec" vertAlign="bottom" height="39" maxwidth="990" color="#aaaaaa">
-                <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-              </ScrollingLabel>
-              <Label id="video_codec_count" vertAlign="top" color="#aaaaaa">
-                <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-              </Label>
+              <ScrollingText id="video_codec" vertAlign="bottom" height="39" maxwidth="990" color="#aaaaaa" size="22" />
+              <Text id="video_codec_count" vertAlign="top" color="#aaaaaa" size="22" />
+
             </LayoutGroup>
             <LayoutGroup layoutDirection="horiz" horizAlignment="left">
-              <ScrollingLabel id="audio_codec" vertAlign="bottom" height="39" maxwidth="990" color="#aaaaaa">
-                <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-              </ScrollingLabel>
-              <Label id="audio_codec_count" vertAlign="top" color="#aaaaaa">
-                <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="22" />
-              </Label>
+              <ScrollingText id="audio_codec" vertAlign="bottom" height="39" maxwidth="990" color="#aaaaaa" size="22" />
+              <Text id="audio_codec_count" vertAlign="top" color="#aaaaaa" size="22" />
+
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>

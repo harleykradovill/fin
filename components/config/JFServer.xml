@@ -10,19 +10,11 @@
     <Rectangle id="background" translation="[0,0]" width="1620" height="100" />
 
     <Group id="labels" translation="[20,0]">
-      <Label text="Name:" horizAlign="left" width="130" height="65" translation="[0,6]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
-      </Label>
-      <Label text="URL:" horizAlign="left" width="130" height="65" translation="[0,48]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
-      </Label>
+      <Text text="Name:" horizAlign="left" width="130" height="65" translation="[0,6]" size="32" />
+      <Text text="URL:" horizAlign="left" width="130" height="65" translation="[0,48]" size="32" />
 
-      <Label id="name" horizAlign="left" height="65" translation="[145,6]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
-      </Label>
-      <Label id="baseUrl" horizAlign="left" height="65" translation="[145,48]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
-      </Label>
+      <Text id="name" horizAlign="left" height="65" translation="[145,6]" size="32" />
+      <Text id="baseUrl" horizAlign="left" height="65" translation="[145,48]" size="32" />
     </Group>
 
     <Rectangle id="trashContainer" translation="[1480,0]" width="100" height="100">

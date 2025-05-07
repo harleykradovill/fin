@@ -21,14 +21,13 @@
     </Rectangle>
 
     <Rectangle id="viewContent" translation="[0, 0]">
-      <Label
+      <Text
         text="Select a User"
         horizAlign="center"
         height="100"
         width="1920"
-        translation="[0, 150]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Semibold.ttf" size="48" />
-      </Label>
+        translation="[0, 150]"
+        size="48" />
 
       <UserRow id="userRow" rowFocusAnimationStyle="fixedFocusWrap" translation="[130, 325]" />
 

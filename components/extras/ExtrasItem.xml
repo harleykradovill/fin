@@ -6,25 +6,25 @@
         <Poster id="posterImg" width="156" height="156" loadDisplayMode="scaleToZoom" failedBitmapUri="pkg:/images/baseline_person_white_48dp.png" />
       </MaskGroup>
 
-      <ScrollingLabel
+      <ScrollingText
         id="pLabel"
         horizAlign="center"
         vertAlign="center"
         height="32"
         repeatCount="0"
-        maxWidth="156">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="18" />
-      </ScrollingLabel>
-      <ScrollingLabel
+        maxWidth="156"
+        size="18" />
+
+      <ScrollingText
         id="SubTitle"
         horizAlign="center"
         vertAlign="center"
         height="32"
         color="#777777FF"
         repeatCount="0"
-        maxWidth="156">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="18" />
-      </ScrollingLabel>
+        maxWidth="156"
+        size="18" />
+
     </LayoutGroup>
   </children>
   <interface>

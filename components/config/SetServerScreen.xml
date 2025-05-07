@@ -2,14 +2,13 @@
 <component name="SetServerScreen" extends="JFScreen">
   <children>
     <LayoutGroup layoutDirection="vert" translation="[960,130]" horizAlignment="center" vertAlignment="top" itemSpacings="40">
-      <Label
+      <Text
         text="Select a Server to Continue"
         id="prompt"
         width="1620"
         horizAlign="left"
-        translation="[-810,0]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Semibold.ttf" size="42" />
-      </Label>
+        translation="[-810,0]"
+        size="42" />
 
       <Rectangle id="serverPickerContainer" width="1620" height="400">
         <MarkupList
@@ -23,16 +22,14 @@
           vertFocusAnimationStyle="floatingFocus" />
       </Rectangle>
 
-      <Label text="If no server is listed above, you may also enter the server URL manually:" translation="[0, 690]">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
-      </Label>
+      <Text text="If no server is listed above, you may also enter the server URL manually:" translation="[0, 690]" size="32" />
 
       <Rectangle id="serverUrlContainer" width='1620' height='400'>
         <TextEditBox id="serverUrlTextbox" hintTextColor="#8f8f8f" textColor="#ffffff" hintText="e.g. 192.168.1.100:8096 or https://example.com/jellyfin" />
         <Poster id="serverUrlOutline" visible="false" uri="pkg:/images/fhd_focus_old.9.png" />
       </Rectangle>
 
-      <Label id="errorMessage" text="" font="font:MediumSystemFont" color="#ff0000FF" />
+      <Text id="errorMessage" text="" color="#bf0000" />
 
       <LayoutGroup horizAlignment="center">
         <StandardButton id="submit" text="Submit" height="85" width="250" />

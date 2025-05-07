@@ -6,9 +6,8 @@
 
     <LayoutGroup id="dropdownOptions" layoutDirection="horiz" translation="[180, 20]" itemSpacings="[15]">
       <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
-        <Label font="font:SmallSystemFont" text="Search">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
-        </Label>
+        <Text text="Search" size="24" />
+
         <TextButton
           id="searchButton"
           fontSize="28"
@@ -18,11 +17,11 @@
           text=""
           height="65"
           width="335" />
+
       </LayoutGroup>
       <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
-        <Label id="sortLabel" font="font:SmallSystemFont" text="Sort By">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
-        </Label>
+        <Text id="sortLabel" font="font:SmallSystemFont" text="Sort By" size="24" />
+
         <TextButton
           id="sortButton"
           iconSide="right"
@@ -35,9 +34,8 @@
           width="335" />
       </LayoutGroup>
       <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
-        <Label id="sortOrderLabel" font="font:SmallSystemFont" text="Sort Order">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
-        </Label>
+        <Text id="sortOrderLabel" font="font:SmallSystemFont" text="Sort Order" size="24" />
+
         <TextButton
           id="sortOrderButton"
           iconSide="right"
@@ -50,9 +48,8 @@
           width="335" />
       </LayoutGroup>
       <LayoutGroup layoutDirection="vert" itemSpacings="[5]">
-        <Label id="filterLabel" font="font:SmallSystemFont" text="Filter">
-          <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="24" />
-        </Label>
+        <Text id="filterLabel" font="font:SmallSystemFont" text="Filter" size="24" />
+
         <TextButton
           id="filterButton"
           iconSide="right"

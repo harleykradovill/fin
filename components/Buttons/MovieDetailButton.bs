@@ -29,12 +29,6 @@ sub itemContentChanged()
     m.padding = itemData.padding
     m.iconSide = itemData.iconSide
 
-    m.fontr = CreateObject("roSGNode", "Font")
-    m.fontr.uri = "pkg:/images/fonts/NotoSans-Regular.ttf"
-    m.fontr.size = 32
-    m.buttonText.font = m.fontr
-
-
     setIconSize()
 
     m.top.focus = itemData.focus

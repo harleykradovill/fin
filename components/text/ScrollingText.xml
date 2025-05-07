@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="ScrollingText" extends="ScrollingLabel">
+    <interface>
+        <field id="text" type="string" />
+        <field id="color" type="color" />
+        <field id="maxWidth" type="float" />
+        <field id="height" type="float" />
+        <field id="scrollSpeed" type="float" />
+        <field id="repeatCount" type="float" />
+        <field id="horizAlign" type="string" />
+        <field id="vertAlign" type="string" />
+
+        <field id="size" type="float"
+            onChange="updateFont" alwaysNotify="true" />
+        <field id="bold" type="boolean"
+            onChange="updateFont" alwaysNotify="true" />
+    </interface>
+</component>

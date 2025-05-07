@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="SigninScene" extends="JFScreen">
   <children>
-    <Label
+    <Text
       text="Sign In"
       horizAlign="center"
       height="100"
       width="1920"
-      translation="[0, 100]">
-      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="48" />
-    </Label>
+      translation="[0, 100]"
+      size="48" />
 
     <Poster uri="pkg:/images/icons/circle.png" id="overlayCurrentUserProfileImage" width="256" height="256" loadDisplayMode="scaleToZoom" translation="[832, 190]" />
 
     <Rectangle id="errorContainer" visible="false" width="600" height="60" translation="[660, 386]">
-      <Label id="errorMessage" text="" wrap="true" width="600" font="font:MediumSystemFont" horizAlign="center" translation="[10, 15]" />
+      <Text id="errorMessage" text="" wrap="true" width="600" horizAlign="center" translation="[10, 15]" />
     </Rectangle>
 
     <Rectangle id="signInFormContainer" color="0x15161700" width="870" height="280" translation="[525, 466]">
