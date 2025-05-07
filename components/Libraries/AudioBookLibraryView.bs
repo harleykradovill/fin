@@ -7,9 +7,6 @@ import "pkg:/source/utils/misc.bs"
 sub init()
     m.top.showItemTitles = m.global.session.user.settings["itemgrid.gridTitles"]
 
-    overhang = m.top.getScene().findNode("overhang")
-    overhang.isVisible = false
-
     m.options = m.top.findNode("options")
 
     m.showItemCount = m.global.session.user.settings["itemgrid.showItemCount"]
@@ -441,34 +438,4 @@ function onKeyEvent(key as string, press as boolean) as boolean
 end function
 
 sub updateTitle()
-    m.top.overhangTitle = m.top.parentItem.title
-
-    if m.filter = "Favorites"
-        m.top.overhangTitle = m.top.parentItem.title + " " + tr("(Favorites)")
-    end if
-
-    if m.view = "music-artist"
-        m.top.overhangTitle = "%s (%s)".Format(m.top.parentItem.title, tr("Artists"))
-    else if m.view = "music-album"
-        m.top.overhangTitle = "%s (%s)".Format(m.top.parentItem.title, tr("Albums"))
-    end if
-
-    if m.options.view = "Networks" or m.view = "Networks"
-        m.top.overhangTitle = "%s (%s)".Format(m.top.parentItem.title, tr("Networks"))
-    end if
-
-    if m.options.view = "Studios" or m.view = "Studios"
-        m.top.overhangTitle = "%s (%s)".Format(m.top.parentItem.title, tr("Studios"))
-    end if
-
-    if m.options.view = "Genres" or m.view = "Genres"
-        m.top.overhangTitle = "%s (%s)".Format(m.top.parentItem.title, tr("Genres"))
-    end if
-
-    actInt = m.itemGrid.itemFocused + 1
-
-    if m.showItemCount and m.loadItemsTask.totalRecordCount > 0 and m.options.view <> "Genres" and m.view <> "Genres"
-        m.top.overhangTitle += " (" + tr("%1 of %2").Replace("%1", actInt.toStr()).Replace("%2", m.loadItemsTask.totalRecordCount.toStr()) + ")"
-    end if
-
 end sub

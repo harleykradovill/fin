@@ -34,9 +34,6 @@ sub itemContentChanged()
 
     m.top.findNode("tvshowPoster").uri = m.top.itemContent.posterURL
 
-    ' Handle all "As Is" fields
-    m.top.overhangTitle = itemData.name
-
     'Check production year, if invalid remove label
     if isValid(itemData.productionYear)
         setFieldText("releaseYear", itemData.productionYear)

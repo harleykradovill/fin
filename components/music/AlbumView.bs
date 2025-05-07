@@ -55,19 +55,19 @@ end sub
 
 ' Set screen's title text
 sub setScreenTitle(json)
-    newTitle = ""
-    if isValid(json)
-        if isValid(json.AlbumArtist)
-            newTitle = json.AlbumArtist
-        end if
-        if isValid(json.AlbumArtist) and isValid(json.name)
-            newTitle = newTitle + " / "
-        end if
-        if isValid(json.name)
-            newTitle = newTitle + json.name
-        end if
-    end if
-    m.top.overhangTitle = newTitle
+    'newTitle = ""
+    'if isValid(json)
+    '    if isValid(json.AlbumArtist)
+    '        newTitle = json.AlbumArtist
+    '    end if
+    '    if isValid(json.AlbumArtist) and isValid(json.name)
+    '        newTitle = newTitle + " / "
+    '    end if
+    '    if isValid(json.name)
+    '        newTitle = newTitle + json.name
+    '    end if
+    'end if
+    'm.top.overhagTitle = newTitle
 end sub
 
 ' Adjust scene by removing overview node and showing more songs

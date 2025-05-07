@@ -10,7 +10,6 @@ import "pkg:/source/utils/misc.bs"
 
 sub init()
     m.isFirstRun = true
-    m.top.overhangTitle = ""
     m.top.optionsAvailable = false
     m.postTask = createObject("roSGNode", "PostTask")
 
@@ -73,7 +72,6 @@ end sub
 ' JFScreen hook called when the screen is displayed by the screen manager
 sub OnScreenShown()
     scene = m.top.getScene()
-    overhang = scene.findNode("overhang")
     sb = scene.findNode("sidebar")
 
     if isValid(sb)
@@ -81,17 +79,7 @@ sub OnScreenShown()
         sb.currentUser = m.global.session.user.name
     end if
 
-    'if isValid(overhang)
-    '    overhang.visible = true
-    '    overhang.title = ""
-    '    overhang.currentUserProfileImage = UserImageURL(m.global.session.user.id)
-    '    overhang.currentUser = m.global.session.user.name
-    'end if
-
     if isValid(m.top.lastFocus)
-        if LCase(m.top.lastFocus.id) = "overhang"
-            overhang.callFunc("highlightUser")
-        end if
         m.top.lastFocus.setFocus(true)
     else
         m.top.setFocus(true)
@@ -115,13 +103,6 @@ end sub
 
 ' JFScreen hook called when the screen is hidden by the screen manager
 sub OnScreenHidden()
-    scene = m.top.getScene()
-    overhang = scene.findNode("overhang")
-    if isValid(overhang)
-        overhang.callFunc("dehighlightUser")
-        overhang.currentUser = ""
-        overhang.title = ""
-    end if
 end sub
 
 ' Triggered by m.postTask after completing a post.

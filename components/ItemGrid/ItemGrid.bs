@@ -14,9 +14,6 @@ import "pkg:/source/utils/misc.bs"
 sub init()
     m.top.findNode("VoiceBoxCover").color = ColorPalette.VIEWBACKGROUND
 
-    overhang = m.top.getScene().findNode("overhang")
-    overhang.isVisible = false
-
     ' adjust alpha menu mic icon since there is no overhang
     m.alpha = m.top.findNode("alpha")
     alphaMic = m.alpha.findNode("alphaMic")

@@ -28,11 +28,6 @@ sub Main (args as dynamic) as void
     sceneManager = CreateObject("roSGNode", "SceneManager")
     sceneManager.observeField("dataReturned", m.port)
 
-    overhang = m.scene.findNode("overhang")
-    if isValid(overhang)
-        overhang.observeField("changeUserSelected", m.port)
-    end if
-
     m.global.addFields({ app_loaded: false, playstateTask: playstateTask, sceneManager: sceneManager })
     m.global.addFields({ queueManager: CreateObject("roSGNode", "QueueManager") })
     m.global.addFields({ audioPlayer: CreateObject("roSGNode", "AudioPlayer") })
