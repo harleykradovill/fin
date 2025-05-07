@@ -16,10 +16,10 @@ It is **not affiliated with the Jellyfin project**.
 Screenshots below may be outdated. Last screenshots taken: **2025-05-06**
 
 <p align="center">
-  <img src="screenshots/1.png" alt="Screenshot 1" width="600" />
+  <img src="screenshots/1.jpg" alt="Screenshot 1" width="600" />
 </p>
 <p align="center">
-  <img src="screenshots/2.png" alt="Screenshot 2" width="600" />
+  <img src="screenshots/2.jpg" alt="Screenshot 2" width="600" />
 </p>
 
 ## License
