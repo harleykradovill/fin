@@ -13,14 +13,14 @@ sub itemContentChanged()
     m.buttonText.font.size = itemData.fontSize
     m.buttonBackground.blendColor = ColorPalette.TRANSPARENT
     m.buttonIcon.uri = itemData.icon
-    m.buttonIcon.blendcolor = itemData.iconBlendColor
+    m.buttonIcon.blendcolor = ColorPalette.WHITE
     m.buttonText.text = itemData.text
     m.buttonBackground.height = itemData.height
     m.buttonBackground.width = itemData.width
 
-    m.focusTextColor = ColorPalette.WHITE
+    m.focusTextColor = ColorPalette.BLACK
     m.textColor = ColorPalette.WHITE
-    m.focusBackground = ColorPalette.HIGHLIGHT
+    m.focusBackground = ColorPalette.WHITE
     m.focusIcon = itemData.focusIcon
     m.icon = itemData.icon
     m.background = ColorPalette.TRANSPARENT
@@ -45,10 +45,14 @@ end sub
 sub onFocusChanged()
     if m.top.focus
         m.buttonText.color = m.focusTextColor
+        m.buttonBackground.blendColor = m.focusBackground
+        m.buttonIcon.blendcolor = ColorPalette.BLACK
         m.buttonIcon.uri = m.focusIcon <> "" ? m.focusIcon : m.icon
     else
         m.buttonText.color = m.textColor
         m.buttonIcon.uri = m.icon
+        m.buttonIcon.blendcolor = ColorPalette.WHITE
+        m.buttonBackground.blendColor = m.background
     end if
 end sub
 
@@ -68,14 +72,14 @@ sub setIconSize()
         ' Set icon position
         if LCase(m.iconSide) = "right"
             m.buttonIcon.translation = [width - m.padding - iconSize, (height - iconSize) / 2]
-            m.buttonText.translation = [m.padding, 0] ' ✅ Only set X
+            m.buttonText.translation = [m.padding, 0]
         else
             m.buttonIcon.translation = [m.padding, (height - iconSize) / 2]
-            m.buttonText.translation = [m.padding + iconSize + 20, 0] ' ✅ Only set X
+            m.buttonText.translation = [m.padding + iconSize + 20, 0]
         end if
 
         ' Set text layout
-        m.buttonText.height = height ' ✅ Enables vertAlign
+        m.buttonText.height = height
         m.buttonText.maxWidth = width - m.padding - iconSize - 40
     end if
 end sub
