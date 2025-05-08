@@ -184,11 +184,18 @@ sub settingFocused()
                 end if
             end if
 
-
             m.serverInfo.visible = true
         end if
 
         if LCase(selectedSetting.settingName) = "global.buildinfo"
+            m.finVersion = m.top.findNode("finVersion")
+            m.buildType = m.top.findNode("buildType")
+            m.buildDate = m.top.findNode("buildDate")
+
+            m.finVersion.text = "1.1.001"
+            m.buildType.text = "Release"
+            m.buildDate.text = "2025-01-01"
+
             m.buildInfo.visible = true
         end if
         return
