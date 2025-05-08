@@ -153,13 +153,5 @@ function onKeyEvent(key as string, press as boolean) as boolean
             return true
         end if
     end if
-
-    if isStringEqual(key, KeyCode.LEFT) and m.homeRows.currFocusColumn = 0
-        sidebar = m.top.getScene().findNode("sidebar")
-        sidebar.isOpen = true
-        sidebar.setFocus(true)
-        return true
-    end if
-
     return false
 end function
