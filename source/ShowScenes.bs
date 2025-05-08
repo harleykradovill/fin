@@ -574,28 +574,28 @@ function CreateHomeGroup()
     group.observeFieldScoped("selectedItem", m.port)
     group.observeField("quickPlayNode", m.port)
 
-    sidepanel = group.findNode("options")
-    if isValid(sidepanel)
-        sidepanel.observeField("closeSidePanel", m.port)
-    else
-        print "WARN(ShowScenes): Home did not have an OptionsSlider when CreateHomeGroup ran"
-    end if
-
-    new_options = []
-    options_buttons = [
-        { "title": "Search", "id": "goto_search" },
-        { "title": "Settings", "id": "settings" },
-        { "title": "Change server", "id": "change_server" },
-    ]
-    for each opt in options_buttons
-        o = CreateObject("roSGNode", "OptionsButton")
-        o.title = tr(opt.title)
-        o.id = opt.id
-        o.observeField("userMenuOptionSelected", m.port)
-        new_options.push(o)
-    end for
-
-    sidepanel.options = new_options
+    'sidepanel = group.findNode("options")
+    'if isValid(sidepanel)
+    '    sidepanel.observeField("closeSidePanel", m.port)
+    'else
+    '    print "WARN(ShowScenes): Home did not have an OptionsSlider when CreateHomeGroup ran"
+    'end if
+    '
+    'new_options = []
+    'options_buttons = [
+    '    { "title": "Search", "id": "goto_search" },
+    '    { "title": "Settings", "id": "settings" },
+    '    { "title": "Change server", "id": "change_server" },
+    ']
+    'for each opt in options_buttons
+    '    o = CreateObject("roSGNode", "OptionsButton")
+    '    o.title = tr(opt.title)
+    '    o.id = opt.id
+    '    o.observeField("userMenuOptionSelected", m.port)
+    '    new_options.push(o)
+    'end for
+    '
+    'sidepanel.options = new_options
 
     return group
 end function
