@@ -19,46 +19,6 @@ sub init()
 
     m.homeRows = m.top.findNode("homeRows")
     m.homeRows.focusBitmapBlendColor = ColorPalette.WHITE
-
-    m.optionsSlider = m.top.findNode("options")
-    if isValid(m.optionsSlider)
-        m.optionsSlider.observeField("visible", "onOptionsVisible")
-        m.optionsSlider.observeField("closeSidePanel", "onOptionsClose")
-        'm.slideLeftAnim = m.top.findNode("homeRowsSlideLeft")
-        'm.slideRightAnim = m.top.findNode("homeRowsSlideRight")
-        m.optsInAnim = m.top.findNode("optionsSlideIn")
-        m.optsOutAnim = m.top.findNode("optionsSlideOut")
-
-    else
-        print "WARN(Home): OptionsSlider not found during init()"
-    end if
-
-end sub
-
-sub onOptionsVisible()
-    if m.optionsSlider.visible
-        if isValid(m.slideLeftAnim) and isValid(m.optsInAnim)
-            'm.slideLeftAnim.control = "start"
-            m.optsInAnim.control = "start"
-        else
-            'm.homeRows.translation = [-411, 158]
-            m.optionsSlider.translation = [500, 89]
-            m.optionsSlider.translation = [0, 89]
-        end if
-    end if
-end sub
-
-sub onOptionsClose()
-    if m.optionsSlider.closeSidePanel
-        if isValid(m.slideRightAnim) and isValid(m.optsOutAnim)
-            'm.slideRightAnim.control = "start"
-            m.optsOutAnim.control = "start"
-        else
-            'm.homeRows.translation = [89, 158]
-            m.optionsSlider.translation = [500, 89]
-        end if
-        m.optionsSlider.closeSidePanel = false
-    end if
 end sub
 
 sub refresh()

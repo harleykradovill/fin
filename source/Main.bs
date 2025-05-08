@@ -35,10 +35,10 @@ sub Main (args as dynamic) as void
 
     m.global.observeField("jumpTo", m.port)
 
-    audioMiniPlayer = m.scene.findNode("audioMiniPlayer")
-    if isValid(audioMiniPlayer)
-        audioMiniPlayer.callFunc("setup")
-    end if
+    'audioMiniPlayer = m.scene.findNode("audioMiniPlayer")
+    'if isValid(audioMiniPlayer)
+    '    audioMiniPlayer.callFunc("setup")
+    'end if
 
     app_start:
     ' First thing to do is validate the ability to use the API

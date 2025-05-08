@@ -111,12 +111,6 @@ sub onEpisodeNumberEndChanged()
     itemEpisodeEnd = m.top.findNode("itemEpisodeEnd")
     itemEpisodeEnd.font.size = 32
     itemEpisodeEnd.text = `-${m.top.episodeNumberEnd}`
-
-    ' Move the option controls down to give room for episode number
-    'if not m.optionControlsMoved
-    '    moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
-    '    m.optionControlsMoved = true
-    'end if
 end sub
 
 '' moveOptionControls: Moves option controls node based on passed pixel values
@@ -136,12 +130,6 @@ sub onLogoLoadStatusChanged(event)
         ' Move video info to the right based on the logo width
         m.videoInfo.translation = `[${m.videoInfo.translation[0] + logoImage.bitmapWidth + LOGO_RIGHT_PADDING}, ${m.videoInfo.translation[1]}]`
         m.itemTitle.maxWidth = m.itemTitle.maxWidth - (logoImage.bitmapWidth + LOGO_RIGHT_PADDING)
-
-        ' Move the option controls down based on the logo height
-        'if not m.optionControlsMoved
-        '    moveOptionControls(0, OPTIONCONTROLS_TOP_PADDING)
-        '    m.optionControlsMoved = true
-        'end if
     end if
 end sub
 

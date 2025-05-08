@@ -313,7 +313,7 @@ sub createLibraryRow()
     row = CreateObject("roSGNode", "HomeRow")
     row.title = sectionName
     row.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-    row.cursorSize = homeRowItemSizes.WIDE_POSTER
+    row.cursorSize = "[348, 196]"
 
     filteredMedia = filterNodeArray(m.libraryData, "id", m.global.session.user.configuration.MyMediaExcludes)
     for each item in filteredMedia

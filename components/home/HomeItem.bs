@@ -188,7 +188,7 @@ sub displayUnplayedEpisodeCount(itemDataType as string, localGlobal as object, i
 end sub
 
 sub displayCollectionInfo(itemData as object)
-    m.itemText.text = itemData.name
+    'm.itemText.text = itemData.name
     'm.itemText.translation = [8, 220]
     if isValidAndNotEmpty(itemData.iconUrl)
         m.itemIcon.uri = itemData.iconUrl
