@@ -501,8 +501,20 @@
     {
         "title": "About",
         "description": "Display version, build information and open‑source license details for this installation of Fin.",
-        "settingName": "about",
-        "type": "action"
+        "children": [
+            {
+                "title": "Server Information",
+                "description": "",
+                "settingName": "global.serverinfo",
+                "type": "info"
+            },
+            {
+                "title": "Build Information",
+                "description": "",
+                "settingName": "global.buildinfo",
+                "type": "info"
+            }
+        ]
     },
     {
         "title": "Change Server",

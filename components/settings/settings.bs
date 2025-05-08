@@ -7,8 +7,6 @@ import "pkg:/source/utils/misc.bs"
 sub init()
     m.top.optionsAvailable = false
 
-    m.keypresses = []
-
     m.userLocation = []
 
     m.settingsMenu = m.top.findNode("settingsMenu")
@@ -39,6 +37,10 @@ sub init()
 
     m.boolSetting.observeField("checkedItem", "boolSettingChanged")
     m.radioSetting.observeField("checkedItem", "radioSettingChanged")
+
+    m.serverInfo = m.top.findNode("serverInfo")
+    m.buildInfo = m.top.findNode("buildInfo")
+    m.serverData = m.global.session.server
 
     m.postTask = createObject("roSGNode", "PostTask")
 
@@ -116,6 +118,8 @@ sub settingFocused()
     m.boolSetting.visible = false
     m.integerSetting.visible = false
     m.radioSetting.visible = false
+    m.buildInfo.visible = false
+    m.serverInfo.visible = false
 
     if selectedSetting.type = invalid
         return
@@ -157,12 +161,42 @@ sub settingFocused()
 
     else if LCase(selectedSetting.type) = "action"
         return
+
+    else if LCase(selectedSetting.type) = "info"
+        if LCase(selectedSetting.settingName) = "global.serverinfo"
+            m.serverName = m.top.findNode("serverName")
+            m.serverVersion = m.top.findNode("serverVersion")
+            m.serverURL = m.top.findNode("serverURL")
+            m.serverHealth = m.top.findNode("serverHealth")
+
+            s = m.serverData
+
+            if s <> invalid
+                m.serverName.text = s.name
+                m.serverVersion.text = s.version
+                m.serverURL.text = s.url
+                if s.hasError
+                    m.serverHealth.text = "Error"
+                    m.serverHealth.color = "#ff4c4c"
+                else
+                    m.serverHealth.text = "Good"
+                    m.serverHealth.color = "#33cc33"
+                end if
+            end if
+
+
+            m.serverInfo.visible = true
+        end if
+
+        if LCase(selectedSetting.settingName) = "global.buildinfo"
+            m.buildInfo.visible = true
+        end if
+        return
     else
         print `Unknown setting type ${selectedSetting.type}`
     end if
 
 end sub
-
 
 sub settingSelected()
 
@@ -177,6 +211,9 @@ sub settingSelected()
         end if
         if (selectedItem.type) = "radio"
             m.radioSetting.setFocus(true)
+        end if
+
+        if (selectedItem.type) = "info"
         end if
 
         if (selectedItem.type) = "action"

@@ -29,6 +29,24 @@
       </ContentNode>
     </RadioButtonList>
 
+    <Group id="serverInfo" translation="[600, 141]" visible="false">
+      <Text text="Server Name" horizAlign="left" size="32" />
+      <Text id="serverName" horizAlign="left" size="28" translation="[0, 40]" color="#cccccc" />
+
+      <Text text="Server Version" horizAlign="left" size="32" translation="[0, 100]" />
+      <Text id="serverVersion" horizAlign="left" size="28" translation="[0, 140]" color="#cccccc" />
+
+      <Text text="Server URL" horizAlign="left" size="32" translation="[0, 200]" />
+      <Text id="serverURL" horizAlign="left" size="28" translation="[0, 240]" color="#cccccc" />
+
+      <Text text="Connection Health" horizAlign="left" size="32" translation="[0, 300]" />
+      <Text id="serverHealth" horizAlign="left" size="28" translation="[0, 340]" color="#cccccc" />
+    </Group>
+
+    <Group id="buildInfo" translation="[600, 141]" visible="false">
+      <Text text="build info" horizAlign="left" size="32" />
+    </Group>
+
     <IntegerKeyboard translation="[1034, 510]" id="integerSetting" domain="numeric" visible="false" />
     <Timer id="keypressTimer" duration="5" />
   </children>
