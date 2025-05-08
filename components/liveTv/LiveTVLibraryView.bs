@@ -19,8 +19,6 @@ sub init()
 
     m.options = m.top.findNode("options")
 
-    m.showItemCount = m.global.session.user.settings["itemgrid.showItemCount"]
-
     m.tvGuide = invalid
     m.channelFocused = invalid
 
@@ -61,8 +59,6 @@ sub init()
 
     m.alpha = m.top.findNode("alpha")
     m.alphaMenu = m.alpha.findNode("alphaMenu")
-
-    m.top.gridTitles = m.global.session.user.settings["itemgrid.gridTitles"]
 end sub
 
 'Load initial set of Data

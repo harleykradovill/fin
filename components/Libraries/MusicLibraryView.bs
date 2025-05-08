@@ -72,8 +72,6 @@ sub init()
     alphaMicText = m.alpha.findNode("alphaMicText")
     alphaMicText.visible = false
 
-    m.showItemCount = m.global.session.user.settings["itemgrid.showItemCount"]
-
     m.options.observeField("visible", "onOptionsVisibleChange")
     m.swapAnimation.observeField("state", "swapDone")
 
@@ -254,8 +252,6 @@ sub loadInitialItems()
     end if
 
     m.filterOptions = ParseJson(m.filterOptions)
-
-    m.top.showItemTitles = m.global.session.user.settings["itemgrid.gridTitles"]
 
     ' if we already searched for this alpha text than reset filter
     if m.loadItemsTask.nameStartsWith = m.top.alphaSelected

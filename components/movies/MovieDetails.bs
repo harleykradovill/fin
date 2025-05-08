@@ -282,10 +282,7 @@ sub itemContentChanged()
 
     ' Handle all "As Is" fields
     setFieldText("releaseYear", itemData.productionYear)
-
-    if m.global.session.user.settings["ui.itemdetail.showoverviewcontent"]
-        setFieldText("overview", itemData.overview)
-    end if
+    setFieldText("overview", itemData.overview)
 
     if isValid(itemData.officialRating)
         setFieldText("officialRating", itemData.officialRating)
@@ -325,9 +322,6 @@ sub itemContentChanged()
 
     if type(itemData.RunTimeTicks) = "LongInteger"
         setFieldText("runtime", stri(getRuntime()) + " mins")
-        if m.global.session.user.settings["ui.design.hideclock"] <> true
-            setFieldText("ends-at", tr("Ends at %1").Replace("%1", getEndTime()))
-        end if
     end if
 
     directors = []

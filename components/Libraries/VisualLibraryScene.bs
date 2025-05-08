@@ -220,7 +220,6 @@ sub loadInitialItems()
     m.emptyText.visible = false
 
     if isStringEqual(m.view, "grid")
-        m.top.showItemTitles = m.global.session.user.settings["itemgrid.gridTitles"]
         m.itemGrid.translation = "[100, 210]"
         m.emptyText.translation = "[0, 540]"
         m.dropdownOptions.translation = "[100, 60]"

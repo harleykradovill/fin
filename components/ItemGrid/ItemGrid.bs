@@ -23,8 +23,6 @@ sub init()
 
     m.options = m.top.findNode("options")
 
-    m.showItemCount = m.global.session.user.settings["itemgrid.showItemCount"]
-
     m.data = CreateObject("roSGNode", "ContentNode")
     createItemGrid()
 
@@ -75,8 +73,6 @@ sub init()
 
     m.alpha = m.top.findNode("alpha")
     m.alphaMenu = m.alpha.findNode("alphaMenu")
-
-    m.top.gridTitles = m.global.session.user.settings["itemgrid.gridTitles"]
 end sub
 
 sub createItemGrid()
@@ -206,8 +202,6 @@ sub loadInitialItems()
     else if isStringEqual(getCollectionType(), "tvshows")
         m.loadItemsTask.itemType = "Series"
         m.loadItemsTask.itemId = m.top.parentItem.Id
-
-        m.top.showItemTitles = m.global.session.user.settings["itemgrid.gridTitles"]
     else if isStringEqual(getCollectionType(), "music")
         ' Default Settings
         m.loadItemsTask.recursive = true
@@ -230,14 +224,6 @@ sub loadInitialItems()
         end if
 
         if isStringEqual(getCollectionType(), "boxsets")
-            m.top.showItemTitles = m.global.session.user.settings["itemgrid.gridTitles"]
-            if isStringEqual(m.top.showItemTitles, "hidealways")
-                m.itemGrid.itemSize = "[230, 345]"
-                m.itemGrid.rowHeights = "[345]"
-            else
-                m.itemGrid.itemSize = "[230, 390]"
-                m.itemGrid.rowHeights = "[390]"
-            end if
         end if
 
         if isStringEqual(getCollectionType(), "nextup")
