@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="TVShowDetails" extends="JFScreen">
   <children>
+    <Text id="showTitle" size="60" width="1700" maxLines="1" wrap="false" bold="true" translation="[96, 40]" />
     <LayoutGroup id="toplevel" layoutDirection="vert" itemSpacings="[-10]">
       <LayoutGroup id="main_group" layoutDirection="horiz" itemSpacings="[15]">
         <Poster id="tvshowPoster" width="300" height="450">
           <Rectangle id="unplayedCount" visible="false" width="90" height="60" color="#00a4dcFF" translation="[210, 0]">
-            <Label id="unplayedEpisodeCount" width="90" height="60" font="font:MediumBoldSystemFont" horizAlign="center" vertAlign="center" />
+            <Text id="unplayedEpisodeCount" width="90" height="60" horizAlign="center" vertAlign="center" />
           </Rectangle>
         </Poster>
         <LayoutGroup layoutDirection="vert" itemSpacings="[15]">
-          <LayoutGroup layoutDirection="horiz" itemSpacings="[150]">
-            <Label id="releaseYear" />
-            <Label id="officialRating" />
+          <LayoutGroup layoutDirection="horiz" itemSpacings="[20]">
+            <Text id="releaseYear" />
+            <Text id="officialRating" />
             <LayoutGroup layoutDirection="horiz" itemSpacings="[3]">
               <Poster id="star" uri="pkg:/images/sharp_star_white_18dp.png" height="32" width="32" blendColor="#cb272a" visible="false" />
-              <Label id="communityRating" />
+              <Text id="communityRating" />
             </LayoutGroup>
           </LayoutGroup>
-          <Label id="genres" />
-          <Label id="tagline" />
-          <Label id="overview" wrap="true" width="1400" maxLines="4" />
-          <Label id="history" />
+          <Text id="genres" />
+          <Text id="tagline" />
+          <Text id="overview" wrap="true" width="1400" maxLines="4" />
+          <Text id="history" />
           <JFButton id="Shuffle" minChars="15" text="Shuffle" translation="[90, 640]" visible="false"></JFButton>
         </LayoutGroup>
       </LayoutGroup>

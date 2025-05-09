@@ -17,6 +17,19 @@ sub init()
     m.overview.ellipsisText = tr("... (Press * to read more)")
 end sub
 
+sub addTextShowTitle(itemData as object)
+    showTitle = m.top.findNode("showTitle")
+    if not isValid(showTitle)
+        showTitle = createObject("roSGNode", "Label")
+    end if
+    showTitle.id = "movieTitle"
+    showTitle.text = itemData.name
+
+    if not isValid(m.top.findNode("showTitle"))
+        m.top.insertChild(showTitle, 1)
+    end if
+end sub
+
 sub itemContentChanged()
     ' Updates video metadata
     ' TODO - make things use item rather than itemData
@@ -87,6 +100,8 @@ sub itemContentChanged()
     else
         m.top.findNode("main_group").removeChild(m.top.findNode("tagline"))
     end if
+
+    addTextShowTitle(itemData)
 end sub
 
 sub setFieldText(field, value)

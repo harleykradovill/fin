@@ -18,7 +18,7 @@
 
     <Poster translation="[710, 230]" id="testRectangle" width="1110" height="800" uri="pkg:/images/white.9.png" />
 
-    <ScrollingText id="settingDesc" translation="[160, 1025]" maxWidth="1700" wrap="true" color="#808080" horizAlign="left" size="24" />
+    <ScrollingText id="settingDesc" translation="[160, 1025]" maxWidth="1700" color="#808080" horizAlign="left" size="24" />
 
     <RadioButtonList id="radioSetting" numRows="6" vertFocusAnimationStyle="floatingFocus" translation="[1034, 510]" />
 
