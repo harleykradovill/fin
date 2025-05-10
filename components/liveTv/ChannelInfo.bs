@@ -9,11 +9,11 @@ sub init()
     m.borderTop.color = ColorPalette.MIDGREY
 
     m.backdrop = m.top.findNode("backdrop")
-    m.backdrop.color = ColorPalette.BLACK90
+    m.backdrop.color = "0x00000090"
 
     m.channelTitle = m.top.findNode("channelTitle")
     m.channelTitle.font.size = 27
-    m.channelTitle.color = ColorPalette.OFFWHITE
+    m.channelTitle.color = ColorPalette.WHITE
 end sub
 
 sub onLoadStatusChanged()

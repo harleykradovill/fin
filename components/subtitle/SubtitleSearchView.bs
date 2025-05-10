@@ -10,7 +10,7 @@ sub init()
     m.searchButton = m.top.findNode("searchButton")
     m.mySubtitleList = m.top.findNode("mySubtitleList")
     mySubtitleBackground = m.top.findNode("mySubtitleBackground")
-    mySubtitleBackground.color = ColorPalette.ELEMENTBACKGROUND
+    mySubtitleBackground.color = ColorPalette.VIEWBACKGROUND
 
     m.languageButton.textColor = ColorPalette.DARKGREY
     m.languageButton.focusTextColor = ColorPalette.WHITE

@@ -15,13 +15,13 @@ sub init()
     m.submit = m.top.findNode("submit")
     m.submit.background = ColorPalette.SMOKE
     m.submit.color = ColorPalette.WHITE
-    m.submit.focusBackground = ColorPalette.LIGHTHIGHLIGHT
+    m.submit.focusBackground = ColorPalette.HIGHLIGHT
     m.submit.focusColor = ColorPalette.WHITE
 
     m.quickConnect = m.top.findNode("quickConnect")
     m.quickConnect.background = ColorPalette.SMOKE
     m.quickConnect.color = ColorPalette.WHITE
-    m.quickConnect.focusBackground = ColorPalette.LIGHTHIGHLIGHT
+    m.quickConnect.focusBackground = ColorPalette.HIGHLIGHT
     m.quickConnect.focusColor = ColorPalette.WHITE
 
     m.errorContainer = m.top.findNode("errorContainer")

@@ -39,7 +39,7 @@ sub redraw()
     maxRows = 9
 
     bg = m.top.findNode("dialogBackground")
-    bg.blendColor = ColorPalette.ELEMENTBACKGROUND
+    bg.blendColor = ColorPalette.VIEWBACKGROUND
 
     text = m.top.findNode("messageText")
     options = m.top.findNode("optionList")

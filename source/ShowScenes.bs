@@ -540,7 +540,7 @@ function CreateSigninGroup(user = "", profileImageUri = "")
                     m.quickConnectDialog.observeField("authenticated", port)
                     dlgPalette = createObject("roSGNode", "RSGPalette")
                     dlgPalette.colors = {
-                        DialogBackgroundColor: ColorPalette.ELEMENTBACKGROUND,
+                        DialogBackgroundColor: ColorPalette.VIEWBACKGROUND,
                         DialogFocusColor: ColorPalette.HIGHLIGHT,
                         DialogFocusItemColor: ColorPalette.WHITE,
                         DialogSecondaryTextColor: ColorPalette.WHITE,

@@ -16,7 +16,7 @@ sub init()
     m.itemProgress.color = ColorPalette.HIGHLIGHT
     m.unplayedCount.color = ColorPalette.HIGHLIGHT
     m.playedIndicator.color = ColorPalette.HIGHLIGHT
-    m.backdrop.color = ColorPalette.ELEMENTBACKGROUND
+    m.backdrop.color = ColorPalette.VIEWBACKGROUND
 end sub
 
 sub findNodes()

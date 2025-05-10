@@ -15,7 +15,7 @@ sub init()
     m.settingsMenu.focusedColor = ColorPalette.WHITE
 
     testRectangle = m.top.findNode("testRectangle")
-    testRectangle.blendColor = ColorPalette.ELEMENTBACKGROUND
+    testRectangle.blendColor = ColorPalette.VIEWBACKGROUND
 
     m.settingDesc = m.top.findNode("settingDesc")
     m.path = m.top.findNode("path")

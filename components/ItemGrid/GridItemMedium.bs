@@ -34,7 +34,7 @@ sub init()
 end sub
 
 sub itemContentChanged()
-    m.backdrop.blendColor = ColorPalette.ELEMENTBACKGROUND
+    m.backdrop.blendColor = ColorPalette.VIEWBACKGROUND
 
     itemData = m.top.itemContent
 

@@ -18,7 +18,7 @@ sub init()
     overlay.color = ColorPalette.DARKGREY
 
     background = m.top.findNode("background")
-    background.color = ColorPalette.ELEMENTBACKGROUND
+    background.color = ColorPalette.VIEWBACKGROUND
 
     headerText = m.top.findNode("headerText")
     headerText.font.size = 45
@@ -28,7 +28,7 @@ sub init()
 
     m.filterMenu = m.top.findNode("filterMenu")
     m.filterMenu.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
-    m.filterMenu.focusFootprintBlendColor = ColorPalette.LIGHTHIGHLIGHT
+    m.filterMenu.focusFootprintBlendColor = ColorPalette.HIGHLIGHT
     m.filterMenu.focusedColor = ColorPalette.WHITE
 
     filterOptionsBackdrop = m.top.findNode("filterOptionsBackdrop")
@@ -36,7 +36,7 @@ sub init()
 
     m.filterOptionsMenu = m.top.findNode("filterOptionsMenu")
     m.filterOptionsMenu.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
-    m.filterOptionsMenu.focusFootprintBlendColor = ColorPalette.LIGHTHIGHLIGHT
+    m.filterOptionsMenu.focusFootprintBlendColor = ColorPalette.HIGHLIGHT
     m.filterOptionsMenu.focusedColor = ColorPalette.WHITE
 
     m.filterMenu.observeField("itemFocused", "onFilterFocusChange")

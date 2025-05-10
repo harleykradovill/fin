@@ -5,7 +5,7 @@ import "pkg:/source/utils/misc.bs"
 sub init()
 
     backdrop = m.top.findNode("backdrop")
-    backdrop.color = ColorPalette.ELEMENTBACKGROUND
+    backdrop.color = ColorPalette.VIEWBACKGROUND
 
     ' Max "Overview" lines to show in Preview and Detail
     m.maxPreviewLines = 5

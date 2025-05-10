@@ -11,7 +11,7 @@ sub init()
     m.playlist = m.top.findNode("playlist")
     m.infoGroup = m.top.FindNode("infoGroup")
     m.songListRect = m.top.FindNode("songListRect")
-    m.songListRect.color = ColorPalette.ELEMENTBACKGROUND
+    m.songListRect.color = ColorPalette.VIEWBACKGROUND
 
     m.playlist.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
 

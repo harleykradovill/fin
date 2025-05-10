@@ -21,7 +21,7 @@ sub init()
     m.submit = m.top.findNode("submit")
     m.submit.background = ColorPalette.SMOKE
     m.submit.color = ColorPalette.WHITE
-    m.submit.focusBackground = ColorPalette.LIGHTHIGHLIGHT
+    m.submit.focusBackground = ColorPalette.HIGHLIGHT
     m.submit.focusColor = ColorPalette.WHITE
 
     m.top.observeField("serverUrl", "clearErrorMessage")
@@ -212,7 +212,7 @@ sub ShowKeyboard()
     dialog.text = m.serverUrlTextbox.text
 
     palette = createObject("roSGNode", "RSGPalette")
-    palette.colors = { DialogBackgroundColor: ColorPalette.ELEMENTBACKGROUND }
+    palette.colors = { DialogBackgroundColor: ColorPalette.VIEWBACKGROUND }
     dialog.palette = palette
 
     m.top.getscene().dialog = dialog

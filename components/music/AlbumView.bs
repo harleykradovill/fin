@@ -22,9 +22,9 @@ sub init()
 
     m.songList.focusFootprintBitmapUri = string.EMPTY
     m.songList.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
-    m.songList.focusFootprintBlendColor = ColorPalette.LIGHTHIGHLIGHT
+    m.songList.focusFootprintBlendColor = ColorPalette.HIGHLIGHT
 
-    m.songListRect.color = ColorPalette.ELEMENTBACKGROUND
+    m.songListRect.color = ColorPalette.VIEWBACKGROUND
 
     m.songList.observeField("doneLoading", "onDoneLoading")
 

@@ -9,7 +9,7 @@ sub init()
     m.top.optionsAvailable = false
 
     m.unhideUsers = m.top.findNode("unhideUsers")
-    m.unhideUsers.color = ColorPalette.ELEMENTBACKGROUND
+    m.unhideUsers.color = ColorPalette.VIEWBACKGROUND
 
     m.hiddenUsers = m.top.findNode("hiddenUsers")
     m.manageHiddenUsers = m.top.findNode("manageHiddenUsers")
@@ -20,7 +20,7 @@ sub init()
     m.manualLogin = m.top.findNode("manualLogin")
     m.manualLogin.background = ColorPalette.SMOKE
     m.manualLogin.color = ColorPalette.WHITE
-    m.manualLogin.focusBackground = ColorPalette.LIGHTHIGHLIGHT
+    m.manualLogin.focusBackground = ColorPalette.HIGHLIGHT
     m.manualLogin.focusColor = ColorPalette.WHITE
 
     m.hiddenUserAnimation = m.top.findNode("hiddenUserAnimation")
