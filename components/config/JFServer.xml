@@ -7,14 +7,21 @@
   </interface>
 
   <children>
-    <Rectangle id="background" translation="[0,0]" width="1620" height="100" />
+    <Rectangle id="background" translation="[0,0]" width="810" height="100" />
 
-    <Group id="labels" translation="[20,0]">
-      <Text text="Name:" horizAlign="left" width="130" height="65" translation="[0,6]" size="32" />
-      <Text text="URL:" horizAlign="left" width="130" height="65" translation="[0,48]" size="32" />
+    <Poster
+      uri="pkg:/images/icons/server.png"
+      width="60"
+      height="60"
+      translation="[20, 20]"
+    />
 
-      <Text id="name" horizAlign="left" height="65" translation="[145,6]" size="32" />
-      <Text id="baseUrl" horizAlign="left" height="65" translation="[145,48]" size="32" />
+    <Group id="labels" translation="[100,0]">
+      <Text text="Name:" horizAlign="left" width="130" height="65" translation="[0,12]" size="28" />
+      <Text text="URL:" horizAlign="left" width="130" height="65" translation="[0,48]" size="28" />
+
+      <Text id="name" horizAlign="left" height="65" translation="[130,12]" size="28" />
+      <Text id="baseUrl" horizAlign="left" height="65" translation="[130,48]" size="28" />
     </Group>
 
     <Rectangle id="trashContainer" translation="[1480,0]" width="100" height="100">
