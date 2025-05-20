@@ -36,7 +36,6 @@ sub OnScreenShown()
 
     if isValid(sb)
         sb.currentUserProfileImage = UserImageURL(m.global.session.user.id)
-        sb.currentUser = m.global.session.user.name
     end if
 
     if isValid(m.top.lastFocus)

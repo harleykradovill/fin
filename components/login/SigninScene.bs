@@ -15,17 +15,17 @@ sub init()
     m.submit = m.top.findNode("submit")
     m.submit.background = ColorPalette.SMOKE
     m.submit.color = ColorPalette.WHITE
-    m.submit.focusBackground = ColorPalette.HIGHLIGHT
-    m.submit.focusColor = ColorPalette.WHITE
+    m.submit.focusBackground = ColorPalette.WHITE
+    m.submit.focusColor = ColorPalette.BLACK
 
     m.quickConnect = m.top.findNode("quickConnect")
     m.quickConnect.background = ColorPalette.SMOKE
     m.quickConnect.color = ColorPalette.WHITE
-    m.quickConnect.focusBackground = ColorPalette.HIGHLIGHT
-    m.quickConnect.focusColor = ColorPalette.WHITE
+    m.quickConnect.focusBackground = ColorPalette.WHITE
+    m.quickConnect.focusColor = ColorPalette.BLACK
 
     m.errorContainer = m.top.findNode("errorContainer")
-    m.errorContainer.color = "#CC0000"
+    m.errorContainer.color = ColorPalette.RED
 
     m.config = m.top.findNode("configOptions")
     m.config.focusBitmapBlendColor = ColorPalette.HIGHLIGHT

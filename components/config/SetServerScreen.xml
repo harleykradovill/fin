@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="SetServerScreen" extends="JFScreen">
   <children>
-    <LayoutGroup layoutDirection="vert" translation="[960,130]" horizAlignment="center" vertAlignment="top" itemSpacings="40">
+    <Poster
+      uri="pkg:/images/setServerBG.png"
+      translation="[0, 0]"
+      width="1920"
+      height="1080"
+    />
+
+    <LayoutGroup layoutDirection="vert" translation="[1400,130]" horizAlignment="center" vertAlignment="top" itemSpacings="40">
       <Text
         text="Select a Server to Continue"
         id="prompt"
-        width="1620"
+        width="810"
         horizAlign="left"
         translation="[-810,0]"
         size="42" />
 
-      <Rectangle id="serverPickerContainer" width="1620" height="400">
+      <Rectangle id="serverPickerContainer" width="810" height="400">
         <MarkupList
           id="serverPicker"
           translation="[0, 20]"
           drawFocusFeedback="false"
           itemComponentName="JFServer"
           itemSpacing="[0, 30]"
-          itemSize="[1620, 100]"
+          itemSize="[810, 100]"
           numRows="3"
           vertFocusAnimationStyle="floatingFocus" />
       </Rectangle>
 
-      <Text text="If no server is listed above, you may also enter the server URL manually:" translation="[0, 690]" size="32" />
+      <Text text="If no server is listed above, you may also enter the server URL manually:" translation="[0, 0]" size="24" />
 
-      <Rectangle id="serverUrlContainer" width='1620' height='400'>
+      <Rectangle id="serverUrlContainer" width='810' height='400'>
         <TextEditBox id="serverUrlTextbox" hintTextColor="#8f8f8f" textColor="#ffffff" hintText="e.g. 192.168.1.100:8096 or https://example.com/jellyfin" />
         <Poster id="serverUrlOutline" visible="false" uri="pkg:/images/fhd_focus_old.9.png" />
       </Rectangle>
@@ -33,14 +40,14 @@
 
       <LayoutGroup horizAlignment="center">
         <StandardButton id="submit" text="Submit" height="85" width="250" />
-        <Rectangle id="submitSizer" width="1620" height="0" color="0x00000000" />
+        <Rectangle id="submitSizer" width="810" height="0" color="0x00000000" />
       </LayoutGroup>
     </LayoutGroup>
   </children>
   <interface>
     <field id="forgetServer" type="string" />
     <field id="serverUrl" type="string" alias="serverUrlTextbox.text" />
-    <field id="serverWidth" alias="serverUrlOutline.width,serverUrlTextbox.width,serverUrlContainer.width,submitSizer.width" value="1620" />
+    <field id="serverWidth" alias="serverUrlOutline.width,serverUrlTextbox.width,serverUrlContainer.width,submitSizer.width" value="810" />
     <field id="serverHeight" alias="serverUrlOutline.height,serverUrlTextbox.height,serverUrlContainer.height" value="60" />
     <field id="errorMessage" type="string" alias="errorMessage.text" />
   </interface>
