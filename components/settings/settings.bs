@@ -215,7 +215,7 @@ sub settingFocused()
             m.tldrtext4.text = "- This data is only used to improve app performance, not to track or identify users."
             m.tldrtext5.text = "- This privacy summary and the full privacy policy may change at any time."
 
-            m.tldrtext6.text = "The full privacy policy may be found on the Roku store channel."
+            m.tldrtext6.text = "The full privacy policy can be found on the Roku store channel."
 
             m.privacyPolicy.visible = true
         end if

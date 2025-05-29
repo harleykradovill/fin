@@ -24,6 +24,9 @@ Screenshots below may be outdated. Last screenshots taken: **2025-05-07**
 <p align="center">
   <img src="screenshots/3.jpg" alt="Movie Library" width="600" />
 </p>
+<p align="center">
+  <img src="screenshots/4.png" alt="Server Select" width="600" />
+</p>
 
 ## License
 
