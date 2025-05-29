@@ -24,7 +24,6 @@
         showRowCounter="[true]"
         focusable="true" />
     </LayoutGroup>
-    <OptionsSlider id="options" />
   </children>
   <interface>
     <field id="showSidebar" type="boolean" value="true" />

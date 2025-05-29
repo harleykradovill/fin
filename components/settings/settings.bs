@@ -40,6 +40,7 @@ sub init()
 
     m.serverInfo = m.top.findNode("serverInfo")
     m.buildInfo = m.top.findNode("buildInfo")
+    m.privacyPolicy = m.top.findNode("privacyPolicy")
     m.serverData = m.global.session.server
 
     m.postTask = createObject("roSGNode", "PostTask")
@@ -120,6 +121,7 @@ sub settingFocused()
     m.radioSetting.visible = false
     m.buildInfo.visible = false
     m.serverInfo.visible = false
+    m.privacyPolicy.visible = false
 
     if selectedSetting.type = invalid
         return
@@ -197,6 +199,25 @@ sub settingFocused()
             m.buildDate.text = "2025-01-01"
 
             m.buildInfo.visible = true
+        end if
+
+        if LCase(selectedSetting.settingName) = "global.privacy"
+            m.tldrtext1 = m.top.findNode("tldrText1")
+            m.tldrtext2 = m.top.findNode("tldrText2")
+            m.tldrtext3 = m.top.findNode("tldrText3")
+            m.tldrtext4 = m.top.findNode("tldrText4")
+            m.tldrtext5 = m.top.findNode("tldrText5")
+            m.tldrtext6 = m.top.findNode("tldrText6")
+
+            m.tldrtext1.text = "- We (Fin) do not actively collect or store your personal data."
+            m.tldrtext2.text = "- Roku may collect device and usage data (e.g. session counts, crashes)."
+            m.tldrtext3.text = "- We can see aggregated analytics via the Roku developer console."
+            m.tldrtext4.text = "- This data is only used to improve app performance, not to track or identify users."
+            m.tldrtext5.text = "- This privacy summary and the full privacy policy may change at any time."
+
+            m.tldrtext6.text = "The full privacy policy may be found on the Roku store channel."
+
+            m.privacyPolicy.visible = true
         end if
         return
     else

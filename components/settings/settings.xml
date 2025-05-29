@@ -54,6 +54,16 @@
       <Text id="buildDate" horizAlign="left" size="28" translation="[0, 240]" color="#cccccc" />
     </Group>
 
+    <Group id="privacyPolicy" translation="[600, 141]" visible="false">
+      <Text text="TL;DR" horizAlign="left" size="32" />
+      <Text id="tldrText1" horizAlign="left" size="28" translation="[0, 40]" color="#cccccc" />
+      <Text id="tldrText2" horizAlign="left" size="28" translation="[0, 84]" color="#cccccc" />
+      <Text id="tldrText3" horizAlign="left" size="28" translation="[0, 128]" color="#cccccc" />
+      <Text id="tldrText4" horizAlign="left" size="28" translation="[0, 172]" color="#cccccc" />
+      <Text id="tldrText5" horizAlign="left" size="28" translation="[0, 216]" color="#cccccc" />
+      <Text id="tldrText6" horizAlign="left" size="32" translation="[0, 280]" />
+    </Group>
+
     <IntegerKeyboard translation="[1034, 510]" id="integerSetting" domain="numeric" visible="false" />
     <Timer id="keypressTimer" duration="5" />
   </children>

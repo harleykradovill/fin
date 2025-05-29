@@ -465,6 +465,12 @@
                 "description": "",
                 "settingName": "global.buildinfo",
                 "type": "info"
+            },
+            {
+                "title": "Privacy Policy",
+                "description": "",
+                "settingName": "global.privacy",
+                "type": "info"
             }
         ]
     },
