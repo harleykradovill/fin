@@ -24,7 +24,7 @@ sub itemContentChanged()
     profileName = m.top.findNode("profileName")
 
     if itemData.imageURL = ""
-        profileImage.uri = "pkg://images/baselinePerson.png"
+        profileImage.uri = "pkg:/images/baselinePerson.png"
     else
         profileImage.uri = itemData.imageURL
     end if
