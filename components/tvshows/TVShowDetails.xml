@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="TVShowDetails" extends="JFScreen">
   <children>
-    <Text id="showTitle" size="60" width="1700" maxLines="1" wrap="false" bold="true" translation="[96, 40]" />
-    <LayoutGroup id="toplevel" layoutDirection="vert" itemSpacings="[-10]">
+    <LayoutGroup id="toplevel" layoutDirection="vert" itemSpacings="[-10]" translation="[96, 60]">
       <LayoutGroup id="main_group" layoutDirection="horiz" itemSpacings="[15]">
-        <Poster id="tvshowPoster" width="300" height="450">
-          <Rectangle id="unplayedCount" visible="false" width="90" height="60" color="#00a4dcFF" translation="[210, 0]">
-            <Text id="unplayedEpisodeCount" width="90" height="60" horizAlign="center" vertAlign="center" />
-          </Rectangle>
-        </Poster>
         <LayoutGroup layoutDirection="vert" itemSpacings="[15]">
+          <Text id="showTitle" size="60" width="1350" maxLines="1" wrap="false" bold="true" translation="[96, 40]" />
           <LayoutGroup layoutDirection="horiz" itemSpacings="[20]">
             <Text id="releaseYear" />
             <Text id="officialRating" />
@@ -19,11 +14,15 @@
             </LayoutGroup>
           </LayoutGroup>
           <Text id="genres" />
-          <Text id="tagline" />
           <Text id="overview" wrap="true" width="1400" maxLines="4" />
           <Text id="history" />
-          <JFButton id="Shuffle" minChars="15" text="Shuffle" translation="[90, 640]" visible="false"></JFButton>
+          <StandardButton id="Shuffle" text="Shuffle" translation="[90, 640]" height="85" width="250" focusable="true" />
         </LayoutGroup>
+        <Poster id="tvshowPoster" width="300" height="450">
+          <Rectangle id="unplayedCount" visible="false" width="90" height="60" color="#00a4dcFF" translation="[210, 0]">
+            <Text id="unplayedEpisodeCount" width="90" height="60" horizAlign="center" vertAlign="center" />
+          </Rectangle>
+        </Poster>
       </LayoutGroup>
       <TVSeasonRow id="seasons" />
     </LayoutGroup>

@@ -8,15 +8,11 @@ sub init()
     m.top.observeField("height", "onHeightChanged")
     m.top.observeField("width", "onWidthChanged")
     m.top.observeField("focus", "onFocusChanged")
-
-    'm.fontr = CreateObject("roSGNode", "Font")
-    'm.fontr.uri = "pkg:/images/fonts/NotoSans-Regular.ttf"
-    'm.fontr.size = 28
-    '
-    'm.buttonText.font = m.fontr
 end sub
 
 sub onFocusChanged()
+    print "Focus: "; m.top.focus; " BG: "; m.top.focusBackground; " Color: "; m.top.focusColor
+
     if m.top.focus
         m.buttonBackground.blendColor = m.top.focusBackground
         m.buttonText.color = m.top.focusColor

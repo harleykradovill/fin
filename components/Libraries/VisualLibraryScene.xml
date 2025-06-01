@@ -101,5 +101,6 @@
     <field id="searchTerm" type="string" onChange="onSearchTermChanged" alwaysNotify="true" />
     <field id="alphaActive" type="boolean" value="false" />
     <field id="showItemTitles" type="string" value="showonhover" />
+    <field id="libraryId" type="string" />
   </interface>
 </component>
