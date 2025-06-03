@@ -4,7 +4,7 @@ sub init()
 end sub
 
 sub updateFont()
-    uri = m.top.bold = true ? "pkg:/images/fonts/NotoSans-SemiBold.ttf" : "pkg:/images/fonts/NotoSans-Regular.ttf"
+    uri = m.top.bold = true ? "pkg:/fonts/NotoSans-SemiBold.ttf" : "pkg:/fonts/NotoSans-Regular.ttf"
 
     f = createObject("roSGNode", "Font")
     f.uri = uri

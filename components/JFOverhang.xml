@@ -7,7 +7,7 @@
 
     <LayoutGroup id="overlayRightGroup" layoutDirection="horiz" itemSpacings="18" translation="[1766, 53]" horizAlignment="right">
       <Text id="overlayCurrentUser" width="300" horizAlign="right" vertAlign="center" height="64">
-        <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
+        <Font role="font" uri="pkg:/fonts/NotoSans-Regular.ttf" size="32" />
       </Text>
       <MaskGroup id="backgroundMask" maskUri="pkg:/images/icons/circle64.png" maskSize="[64,64]">
         <Poster uri="pkg:/images/icons/circle.png" id="overlayCurrentUserProfileImage" width="64" height="64" loadDisplayMode="scaleToZoom" />

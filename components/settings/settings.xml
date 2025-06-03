@@ -11,8 +11,8 @@
       itemSpacing="[0,10]"
       numRows="6"
       vertFocusAnimationStyle="fixedFocusWrap">
-      <Font role="font" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
-      <Font role="focusedFont" uri="pkg:/images/fonts/NotoSans-Regular.ttf" size="32" />
+      <Font role="font" uri="pkg:/fonts/NotoSans-Regular.ttf" size="32" />
+      <Font role="focusedFont" uri="pkg:/fonts/NotoSans-Regular.ttf" size="32" />
     </LabelList>
 
     <Poster translation="[710, 230]" id="testRectangle" width="1110" height="800" uri="pkg:/images/white.9.png" />

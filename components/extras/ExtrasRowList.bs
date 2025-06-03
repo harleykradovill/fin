@@ -38,7 +38,7 @@ sub init()
 
 
     m.fontr = CreateObject("roSGNode", "Font")
-    m.fontr.uri = "pkg:/images/fonts/NotoSans-Regular.ttf"
+    m.fontr.uri = "pkg:/fonts/NotoSans-Regular.ttf"
     m.fontr.size = 32
 
     m.top.rowLabelFont = m.fontr
