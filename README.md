@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/harleykradovill/fin/blob/master/images/channel-poster_fhd.png?raw=true" alt="Fin for Roku poster" style="border: 1px solid #eee; border-radius: 4px" />
+  <img src="https://github.com/harleykradovill/fin/blob/master/images/logo-icon120.png?raw=true" alt="Fin for Roku" width="100px"/>
 </p>
 
 <h1 align="center">Fin for Roku</h1>
@@ -13,20 +13,30 @@
 It is **not affiliated with the Jellyfin project**.
 
 ## Screenshots
-Screenshots below may be outdated. Last screenshots taken: **2025-05-07**
+Screenshots below may be outdated. Last screenshots taken: `2025-05-29`
 
-<p align="center">
-  <img src="screenshots/1.jpg" alt="Homepage" width="600" />
-</p>
-<p align="center">
-  <img src="screenshots/2.jpg" alt="Movie Details" width="600" />
-</p>
-<p align="center">
-  <img src="screenshots/3.jpg" alt="Movie Library" width="600" />
-</p>
-<p align="center">
-  <img src="screenshots/4.png" alt="Server Select" width="600" />
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="screenshots/1.jpg" alt="Homepage" width="400" /><br/>
+      <sub>Homepage</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/2.jpg" alt="Movie Details" width="400" /><br/>
+      <sub>Movie Details</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/3.jpg" alt="Movie Library" width="400" /><br/>
+      <sub>Movie Library</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/4.png" alt="Server Select" width="400" /><br/>
+      <sub>Server Select</sub>
+    </td>
+  </tr>
+</table>
 
 ## License
 

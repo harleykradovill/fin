@@ -135,6 +135,7 @@ sub updateUserProfileImage()
         m.profileImage.uri = m.top.currentUserProfileImage
     end if
 end sub
+
 sub onPosterLoadStatusChanged()
     if m.profileImage.loadStatus <> PosterLoadStatus.LOADING
         m.profileImage.unobserveField("loadStatus")
@@ -220,11 +221,21 @@ sub itemActivated()
         libNode = m.libraryMap.LookupCI(libId)
         if isValid(libNode)
             m.top.selectedLibrary = libNode
+
+            libraryScene = m.global.sceneManager.callFunc("getActiveScene")
+            if isValid(libraryScene)
+                contentNode = libraryScene.findNode("libraryRows")
+                if isValid(contentNode)
+                    contentNode.setFocus(true)
+                    libraryScene.lastFocus = contentNode
+                end if
+            end if
+
             m.top.selectedLibrary = invalid
         else
             m.global.sceneManager.callFunc(
             "standardDialog", "Library not found",
-            "Couldn’t locate the selected library.")
+            "Couldn't locate the selected library.")
         end if
     end if
 
