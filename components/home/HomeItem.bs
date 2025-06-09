@@ -14,8 +14,8 @@ sub init()
     m.itemPoster.observeField("loadStatus", "onPosterLoadStatusChanged")
 
     m.itemProgress.color = ColorPalette.HIGHLIGHT
-    m.unplayedCount.color = ColorPalette.HIGHLIGHT
-    m.playedIndicator.color = ColorPalette.HIGHLIGHT
+    'm.unplayedCount.color = ColorPalette.HIGHLIGHT
+    'm.playedIndicator.color = ColorPalette.HIGHLIGHT
     m.backdrop.color = ColorPalette.VIEWBACKGROUND
 end sub
 
@@ -27,9 +27,9 @@ sub findNodes()
     initItemIcon()
     m.itemProgress = m.top.findNode("progress")
     m.itemProgressBackground = m.top.findNode("progressBackground")
-    m.unplayedCount = m.top.findNode("unplayedCount")
-    m.unplayedEpisodeCount = m.top.findNode("unplayedEpisodeCount")
-    m.playedIndicator = m.top.findNode("playedIndicator")
+    'm.unplayedCount = m.top.findNode("unplayedCount")
+    'm.unplayedEpisodeCount = m.top.findNode("unplayedEpisodeCount")
+    'm.playedIndicator = m.top.findNode("playedIndicator")
     m.showProgressBarAnimation = m.top.findNode("showProgressBar")
     m.showProgressBarField = m.top.findNode("showProgressBarField")
 end sub
@@ -55,7 +55,7 @@ sub initItemIcon()
 end sub
 
 sub itemContentChanged()
-    if isValid(m.unplayedCount) then m.unplayedCount.visible = false
+    'if isValid(m.unplayedCount) then m.unplayedCount.visible = false
     itemData = m.top.itemContent
 
     if not isValid(itemData) then return
@@ -95,19 +95,19 @@ sub itemContentChanged()
         itemData.isWatched = false
     end if
 
-    m.playedIndicator.visible = itemData.isWatched
+    'm.playedIndicator.visible = itemData.isWatched
 
-    if not itemData.isWatched
-        displayUnplayedEpisodeCount(itemDataType, localGlobal, itemData)
-    end if
+    'if not itemData.isWatched
+    '    displayUnplayedEpisodeCount(itemDataType, localGlobal, itemData)
+    'end if
 
     if inArray([ItemType.COLLECTIONFOLDER, ItemType.USERVIEW, ItemType.CHANNEL, ItemType.FOLDER], itemDataType)
         displayCollectionInfo(itemData)
         return
     end if
 
-    playedIndicatorLeftPosition = m.itemPoster.width - 60
-    m.playedIndicator.translation = [playedIndicatorLeftPosition, 0]
+    'playedIndicatorLeftPosition = m.itemPoster.width - 60
+    'm.playedIndicator.translation = [playedIndicatorLeftPosition, 0]
 
     ' "Program" is from clicking on an "On Now" item on the Home Screen
     if itemDataType = ItemType.PROGRAM

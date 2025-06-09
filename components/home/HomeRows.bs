@@ -249,10 +249,10 @@ function addHomeSection(sectionType as string) as boolean
     end if
 
     ' Poster size library items
-    if sectionType = "smalllibrarytiles"
-        createLibraryRow()
-        return true
-    end if
+    'if sectionType = "smalllibrarytiles"
+    '    createLibraryRow()
+    '    return true
+    'end if
 
     ' Continue Watching items
     if sectionType = "resume"
