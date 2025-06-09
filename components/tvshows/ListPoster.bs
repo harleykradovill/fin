@@ -17,12 +17,6 @@ sub init()
 
     ' Randomize the background colors
     backdropColor = "#0096dc" ' set default in case global var is invalid
-    'localGlobal = m.global
-
-    'if isValid(localGlobal) and isValid(localGlobal.constants) and isValid(localGlobal.constants.poster_bg_pallet)
-    '    posterBackgrounds = localGlobal.constants.poster_bg_pallet
-    '    backdropColor = posterBackgrounds[rnd(posterBackgrounds.count()) - 1]
-    'end if
 
     m.backdrop.color = backdropColor
     updateSize()

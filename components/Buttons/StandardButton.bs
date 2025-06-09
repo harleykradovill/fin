@@ -11,8 +11,6 @@ sub init()
 end sub
 
 sub onFocusChanged()
-    print "Focus: "; m.top.focus; " BG: "; m.top.focusBackground; " Color: "; m.top.focusColor
-
     if m.top.focus
         m.buttonBackground.blendColor = m.top.focusBackground
         m.buttonText.color = m.top.focusColor
