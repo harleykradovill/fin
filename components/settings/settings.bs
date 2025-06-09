@@ -190,11 +190,12 @@ sub settingFocused()
         end if
 
         if LCase(selectedSetting.settingName) = "global.buildinfo"
+            appInfo = CreateObject("roAppInfo")
             m.finVersion = m.top.findNode("finVersion")
             m.buildType = m.top.findNode("buildType")
             m.buildDate = m.top.findNode("buildDate")
 
-            m.finVersion.text = "1.1.001"
+            m.finVersion.text = appInfo.GetVersion()
             m.buildType.text = "Release"
             m.buildDate.text = "2025-01-01"
 
