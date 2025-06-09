@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="PlayedCheckmark" extends="Rectangle">
   <children>
-    <Label id="checkmark" width="40" height="40" scale="[0.7, 0.7]" translation="[17, 7]" font="font:MediumBoldSystemFont" text="✓" />
+    <Label id="checkmark" width="40" height="40" scale="[0.7, 0.7]" translation="[19, 12]" font="font:MediumBoldSystemFont" text="✓" />
   </children>
 </component>

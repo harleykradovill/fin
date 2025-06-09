@@ -4,10 +4,10 @@
     <Rectangle id="backdrop" />
     <ScrollingLabel id="Series" horizAlign="center" font="font:SmallSystemFont" repeatCount="0" visible="false" />
     <Poster id="poster" translation="[2,0]" loadDisplayMode="scaleToFit">
-      <Rectangle id="unplayedCount" visible="false" width="90" height="60" color="#0096dc" translation="[102, 0]">
-        <Text id="unplayedEpisodeCount" width="90" height="60" horizAlign="center" vertAlign="center" />
+      <Rectangle id="unplayedCount" visible="false" width="60" height="60" color="#0096dc" translation="[131, 0]">
+        <Text id="unplayedEpisodeCount" width="60" height="60" horizAlign="center" vertAlign="center" />
       </Rectangle>
-      <PlayedCheckmark id="playedIndicator" color="#409843" width="90" height="60" translation="[102, 0]" visible="false" />
+      <PlayedCheckmark id="playedIndicator" color="#409843" width="60" height="60" translation="[131, 0]" visible="false" />
     </Poster>
     <ScrollingText id="title" horizAlign="center" repeatCount="0" visible="false" />
     <Text id="staticTitle" horizAlign="center" wrap="false" />

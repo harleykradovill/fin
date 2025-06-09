@@ -659,10 +659,7 @@ function CreateSeriesDetailsGroup(seriesID as string) as dynamic
     ' watch for button presses
     group.observeField("seasonSelected", m.port)
     group.observeField("quickPlayNode", m.port)
-    ' setup and load series extras
-    extras = group.findNode("extrasGrid")
-    extras.observeFieldScoped("selectedItem", m.port)
-    extras.callFunc("loadParts", seriesMetaData.json)
+
     ' done building SeriesDetails view
     stopLoadingSpinner()
     return group

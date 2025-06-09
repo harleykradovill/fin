@@ -10,7 +10,6 @@ sub init()
     m.unplayedEpisodeCount = m.top.findNode("unplayedEpisodeCount")
     m.getShuffleEpisodesTask = createObject("roSGNode", "getShuffleEpisodesTask")
     m.Shuffle = m.top.findNode("Shuffle")
-    m.extrasSlider.visible = true
     m.seasons = m.top.findNode("seasons")
     m.overview = m.top.findNode("overview")
 
@@ -41,17 +40,6 @@ sub itemContentChanged()
     item = m.top.itemContent
     itemData = item.json
 
-    if m.global.session.user.settings["ui.tvshows.disableUnwatchedEpisodeCount"] = false
-        if isValid(itemData.UserData) and isValid(itemData.UserData.UnplayedItemCount)
-            if itemData.UserData.UnplayedItemCount > 0
-                m.unplayedCount.visible = true
-                m.unplayedEpisodeCount.text = itemData.UserData.UnplayedItemCount
-            end if
-        end if
-    end if
-
-    m.top.findNode("tvshowPoster").uri = m.top.itemContent.posterURL
-
     'Check production year, if invalid remove label
     if isValid(itemData.productionYear)
         setFieldText("releaseYear", itemData.productionYear)
@@ -75,6 +63,9 @@ sub itemContentChanged()
         m.top.findNode("main_group").removeChild(m.top.findNode("star"))
         m.top.findNode("star").visible = false
     end if
+
+    ' Set the backdrop image
+    setBackdropImage(itemData)
 
     setFieldText("overview", itemData.overview)
 
@@ -189,6 +180,46 @@ function round(f as float) as integer
     end if
 end function
 
+sub setBackdropImage(itemData as object)
+    if not isValid(itemData) then return
+
+    imageVersion = "Primary"
+    imageTag = ""
+
+    ' First try to use backdrop image if available
+    if isValidAndNotEmpty(itemData.BackdropImageTags)
+        imageVersion = "Backdrop"
+        imageTag = itemData.BackdropImageTags[0]
+        ' Fall back to primary image if no backdrop
+    else if isValid(itemData.ImageTags) and isValid(itemData.ImageTags.Primary)
+        imageVersion = "Primary"
+        imageTag = itemData.ImageTags.Primary
+    else
+        ' No valid image available
+        return
+    end if
+
+    tvShowBackdrop = m.top.findNode("tvShowBackdrop")
+    if not isValid(tvShowBackdrop)
+        tvShowBackdrop = createObject("roSGNode", "Poster")
+        tvShowBackdrop.id = "tvShowBackdrop"
+        tvShowBackdrop.loadDisplayMode = "scaleToZoom"
+        tvShowBackdrop.width = 1920
+        tvShowBackdrop.height = 1080
+        tvShowBackdrop.opacity = 0.2
+        m.top.insertChild(tvShowBackdrop, 0)
+    end if
+
+    ' Construct the image URL using the ImageURL function
+    backdropUrl = ImageURL(m.top.itemContent.id, imageVersion, {
+        "maxWidth": 1920,
+        "maxHeight": 1080,
+        "Tag": imageTag
+    })
+
+    tvShowBackdrop.uri = backdropUrl
+end sub
+
 sub OnScreenShown()
     if isValid(m.top.lastFocus)
         m.top.lastFocus.setFocus(true)
@@ -230,7 +261,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
     end if
 
     topGrp = m.top.findNode("seasons")
-    bottomGrp = m.top.findNode("extrasGrid")
 
     if key = "down" and m.Shuffle.hasFocus()
         m.Shuffle.focus = false
@@ -238,24 +268,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
         group = m.global.sceneManager.callFunc("getActiveScene")
         group.lastFocus = topGrp
         return true
-    else if key = "down" and topGrp.hasFocus()
-        bottomGrp.setFocus(true)
-        group = m.global.sceneManager.callFunc("getActiveScene")
-        group.lastFocus = bottomGrp
-        m.top.findNode("VertSlider").reverse = false
-        m.top.findNode("extrasFader").reverse = false
-        m.top.findNode("pplAnime").control = "start"
-        return true
-    else if key = "up" and bottomGrp.hasFocus()
-        if bottomGrp.itemFocused = 0
-            m.top.findNode("VertSlider").reverse = true
-            m.top.findNode("extrasFader").reverse = true
-            m.top.findNode("pplAnime").control = "start"
-            topGrp.setFocus(true)
-            group = m.global.sceneManager.callFunc("getActiveScene")
-            group.lastFocus = topGrp
-            return true
-        end if
     else if key = "up" and topGrp.hasFocus()
         m.Shuffle.setFocus(true)
         m.Shuffle.focus = true
@@ -266,12 +278,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
         if isValid(m.seasons.TVSeasonData) and isValid(m.seasons.TVSeasonData.Items)
             itemFocused = m.seasons.rowItemFocused
             m.top.quickPlayNode = m.seasons.TVSeasonData.Items[itemFocused[1]]
-            return true
-        end if
-    else if key = "play" and m.extrasSlider.isInFocusChain()
-        extrasGrid = m.top.findNode("extrasGrid")
-        if extrasGrid.focusedItem <> invalid
-            m.top.quickPlayNode = extrasGrid.focusedItem
             return true
         end if
     end if
