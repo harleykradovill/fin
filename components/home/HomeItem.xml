@@ -5,10 +5,10 @@
     <Poster id="itemIcon" width="100" height="100" translation="[190,85]" loadDisplayMode="scaleToFit" />
 
     <Poster id="itemPoster" width="348" height="196" loadDisplayMode="scaleToZoom">
-      <Rectangle id="unplayedCount" visible="false" width="60" height="60" translation="[375, 0]">
+      <!--<Rectangle id="unplayedCount" visible="false" width="60" height="60" translation="[375, 0]">
         <Label id="unplayedEpisodeCount" width="60" height="60" font="font:MediumBoldSystemFont" horizAlign="center" vertAlign="center" />
       </Rectangle>
-      <PlayedCheckmark id="playedIndicator" width="60" height="46" visible="false" />
+      <PlayedCheckmark id="playedIndicator" width="60" height="46" visible="false" />-->
     </Poster>
 
     <Rectangle id="progressBackground" visible="false" color="#024361" width="348" height="8" translation="[0,196]">
