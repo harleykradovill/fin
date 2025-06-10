@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="PlayedCheckmark" extends="Rectangle">
   <children>
-    <Label id="checkmark" width="40" height="40" scale="[0.7, 0.7]" translation="[19, 12]" font="font:MediumBoldSystemFont" text="✓" />
+    <MaskGroup maskUri="pkg:/images/icons/circle64.png" maskSize="[40,40]" translation="[18,2]">
+      <Poster uri="pkg:/images/icons/circle.png" blendColor="#409843" id="overlayCurrentUserProfileImage" width="40" height="40" loadDisplayMode="scaleToZoom" />
+    </MaskGroup>
+    <Label id="checkmark" width="40" height="40" scale="[0.5, 0.5]" translation="[29, 11]" font="font:MediumBoldSystemFont" text="✓" />
   </children>
 </component>

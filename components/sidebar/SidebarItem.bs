@@ -47,33 +47,33 @@ sub itemChanged()
         end if
 
     else if left(itm.tag, 8) = "library:"
-        baseScene = m.top.getScene()
-        contentNode = baseScene.findNode("content")
-        if isValid(contentNode)
-            visualLibraryScene = contentNode.findNode("visualLibrary") ' <- make sure the id is set in XML
-            if isValid(visualLibraryScene)
-                currentId = visualLibraryScene.libraryId
-                itemId = itm.tag.mid(8) ' Extract ID from "library:{id}"
-                print "Evaluating sidebar item with tag: "; itm.tag
-                print "Scene is valid"
-                print "Current scene libraryId: "; currentId
-                print "Sidebar itemId: "; itemId
-
-                if itemId = currentId
-                    print "Match found. Highlighting icon"
-                    icon.blendColor = "#0096dc"
-                else
-                    print "No match. Using default color"
-                    icon.blendColor = "#ffffff"
-                end if
-            else
-                print "VisualLibraryScene not found inside content"
-                icon.blendColor = "#ffffff"
-            end if
-        else
-            print "content node not found"
-            icon.blendColor = "#ffffff"
-        end if
+        'baseScene = m.top.getScene()
+        'contentNode = baseScene.findNode("content")
+        'if isValid(contentNode)
+        '    visualLibraryScene = contentNode.findNode("visualLibrary") ' <- make sure the id is set in XML
+        '    if isValid(visualLibraryScene)
+        '        currentId = visualLibraryScene.libraryId
+        '        itemId = itm.tag.mid(8) ' Extract ID from "library:{id}"
+        '        print "Evaluating sidebar item with tag: "; itm.tag
+        '        print "Scene is valid"
+        '        print "Current scene libraryId: "; currentId
+        '        print "Sidebar itemId: "; itemId
+        '
+        '        if itemId = currentId
+        '            print "Match found. Highlighting icon"
+        '            icon.blendColor = "#0096dc"
+        '        else
+        '            print "No match. Using default color"
+        '            icon.blendColor = "#ffffff"
+        '        end if
+        '    else
+        '        print "VisualLibraryScene not found inside content"
+        '        icon.blendColor = "#ffffff"
+        '    end if
+        'else
+        '    print "content node not found"
+        '    icon.blendColor = "#ffffff"
+        'end if
     else
         icon.blendColor = "#ffffff"
     end if

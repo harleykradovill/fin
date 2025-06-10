@@ -6,7 +6,7 @@
       <Rectangle id="unplayedCount" visible="false" width="60" height="60" color="#00a4dcFF" translation="[231, 0]">
         <Label id="unplayedEpisodeCount" width="60" height="60" font="font:MediumBoldSystemFont" horizAlign="center" vertAlign="center" />
       </Rectangle>
-      <PlayedCheckmark id="playedIndicator" color="#409843" width="60" height="60" translation="[231, 0]" visible="false" />
+      <PlayedCheckmark id="playedIndicator" color="0x40984300" width="60" height="60" translation="[231, 0]" visible="false" />
     </Poster>
     <Poster id="itemIcon" width="50" height="50" translation="[230,10]" />
     <Label id="posterText" width="280" height="415" translation="[5,5]" horizAlign="center" vertAlign="center" ellipsizeOnBoundary="true" wrap="true" />
