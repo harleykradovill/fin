@@ -338,14 +338,6 @@ sub createLatestInRows()
 
             imagesize = homeRowItemSizes.WIDE_POSTER
 
-            if isValid(lib.json.CollectionType)
-                if isStringEqual(lib.json.CollectionType, "movies")
-                    imagesize = homeRowItemSizes.MOVIE_POSTER
-                else if isStringEqual(lib.json.CollectionType, "music")
-                    imagesize = homeRowItemSizes.MUSIC_ALBUM
-                end if
-            end if
-
             if not sectionExists(sectionName)
                 nextUpRow = m.top.content.CreateChild("HomeRow")
                 nextUpRow.title = sectionName
@@ -741,14 +733,6 @@ sub updateLatestItems(msg)
     end if
 
     imagesize = homeRowItemSizes.WIDE_POSTER
-
-    if isValid(node.metadata.contentType)
-        if LCase(node.metadata.contentType) = "movies"
-            imagesize = homeRowItemSizes.MOVIE_POSTER
-        else if LCase(node.metadata.contentType) = "music"
-            imagesize = homeRowItemSizes.MUSIC_ALBUM
-        end if
-    end if
 
     ' remake row using new data
     row = CreateObject("roSGNode", "HomeRow")
