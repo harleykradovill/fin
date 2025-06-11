@@ -48,7 +48,7 @@ sub init()
 
     m.fontr = CreateObject("roSGNode", "Font")
     m.fontr.uri = "pkg:/fonts/NotoSans-Regular.ttf"
-    m.fontr.size = 32
+    m.fontr.size = 28
 
     m.top.rowLabelFont = m.fontr
 end sub
@@ -65,10 +65,10 @@ sub updateSize()
     m.top.itemSize = [1703, itemHeight]
 
     ' spacing between rows
-    m.top.itemSpacing = [0, 40]
+    m.top.itemSpacing = [0, 35]
 
     ' spacing between items in a row
-    m.top.rowItemSpacing = [30, 0]
+    m.top.rowItemSpacing = [20, 0]
 
     ' Default size to wide poster, the most used size
     m.top.rowItemSize = homeRowItemSizes.WIDE_POSTER
@@ -217,7 +217,7 @@ sub setRowItemSize()
     newSizeArray = CreateObject("roArray", homeSections.count(), false)
 
     for i = 0 to homeSections.count() - 1
-        newSizeArray[i] = isValid(homeSections[i].cursorSize) ? homeSections[i].cursorSize : homeRowItemSizes.WIDE_POSTER
+        newSizeArray[i] = isValid(homeSections[i].cursorSize) ? homeSections[i].cursorSize : [348, 196] 'homeRowItemSizes.WIDE_POSTER
     end for
     m.top.rowItemSize = newSizeArray
 
@@ -342,7 +342,7 @@ sub createLatestInRows()
                 nextUpRow = m.top.content.CreateChild("HomeRow")
                 nextUpRow.title = sectionName
                 nextUpRow.imageWidth = imagesize[0]
-                nextUpRow.cursorSize = imagesize
+                nextUpRow.cursorSize = [348, 196] 'imagesize
             end if
 
             try
@@ -420,7 +420,7 @@ sub createLiveTVRow()
         nextUpRow = m.top.content.CreateChild("HomeRow")
         nextUpRow.title = sectionName
         nextUpRow.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-        nextUpRow.cursorSize = homeRowItemSizes.WIDE_POSTER
+        nextUpRow.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
     end if
 
     m.LoadOnNowTask.observeField("content", "updateOnNowItems")
@@ -436,7 +436,7 @@ sub createContinueWatchingRow()
         nextUpRow = m.top.content.CreateChild("HomeRow")
         nextUpRow.title = sectionName
         nextUpRow.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-        nextUpRow.cursorSize = homeRowItemSizes.WIDE_POSTER
+        nextUpRow.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
     end if
 
     ' Load the Continue Watching Data
@@ -453,7 +453,7 @@ sub createContinueListeningRow()
         nextUpRow = m.top.content.CreateChild("HomeRow")
         nextUpRow.title = sectionName
         nextUpRow.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-        nextUpRow.cursorSize = homeRowItemSizes.WIDE_POSTER
+        nextUpRow.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
     end if
 
     ' Load the Continue Listening Data
@@ -470,7 +470,7 @@ sub createNextUpRow()
         nextUpRow = m.top.content.CreateChild("HomeRow")
         nextUpRow.title = sectionName
         nextUpRow.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-        nextUpRow.cursorSize = homeRowItemSizes.WIDE_POSTER
+        nextUpRow.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
     end if
 
     ' Load the Next Up Data
@@ -521,7 +521,7 @@ sub updateFavoritesItems()
     row = CreateObject("roSGNode", "HomeRow")
     row.title = sectionName
     row.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-    row.cursorSize = homeRowItemSizes.WIDE_POSTER
+    row.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
 
     for each item in itemData
         usePoster = true
@@ -564,7 +564,7 @@ sub updateMyListItems()
     row = CreateObject("roSGNode", "HomeRow")
     row.title = sectionName
     row.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-    row.cursorSize = homeRowItemSizes.WIDE_POSTER
+    row.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
 
     for each item in itemData
         usePoster = true
@@ -607,7 +607,7 @@ sub updateContinueWatchingItems()
     row = CreateObject("roSGNode", "HomeRow")
     row.title = sectionName
     row.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-    row.cursorSize = homeRowItemSizes.WIDE_POSTER
+    row.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
 
     for each item in itemData
         if isChainValid(item, "json.UserData.PlayedPercentage")
@@ -650,7 +650,7 @@ sub updateContinueListeningItems()
     row = CreateObject("roSGNode", "HomeRow")
     row.title = sectionName
     row.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-    row.cursorSize = homeRowItemSizes.WIDE_POSTER
+    row.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
 
     for each item in itemData
         if isValid(item.json) and isValid(item.json.UserData) and isValid(item.json.UserData.PlayedPercentage)
@@ -694,7 +694,7 @@ sub updateNextUpItems()
     row = CreateObject("roSGNode", "HomeRow")
     row.title = tr("Next Up")
     row.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-    row.cursorSize = homeRowItemSizes.WIDE_POSTER
+    row.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
 
     for each item in itemData
         item.usePoster = row.usePoster
@@ -738,7 +738,7 @@ sub updateLatestItems(msg)
     row = CreateObject("roSGNode", "HomeRow")
     row.title = sectionName
     row.imageWidth = imagesize[0]
-    row.cursorSize = imagesize
+    row.cursorSize = [348, 196] 'imagesize
     row.usePoster = true
 
     for each item in itemData
@@ -777,7 +777,7 @@ sub updateOnNowItems()
     row = CreateObject("roSGNode", "HomeRow")
     row.title = tr("On Now")
     row.imageWidth = homeRowItemSizes.WIDE_POSTER[0]
-    row.cursorSize = homeRowItemSizes.WIDE_POSTER
+    row.cursorSize = [348, 196] 'homeRowItemSizes.WIDE_POSTER
 
     for each item in itemData
         row.usePoster = false
@@ -786,7 +786,8 @@ sub updateOnNowItems()
             item.thumbnailURL = item.json.imageURL
             row.usePoster = true
             row.imageWidth = homeRowItemSizes.MOVIE_POSTER[0]
-            row.cursorSize = homeRowItemSizes.MOVIE_POSTER
+            'row.cursorSize = homeRowItemSizes.MOVIE_POSTER
+            row.cursorSize = [348, 196]
         end if
 
         item.usePoster = row.usePoster

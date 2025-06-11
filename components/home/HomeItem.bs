@@ -72,14 +72,14 @@ sub itemContentChanged()
 
     m.itemPoster.width = itemData.imageWidth
 
-    m.itemTextExtra.width = itemData.imageWidth - 8
+    m.itemTextExtra.maxWidth = itemData.imageWidth - 8
     m.itemTextExtra.visible = true
     m.itemTextExtra.text = ""
-    m.itemTextExtra.font.size = 22
+    m.itemTextExtra.font.size = 20
 
     m.itemText.maxWidth = itemData.imageWidth - 8
     m.itemText.height = 34
-    m.itemText.font.size = 25
+    m.itemText.font.size = 24
     m.itemText.horizAlign = "left"
     m.itemText.vertAlign = "bottom"
 
@@ -410,7 +410,7 @@ end sub
 sub drawProgressBar(itemData)
     if not isValid(itemData.LookupCI("imageWidth")) then return
 
-    m.itemProgressBackground.width = itemData.LookupCI("imageWidth")
+    m.itemProgressBackground.width = 300 'itemData.LookupCI("imageWidth")
     m.itemProgressBackground.visible = true
     m.showProgressBarField.keyValue = [0, m.itemPoster.width * (itemData.PlayedPercentage / 100)]
     m.showProgressBarAnimation.control = AnimationControl.START

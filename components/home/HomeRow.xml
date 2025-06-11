@@ -2,7 +2,7 @@
 <component name="HomeRow" extends="ContentNode">
   <interface>
     <field id="imageWidth" type="integer" value="348" />
-    <field id="cursorSize" type="array" value="[348, 274]" />
+    <field id="cursorSize" type="array" value="[348, 196]" />
     <field id="usePoster" type="bool" value="false" />
   </interface>
 </component>

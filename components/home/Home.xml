@@ -5,7 +5,7 @@
       id="homeRows"
       showRowLabel="true"
       vertFocusAnimationStyle="fixedFocusWrap"
-      rowFocusAnimationStyle="floatingFocus"
+      rowFocusAnimationStyle="fixedFocus"
       itemComponentName="HomeItem"
       numRows="3"
       rowLabelOffset="[[0,20]]"

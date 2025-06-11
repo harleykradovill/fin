@@ -4,19 +4,16 @@
     <Rectangle id="backdrop" width="348" height="196" />
     <Poster id="itemIcon" width="100" height="100" translation="[190,85]" loadDisplayMode="scaleToFit" />
 
-    <Poster id="itemPoster" width="348" height="196" loadDisplayMode="scaleToZoom">
-      <!--<Rectangle id="unplayedCount" visible="false" width="60" height="60" translation="[375, 0]">
-        <Label id="unplayedEpisodeCount" width="60" height="60" font="font:MediumBoldSystemFont" horizAlign="center" vertAlign="center" />
-      </Rectangle>
-      <PlayedCheckmark id="playedIndicator" width="60" height="46" visible="false" />-->
-    </Poster>
+    <MaskGroup maskUri="pkg:/images/posterMask.png" maskSize="[348, 196]">
+      <Poster id="itemPoster" width="348" height="196" loadDisplayMode="scaleToZoom" />
+    </MaskGroup>
 
-    <Rectangle id="progressBackground" visible="false" color="#024361" width="348" height="8" translation="[0,196]">
-      <Rectangle id="progress" width="0" height="8" />
+    <Rectangle id="progressBackground" visible="false" color="#024361" width="300" height="6" translation="[24,170]">
+      <Rectangle id="progress" width="0" height="6" />
     </Rectangle>
-    <ScrollingText id="itemText" horizAlign="center" vertAlign="center" height="64" maxWidth="456" translation="[8,210]" repeatCount="0" size="18" />
 
-    <Text id="itemTextExtra" horizAlign="left" vertAlign="center" height="32" width="456" translation="[8,243]" visible="false" color="#777777FF" size="18" />
+    <ScrollingText id="itemText" horizAlign="center" vertAlign="center" height="64" maxWidth="456" translation="[6,200]" repeatCount="0" size="18" />
+    <ScrollingText id="itemTextExtra" horizAlign="left" vertAlign="center" height="32" maxWidth="456" translation="[6,226]" visible="false" color="#777777FF" size="18" />
 
     <Animation id="showProgressBar" duration="0.5" repeat="false" easeFunction="linear">
       <FloatFieldInterpolator id="showProgressBarField" key="[0.0, 1.0]" fieldToInterp="progress.width" />

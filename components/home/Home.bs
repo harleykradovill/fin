@@ -18,6 +18,7 @@ sub init()
     m.loadItemsTask1.itemsToLoad = "isInMyList"
 
     m.homeRows = m.top.findNode("homeRows")
+    m.homeRows.focusBitmapUri = "pkg:/images/posterFocus.png"
     m.homeRows.focusBitmapBlendColor = ColorPalette.WHITE
 end sub
 
