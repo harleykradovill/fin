@@ -48,6 +48,7 @@ sub setupNodes()
 end sub
 
 sub init()
+    m.isLoading = false
     m.top.optionsAvailable = false
     setupNodes()
     m.bypassSearchEvent = false
@@ -126,6 +127,9 @@ end sub
 '
 'Load initial set of Data
 sub loadInitialItems()
+    if m.isLoading = true then return
+    m.isLoading = true
+
     m.loadItemsTask.control = "stop"
     startLoadingSpinner(false)
 
