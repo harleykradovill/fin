@@ -213,7 +213,7 @@ sub loadInitialItems()
         end if
     end if
 
-    m.itemGrid.translation = "[180, 140]"
+    m.itemGrid.translation = "[180, 150]"
     m.emptyText.translation = "[0, 750]"
     m.itemGrid.itemSize = "[230, 345]"
     m.itemGrid.itemSpacing = "[20, 20]"
@@ -228,14 +228,6 @@ sub loadInitialItems()
         m.emptyText.translation = "[0, 540]"
         m.dropdownOptions.translation = "[100, 60]"
         m.itemGrid.numRows = "3"
-
-        if isStringEqual(m.top.showItemTitles, "hidealways")
-            m.itemGrid.itemSize = "[230, 350]"
-            m.itemGrid.rowHeights = "[350]"
-        else
-            m.itemGrid.itemSize = "[230, 390]"
-            m.itemGrid.rowHeights = "[390]"
-        end if
     else if isStringEqual(m.view, "Genres")
         m.itemGrid.translation = "[100, 210]"
         m.emptyText.translation = "[0, 540]"

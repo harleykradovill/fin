@@ -2,19 +2,12 @@
 <component name="GridItemSmall" extends="Group">
   <children>
     <Poster id="backdrop" translation="[0,23]" width="230" height="345" loadDisplayMode="scaleToZoom" uri="pkg:/images/white.9.png" />
-    <Poster id="itemPoster" translation="[0,23]" width="230" height="345" loadDisplayMode="scaleToZoom" />
-
-    <ScrollingLabel
-      id="title"
-      translation="[0,380]"
-      horizAlign="center"
-      font="font:SmallSystemFont"
-      repeatCount="0"
-      maxWidth="230" />
+    <MaskGroup maskUri="pkg:/images/posterVertMask.png" maskSize="[230, 345]">
+      <Poster id="itemPoster" width="230" height="345" loadDisplayMode="scaleToZoom" />
+    </MaskGroup>
 
     <Poster id="itemIcon" width="50" height="50" translation="[230,10]" />
-    <Label id="posterText" width="230" height="345" translation="[5,5]" horizAlign="center" vertAlign="center" ellipsizeOnBoundary="true" wrap="true" />
-    <PlayedCheckmark id="playedIndicator" color="0x40984300" width="60" height="60" translation="[170, 23]" visible="false" />
+    <PlayedCheckmark id="playedIndicator" color="0x40984300" width="60" height="60" translation="[166, 4]" visible="false" />
   </children>
   <interface>
     <field id="itemContent" type="node" onChange="itemContentChanged" />

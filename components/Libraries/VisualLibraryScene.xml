@@ -68,6 +68,8 @@
       itemComponentName="GridItemSmall"
       numColumns="7"
       vertFocusAnimationStyle="fixed"
+      focusBitmapUri="pkg:/images/posterVertFocus.png"
+      focusBitmapBlendColor="#ffffff"
       itemSpacing="[20, 20]" />
 
     <RowList
