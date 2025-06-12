@@ -85,6 +85,15 @@ sub itemChanged()
         '    print "content node not found"
         '    icon.blendColor = "#ffffff"
         'end if
+
+        do = m.top.getScene().findNode("dropdownOptions")
+        if isValid(do) and do.visible
+            icon.blendColor = "#0096dc"
+            chosen.visible = true
+        else
+            icon.blendColor = "#ffffff"
+            chosen.visible = false
+        end if
     else
         icon.blendColor = "#ffffff"
     end if

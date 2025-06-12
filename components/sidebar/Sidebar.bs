@@ -1,3 +1,5 @@
+import "pkg:/source/enums/CollectionType.bs"
+import "pkg:/source/enums/ItemType.bs"
 import "pkg:/source/enums/KeyCode.bs"
 import "pkg:/source/enums/PosterLoadStatus.bs"
 import "pkg:/source/utils/misc.bs"
@@ -42,6 +44,8 @@ sub init()
     m.top.addField("selectedItem", "node", false)
 
     updateUserProfileImage()
+
+    m.contentFocusBeforeLibrary = invalid
 end sub
 
 sub loadLibraries(libArray as object)
@@ -217,25 +221,48 @@ sub itemActivated()
     if left(tag, 8) = "library:"
         libId = mid(tag, 9)
         libNode = m.libraryMap.LookupCI(libId)
-        if isValid(libNode)
-            m.top.selectedLibrary = libNode
 
-            libraryScene = m.global.sceneManager.callFunc("getActiveScene")
-            if isValid(libraryScene)
-                contentNode = libraryScene.findNode("libraryRows")
-                if isValid(contentNode)
-                    contentNode.setFocus(true)
-                    libraryScene.lastFocus = contentNode
-                end if
-            end if
-
-            m.top.selectedLibrary = invalid
-        else
-            m.global.sceneManager.callFunc(
-            "standardDialog", "Library not found",
-            "Couldn't locate the selected library.")
+        if isStringEqual(libNode.collectionType, CollectionType.MOVIES)
+            group = CreateVisualLibraryScene(libNode, ItemType.MOVIE)
+            m.global.sceneManager.callFunc("pushScene", group)
         end if
+
+        if isStringEqual(libNode.collectionType, CollectionType.TVSHOWS)
+            group = CreateVisualLibraryScene(libNode, ItemType.SERIES)
+            m.global.sceneManager.callFunc("pushScene", group)
+        end if
+
+        if isStringEqual(libNode.collectionType, CollectionType.MUSICVIDEOS)
+            group = CreateVisualLibraryScene(libNode, ItemType.MUSICVIDEO)
+            m.global.sceneManager.callFunc("pushScene", group)
+            return
+        end if
+
+        if isStringEqual(libNode.collectionType, CollectionType.HOMEVIDEOS)
+            group = CreateVisualLibraryScene(libNode, ItemType.PHOTO)
+            m.global.sceneManager.callFunc("pushScene", group)
+            return
+        end if
+
+        if isStringEqual(libNode.collectionType, CollectionType.BOXSETS)
+            group = CreateVisualLibraryScene(libNode, ItemType.BOXSET)
+            m.global.sceneManager.callFunc("pushScene", group)
+            return
+        end if
+
     end if
 
     m.top.isOpen = false
 end sub
+
+function CreateVisualLibraryScene(libraryItem as object, mediaType as string) as dynamic
+    if not isValid(libraryItem) then return invalid
+
+    group = CreateObject("roSGNode", "VisualLibraryScene")
+    group.mediaType = mediaType
+    group.parentItem = libraryItem
+    group.libraryId = libraryItem.id
+    group.observeFieldScoped("selectedItem", m.port)
+    group.observeField("quickPlayNode", m.port)
+    return group
+end function

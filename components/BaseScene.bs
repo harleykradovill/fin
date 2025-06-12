@@ -62,7 +62,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 focusNode = nextNode
                 depth = depth + 1
             end while
-            sidebar.previousFocus = focusNode
+            'sidebar.previousFocus = focusNode
             sidebar.isOpen = true
             sidebar.findNode("menu").setFocus(true)
 
