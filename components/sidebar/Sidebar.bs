@@ -113,12 +113,10 @@ sub isOpenChanged()
         m.menu.itemSize = [316, 80]
         m.expandAnim.control = "start"
         sceneContent.translation = [260, 0]
-        'm.overlayCurrentUser.visible = true
     else
         m.menu.itemSize = [92, 80]
         m.collapseAnim.control = "start"
         sceneContent.translation = [0, 0]
-        'm.overlayCurrentUser.visible = false
     end if
 end sub
 

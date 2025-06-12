@@ -22,28 +22,39 @@ sub itemChanged()
     lbl.text = itm.title
     lbl.visible = itm.showLabel
 
+    chosen = m.top.findNode("chosen")
+
     if itm.tag = "home"
         hr = m.top.getScene().findNode("homeRows")
         if isValid(hr) and hr.visible
             icon.blendColor = "#0096dc"
+            chosen.translation = "[29, 10]"
+            chosen.visible = true
         else
             icon.blendColor = "#ffffff"
+            chosen.visible = false
         end if
 
     else if itm.tag = "settings"
         st = m.top.getScene().findNode("settingsMenu")
         if isValid(st) and st.visible
             icon.blendColor = "#0096dc"
+            chosen.translation = "[29, 8]"
+            chosen.visible = true
         else
             icon.blendColor = "#ffffff"
+            chosen.visible = false
         end if
 
     else if itm.tag = "search"
         se = m.top.getScene().findNode("SearchBox")
         if isValid(se) and se.visible
             icon.blendColor = "#0096dc"
+            chosen.translation = "[29, 10]"
+            chosen.visible = true
         else
             icon.blendColor = "#ffffff"
+            chosen.visible = false
         end if
 
     else if left(itm.tag, 8) = "library:"
