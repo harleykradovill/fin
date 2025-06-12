@@ -13,7 +13,7 @@
 It is **not affiliated with the Jellyfin project**.
 
 ## Screenshots
-Screenshots below may be outdated. Last screenshots taken: `2025-05-29`
+Screenshots below may be outdated. Last screenshots taken: `2025-06-12`
 
 <table align="center">
   <tr>
