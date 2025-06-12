@@ -223,29 +223,29 @@ sub itemActivated()
         libNode = m.libraryMap.LookupCI(libId)
 
         if isStringEqual(libNode.collectionType, CollectionType.MOVIES)
-            group = CreateVisualLibraryScene(libNode, ItemType.MOVIE)
+            group = CreateVisualLibraryScene(libNode, ItemType.MOVIE, libId)
             m.global.sceneManager.callFunc("pushScene", group)
         end if
 
         if isStringEqual(libNode.collectionType, CollectionType.TVSHOWS)
-            group = CreateVisualLibraryScene(libNode, ItemType.SERIES)
+            group = CreateVisualLibraryScene(libNode, ItemType.SERIES, libId)
             m.global.sceneManager.callFunc("pushScene", group)
         end if
 
         if isStringEqual(libNode.collectionType, CollectionType.MUSICVIDEOS)
-            group = CreateVisualLibraryScene(libNode, ItemType.MUSICVIDEO)
+            group = CreateVisualLibraryScene(libNode, ItemType.MUSICVIDEO, libId)
             m.global.sceneManager.callFunc("pushScene", group)
             return
         end if
 
         if isStringEqual(libNode.collectionType, CollectionType.HOMEVIDEOS)
-            group = CreateVisualLibraryScene(libNode, ItemType.PHOTO)
+            group = CreateVisualLibraryScene(libNode, ItemType.PHOTO, libId)
             m.global.sceneManager.callFunc("pushScene", group)
             return
         end if
 
         if isStringEqual(libNode.collectionType, CollectionType.BOXSETS)
-            group = CreateVisualLibraryScene(libNode, ItemType.BOXSET)
+            group = CreateVisualLibraryScene(libNode, ItemType.BOXSET, libId)
             m.global.sceneManager.callFunc("pushScene", group)
             return
         end if
@@ -255,13 +255,13 @@ sub itemActivated()
     m.top.isOpen = false
 end sub
 
-function CreateVisualLibraryScene(libraryItem as object, mediaType as string) as dynamic
+function CreateVisualLibraryScene(libraryItem as object, mediaType as string, libid) as dynamic
     if not isValid(libraryItem) then return invalid
 
     group = CreateObject("roSGNode", "VisualLibraryScene")
     group.mediaType = mediaType
     group.parentItem = libraryItem
-    group.libraryId = libraryItem.id
+    group.libraryId = libid
     group.observeFieldScoped("selectedItem", m.port)
     group.observeField("quickPlayNode", m.port)
     return group

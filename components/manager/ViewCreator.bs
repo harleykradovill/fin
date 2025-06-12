@@ -3,6 +3,17 @@ import "pkg:/source/enums/TaskControl.bs"
 import "pkg:/source/enums/VideoControl.bs"
 
 ' Play Audio
+sub CreateAudioPlayerView()
+    if m.global.audioPlayer.id <> m.global.queueManager.callFunc("getCurrentItem").id
+        m.global.audioPlayer.id = invalid
+        m.global.audioPlayer.id = m.global.queueManager.callFunc("getCurrentItem").id
+    end if
+
+    m.view = CreateObject("roSGNode", "AudioPlayerView")
+    m.view.observeField("state", "onStateChange")
+    m.global.sceneManager.callFunc("pushScene", m.view)
+end sub
+
 sub JumpIntoAudioPlayerView()
     m.view = CreateObject("roSGNode", "AudioPlayerView")
 
@@ -309,4 +320,3 @@ function availSubtitleTrackIdx(tracknameToFind as string) as integer
     end for
     return -1
 end function
-

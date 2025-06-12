@@ -59,10 +59,11 @@ sub itemChanged()
 
     else if left(itm.tag, 8) = "library:"
         baseScene = m.top.getScene()
+
         if isValid(baseScene)
             contentGroup = baseScene.findNode("content")
             if isValid(contentGroup)
-                visualScene = contentGroup.getChild(0) ' VisualLibraryScene should be first/only child
+                visualScene = contentGroup.getChild(0)
                 if isValid(visualScene) and visualScene.isSubType("VisualLibraryScene")
                     libId = mid(itm.tag, 9)
                     if isValid(visualScene.libraryId) and lcase(visualScene.libraryId) = lcase(libId)
