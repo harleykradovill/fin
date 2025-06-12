@@ -1454,15 +1454,6 @@ sub processLibraryItemPopup(selectedPopupButton as string, itemID as string, par
     end if
 
     if isStringEqual(selectedPopupButton, tr("Play Album"))
-        ' First try to play in audio mini player
-        scene = m.scene
-        if isValid(scene)
-            audioMiniPlayer = scene.findNode("audioMiniPlayer")
-            if isValid(audioMiniPlayer)
-                audioMiniPlayer.callFunc("setVisible", true)
-            end if
-        end if
-
         quickplay.album({
             id: itemID,
             type: ItemType.MUSICALBUM
@@ -1477,15 +1468,6 @@ sub processLibraryItemPopup(selectedPopupButton as string, itemID as string, par
     end if
 
     if isStringEqual(selectedPopupButton, tr("Shuffle Play Album"))
-        ' First try to play in audio mini player
-        scene = m.scene
-        if isValid(scene)
-            audioMiniPlayer = scene.findNode("audioMiniPlayer")
-            if isValid(audioMiniPlayer)
-                audioMiniPlayer.callFunc("setVisible", true)
-            end if
-        end if
-
         quickplay.album({
             id: itemID,
             type: ItemType.MUSICALBUM
@@ -1500,15 +1482,6 @@ sub processLibraryItemPopup(selectedPopupButton as string, itemID as string, par
     end if
 
     if isStringEqual(selectedPopupButton, tr("Instant Mix Album"))
-        ' First try to play in audio mini player
-        scene = m.scene
-        if isValid(scene)
-            audioMiniPlayer = scene.findNode("audioMiniPlayer")
-            if isValid(audioMiniPlayer)
-                audioMiniPlayer.callFunc("setVisible", true)
-            end if
-        end if
-
         quickplay.album({
             id: itemID,
             type: ItemType.MUSICALBUM

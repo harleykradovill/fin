@@ -45,11 +45,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
         return true
     end if
 
-    if key = KeyCode.REPLAY
-        focusAudioMiniPlayer()
-        return true
-    end if
-
     if key = KeyCode.LEFT
         sidebar = m.top.findNode("sidebar")
         if isValid(sidebar) and sidebar.isOpen = false and sidebar.visible = true
