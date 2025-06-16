@@ -250,6 +250,11 @@ sub itemActivated()
             return
         end if
 
+        if isStringEqual(libNode.collectionType, "livetv")
+            group = CreateLiveTVLibraryView(libNode)
+            m.global.sceneManager.callFunc("pushScene", group)
+        end if
+
     end if
 
     m.top.isOpen = false
@@ -262,6 +267,18 @@ function CreateVisualLibraryScene(libraryItem as object, mediaType as string, li
     group.mediaType = mediaType
     group.parentItem = libraryItem
     group.libraryId = libid
+    group.observeFieldScoped("selectedItem", m.port)
+    group.observeField("quickPlayNode", m.port)
+    return group
+end function
+
+function CreateLiveTVLibraryView(libraryItem as object) as dynamic
+    ' validate libraryItem
+    if not isValid(libraryItem) then return invalid
+
+    group = CreateObject("roSGNode", "LiveTVLibraryView")
+    group.parentItem = libraryItem
+    group.optionsAvailable = true
     group.observeFieldScoped("selectedItem", m.port)
     group.observeField("quickPlayNode", m.port)
     return group

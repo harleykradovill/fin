@@ -3,11 +3,11 @@
   <children>
     <VoiceTextEditBox id="VoiceBox" visible="true" width="40" translation="[52, 120]" />
     <Rectangle id="VoiceBoxCover" height="240" width="100" translation="[25, 50]" />
-    <Alpha id="alpha" />
+    <Alpha id="alpha" translation="[80, 20]" />
 
     <MarkupGrid
       id="itemGrid"
-      translation="[96, 60]"
+      translation="[180, 150]"
       itemComponentName="GridItemSmall"
       numColumns="7"
       numRows="3"

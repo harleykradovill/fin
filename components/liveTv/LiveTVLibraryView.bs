@@ -25,7 +25,7 @@ sub init()
     m.data = CreateObject("roSGNode", "ContentNode")
 
     m.itemGrid = m.top.findNode("itemGrid")
-    m.itemGrid.focusBitmapBlendColor = ColorPalette.HIGHLIGHT
+    m.itemGrid.focusBitmapBlendColor = ColorPalette.WHITE
     m.itemGrid.observeField("itemFocused", "onItemFocused")
     m.itemGrid.observeField("itemSelected", "onItemSelected")
     m.itemGrid.content = m.data
@@ -37,6 +37,10 @@ sub init()
 
     group = m.global.sceneManager.callFunc("getActiveScene")
     group.lastFocus = m.itemGrid
+
+    if m.global.session.user.settings["display.livetv.landing"] = invalid
+        m.global.session.user.settings["display.livetv.landing"] = "guide"
+    end if
 
     'Voice filter setup
     m.voiceBox = m.top.findNode("voiceBox")
@@ -65,18 +69,6 @@ end sub
 sub loadInitialItems()
     m.loadItemsTask.control = "stop"
     startLoadingSpinner()
-
-    m.itemGrid.itemComponentName = "GridItemSmall"
-    m.itemGrid.numColumns = "7"
-    m.itemGrid.numRows = "3"
-
-    if LCase(m.top.showItemTitles) = "hidealways"
-        m.itemGrid.itemSize = "[230, 345]"
-        m.itemGrid.rowHeights = "[345]"
-    else
-        m.itemGrid.itemSize = "[230, 390]"
-        m.itemGrid.rowHeights = "[390]"
-    end if
 
     if m.top.parentItem.json.Type = "CollectionFolder"
         m.top.HomeLibraryItem = m.top.parentItem.Id
