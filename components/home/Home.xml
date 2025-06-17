@@ -8,8 +8,8 @@
       rowFocusAnimationStyle="fixedFocus"
       itemComponentName="HomeItem"
       numRows="3"
-      rowLabelOffset="[[0,20]]"
-      translation="[172, 50]" />
+      rowLabelOffset="[[0,10]]"
+      translation="[125, 28]" />
 
   </children>
 

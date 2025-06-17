@@ -61,7 +61,7 @@ sub itemContentChanged()
     if not isValid(itemData) then return
     localGlobal = m.global
 
-    itemData.Title = itemData.name
+    itemData.AddReplace("Title", itemData.LookupCI("name"))
 
     ' validate to prevent crash
     if not isValid(m.itemPoster) then initItemPoster()
